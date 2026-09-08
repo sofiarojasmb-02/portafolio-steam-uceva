@@ -2,2150 +2,826 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centro de Prototipado &amp; STEAM UCEVA | Portafolio Tecnológico e Innovación</title>
-  <meta name="description" content="Portafolio tecnológico de alta tecnología del Centro de Prototipado y STEAM de la Unidad Central del Valle del Cauca (UCEVA). Desarrollos en VR, AR, MR, IA, Gemelos Digitales, Drones y Fabricación Digital.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Centro de Prototipado & STEAM UCEVA | Portafolio</title>
+  <meta name="description" content="Portafolio tecnológico del Centro de Prototipado y STEAM de la Unidad Central del Valle del Cauca (UCEVA).">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-/* ==========================================================================
-   DESIGN SYSTEM - CENTRO DE PROTOTIPADO & STEAM UCEVA
-   Estética: Dark Tech, Neón Cyan -> Magenta/Púrpura -> Naranja, Hexagonal & Glass
-   ========================================================================== */
-
-:root {
-  /* Color Palette - Neon Cyber Dark */
-  --bg-primary: #040711;
-  --bg-secondary: #080d1e;
-  --bg-tertiary: #0e152e;
-  --bg-card: rgba(14, 21, 46, 0.7);
-  --bg-card-hover: rgba(20, 31, 68, 0.85);
-  --bg-glass: rgba(10, 16, 35, 0.7);
-  --bg-glass-heavy: rgba(5, 9, 22, 0.95);
-
-  /* Neon Gradients & Accents */
-  --neon-cyan: #00f0ff;
-  --neon-cyan-glow: rgba(0, 240, 255, 0.4);
-  --neon-purple: #9d00ff;
-  --neon-magenta: #ff007f;
-  --neon-magenta-glow: rgba(255, 0, 127, 0.4);
-  --neon-orange: #ff5500;
-  --neon-orange-glow: rgba(255, 85, 0, 0.4);
-  --neon-green: #00ff88;
-
-  /* Gradients */
-  --grad-primary: linear-gradient(135deg, #00f0ff 0%, #9d00ff 50%, #ff007f 100%);
-  --grad-warm: linear-gradient(135deg, #ff007f 0%, #ff5500 100%);
-  --grad-cyan-purple: linear-gradient(135deg, #00f0ff 0%, #9d00ff 100%);
-  --grad-dark-card: linear-gradient(180deg, rgba(20, 30, 65, 0.6) 0%, rgba(8, 14, 32, 0.9) 100%);
-  --grad-glow-border: linear-gradient(135deg, rgba(0, 240, 255, 0.6), rgba(157, 0, 255, 0.6), rgba(255, 0, 127, 0.6));
-
-  /* Typography */
-  --text-main: #f0f4fc;
-  --text-secondary: #a2b4d6;
-  --text-muted: #62749d;
-  --text-cyan: #00f0ff;
-  --text-magenta: #ff4da6;
-
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Outfit', 'Space Grotesk', var(--font-sans);
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* Borders & Shadows */
-  --border-subtle: rgba(0, 240, 255, 0.15);
-  --border-active: rgba(0, 240, 255, 0.5);
-  --shadow-neon-cyan: 0 0 25px rgba(0, 240, 255, 0.25);
-  --shadow-neon-magenta: 0 0 25px rgba(255, 0, 127, 0.25);
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-
-  /* Spacing & Layout */
-  --nav-height: 76px;
-  --container-max: 1280px;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-
-  /* Transitions */
-  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ==========================================================================
-   Global Reset & Base
-   ========================================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  color-scheme: dark;
-  font-size: 16px;
-}
-
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-main);
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Futuristic background pattern */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: 
-    radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 75%, rgba(157, 0, 255, 0.09) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.05) 0%, transparent 50%),
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Custom Cyber Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta));
-}
-
-/* Links & Typography helpers */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  line-height: 1.2;
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-/* ==========================================================================
-   Utility Classes & Design Primitives
-   ========================================================================== */
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.text-gradient {
-  background: var(--grad-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.text-gradient-warm {
-  background: var(--grad-warm);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.text-cyan { color: var(--neon-cyan); }
-.text-magenta { color: var(--neon-magenta); }
-.text-purple { color: var(--neon-purple); }
-
-.glass-panel {
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: all var(--transition-normal);
-}
-
-.glass-panel:hover {
-  border-color: var(--border-active);
-  box-shadow: 0 12px 35px -5px rgba(0, 240, 255, 0.15);
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  font-family: var(--font-mono);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  background: rgba(0, 240, 255, 0.1);
-  color: var(--neon-cyan);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-}
-
-.badge-magenta {
-  background: rgba(255, 0, 127, 0.1);
-  color: var(--neon-magenta);
-  border-color: rgba(255, 0, 127, 0.3);
-}
-
-.badge-purple {
-  background: rgba(157, 0, 255, 0.1);
-  color: #c084fc;
-  border-color: rgba(157, 0, 255, 0.3);
-}
-
-.badge-orange {
-  background: rgba(255, 85, 0, 0.1);
-  color: #fb923c;
-  border-color: rgba(255, 85, 0, 0.3);
-}
-
-.badge-green {
-  background: rgba(0, 255, 136, 0.1);
-  color: #4ade80;
-  border-color: rgba(0, 255, 136, 0.3);
-}
-
-/* Interactive Buttons */
-.btn-cyber-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #040711;
-  background: var(--grad-primary);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-  transition: all var(--transition-fast);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-cyber-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(255, 0, 127, 0.6);
-}
-
-.btn-cyber-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-main);
-  background: rgba(14, 21, 46, 0.8);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
-  transition: all var(--transition-fast);
-}
-
-.btn-cyber-secondary:hover {
-  border-color: var(--neon-cyan);
-  background: rgba(20, 31, 68, 0.9);
-  color: var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
-  transform: translateY(-2px);
-}
-
-.btn-cyber-print {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
-  font-weight: 600;
-  font-family: var(--font-mono);
-  color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.4);
-  transition: all var(--transition-fast);
-}
-
-.btn-cyber-print:hover {
-  background: var(--neon-cyan);
-  color: #040711;
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
-}
-
-/* ==========================================================================
-   Header & Navigation
-   ========================================================================== */
-.navbar-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
-  z-index: 1000;
-  transition: all var(--transition-normal);
-  background: rgba(4, 7, 17, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 240, 255, 0.08);
-}
-
-.navbar-header.scrolled {
-  background: rgba(4, 7, 17, 0.94);
-  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-}
-
-.nav-inner {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.brand-icon-hex {
-  position: relative;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--neon-cyan);
-}
-
-.hex-svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 0 8px var(--neon-cyan-glow));
-}
-
-.brand-letter {
-  position: relative;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.25rem;
-  color: #ffffff;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-main {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-}
-
-.brand-sub {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--neon-cyan);
-  letter-spacing: 0.08em;
-}
-
-.nav-links-desktop {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.nav-link-btn {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: all var(--transition-fast);
-  padding: 6px 0;
-  position: relative;
-}
-
-.nav-link-btn:hover {
-  color: var(--neon-cyan);
-}
-
-.nav-link-btn.active {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.nav-link-indicator {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--grad-primary);
-  border-radius: 2px;
-  box-shadow: 0 0 8px var(--neon-cyan);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* ==========================================================================
-   Hero Section
-   ========================================================================== */
-.hero-section {
-  position: relative;
-  min-height: 100vh;
-  padding-top: calc(var(--nav-height) + 40px);
-  padding-bottom: 80px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-container {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 900px;
-}
-
-.hero-badge-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--neon-green);
-  box-shadow: 0 0 8px var(--neon-green);
-  animation: pulse-dot 1.8s infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  letter-spacing: -0.03em;
-}
-
-.hero-typewriter-box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 8px 24px;
-  background: rgba(14, 21, 46, 0.85);
-  border: 1px solid var(--border-subtle);
-  border-radius: 9999px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(10px);
-}
-
-.typewriter-prefix {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--neon-cyan);
-  margin-right: 8px;
-}
-
-.typewriter-text {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.typewriter-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 16px;
-  background: var(--neon-magenta);
-  margin-left: 6px;
-  animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.hero-desc {
-  font-size: clamp(1rem, 2vw, 1.18rem);
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-cta-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-bottom: 56px;
-  flex-wrap: wrap;
-}
-
-.hero-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 24px 32px;
-  gap: 16px;
-  background: rgba(8, 13, 30, 0.75);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-}
-
-.stat-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.stat-number {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.stat-divider {
-  width: 1px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* ==========================================================================
-   Section Headers
-   ========================================================================== */
-section {
-  padding: 100px 0;
-  position: relative;
-}
-
-.section-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 56px auto;
-}
-
-.section-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--neon-cyan);
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-  display: block;
-}
-
-.section-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  margin-bottom: 16px;
-}
-
-.section-desc {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   Lines of Development (Hex/Pill Badges)
-   ========================================================================== */
-.dev-lines-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 24px;
-  margin-bottom: 60px;
-}
-
-.line-card {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.line-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--grad-primary);
-}
-
-.line-card-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.line-name {
-  font-size: 1.25rem;
-  margin-bottom: 4px;
-}
-
-.line-sub {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--neon-cyan);
-}
-
-.line-count-pill {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  border-radius: 9999px;
-  color: var(--neon-cyan);
-  white-space: nowrap;
-}
-
-.line-desc {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.line-tech-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-}
-
-.tech-tag-sm {
-  font-size: 0.72rem;
-  font-family: var(--font-mono);
-  padding: 3px 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  color: #cbd5e1;
-}
-
-/* ==========================================================================
-   Project Grid & Cards
-   ========================================================================== */
-.filter-controls-wrap {
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.filter-tabs-scroll {
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-.filter-tabs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: max-content;
-}
-
-.filter-btn {
-  padding: 10px 20px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  background: rgba(14, 21, 46, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all var(--transition-fast);
-  cursor: pointer;
-}
-
-.filter-btn:hover {
-  border-color: var(--neon-cyan);
-  color: #ffffff;
-}
-
-.filter-btn.active {
-  background: rgba(0, 240, 255, 0.15);
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
-  font-weight: 600;
-}
-
-.filter-search-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.search-input-box {
-  flex: 1;
-  min-width: 260px;
-  position: relative;
-}
-
-.search-input {
-  width: 100%;
-  padding: 12px 20px;
-  background: rgba(8, 13, 30, 0.8);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  border-radius: var(--radius-md);
-  color: #ffffff;
-  font-family: inherit;
-  font-size: 0.9rem;
-  outline: none;
-  transition: all var(--transition-fast);
-}
-
-.search-input:focus {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-}
-
-.projects-counter-badge {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 32px;
-}
-
-.project-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  cursor: pointer;
-  height: 100%;
-}
-
-.card-media-wrapper {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  background: #060a17;
-  overflow: hidden;
-}
-
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.project-card:hover .card-img {
-  transform: scale(1.05);
-}
-
-.media-overlay-top {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.live-demo-tag {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  font-size: 0.7rem;
-  font-family: var(--font-mono);
-  font-weight: 700;
-}
-
-.slide-tag-badge {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #94a3b8;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  z-index: 2;
-}
-
-.card-content {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.project-tag-pill {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--neon-magenta);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-  transition: color var(--transition-fast);
-}
-
-.project-card:hover .card-title {
-  color: var(--neon-cyan);
-}
-
-.card-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.card-tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-  margin-bottom: 20px;
-}
-
-.tech-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  padding: 4px 9px;
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  border-radius: 4px;
-  color: #93c5fd;
-}
-
-.card-footer-action {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--neon-cyan);
-}
-
-.action-icon {
-  font-size: 1.1rem;
-  transition: transform var(--transition-fast);
-}
-
-.project-card:hover .action-icon {
-  transform: translateX(4px);
-}
-
-/* ==========================================================================
-   Project Modal / Lightbox
-   ========================================================================== */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(2, 4, 10, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  overflow-y: auto;
-}
-
-.modal-content {
-  width: 100%;
-  max-width: 960px;
-  max-height: 90vh;
-  overflow-y: auto;
-  background: var(--bg-glass-heavy);
-  border: 1px solid var(--border-active);
-  border-radius: var(--radius-xl);
-  padding: 36px;
-  position: relative;
-  box-shadow: 0 25px 60px -15px rgba(0, 240, 255, 0.3);
-}
-
-.modal-enter {
-  animation: modal-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes modal-zoom {
-  from { opacity: 0; transform: scale(0.95) translateY(20px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.modal-header-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.slide-num-pill {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-muted);
-}
-
-.modal-close-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  transition: all var(--transition-fast);
-}
-
-.modal-close-btn:hover {
-  background: var(--neon-magenta);
-  border-color: var(--neon-magenta);
-  transform: rotate(90deg);
-}
-
-.modal-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  margin-bottom: 24px;
-}
-
-.modal-body-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 32px;
-}
-
-.modal-media-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.modal-media-main-box {
-  width: 100%;
-  height: 320px;
-  background: #02040a;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-display-media {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal-thumbs-row {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 6px;
-}
-
-.thumb-btn {
-  width: 72px;
-  height: 52px;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 2px solid transparent;
-  opacity: 0.6;
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
-}
-
-.thumb-btn.active, .thumb-btn:hover {
-  border-color: var(--neon-cyan);
-  opacity: 1;
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-}
-
-.thumb-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal-details-col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.detail-section {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.detail-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--neon-cyan);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.detail-text {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.modal-tech-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tech-pill-modal {
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(14, 21, 46, 0.9);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: #93c5fd;
-}
-
-/* ==========================================================================
-   Team Section
-   ========================================================================== */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.team-card {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.member-avatar-box {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 16px;
-  border: 2px solid var(--neon-cyan);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-  position: relative;
-  background: #080d1e;
-}
-
-.member-avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.avatar-fallback {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--neon-cyan);
-  background: rgba(0, 240, 255, 0.1);
-  z-index: 0;
-}
-
-.member-role-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--neon-magenta);
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.member-name {
-  font-size: 1.15rem;
-  margin-bottom: 8px;
-  color: #ffffff;
-}
-
-.member-focus {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* ==========================================================================
-   PRINT STYLESHEET (@media print)
-   Impresión fiel a PDF sin cortes indebidos y colores conservados
-   ========================================================================== */
-@media print {
-  @page {
-    size: letter portrait;
-    margin: 15mm;
-  }
-
-  *, *::before, *::after {
-    background-color: transparent !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  body {
-    background-color: #040711 !important;
-    color: #f0f4fc !important;
-    font-size: 10pt !important;
-    line-height: 1.4 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  body::before,
-  .no-print,
-  .navbar-header,
-  .hero-canvas,
-  .filter-controls-wrap,
-  .modal-overlay,
-  .hero-cta-group,
-  .btn-cyber-primary,
-  .btn-cyber-secondary,
-  .btn-cyber-print {
-    display: none !important;
-  }
-
-  .print-only {
-    display: block !important;
-  }
-
-  .glass-panel,
-  .project-card,
-  .line-card,
-  .team-card {
-    background: #080d1e !important;
-    border: 1px solid #1e293b !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-    margin-bottom: 15px !important;
-  }
-
-  section {
-    padding: 20px 0 !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
-
-  .hero-section {
-    padding: 20px 0 !important;
-    min-height: auto !important;
-  }
-
-  .projects-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
-  }
-
-  .card-media-wrapper {
-    height: 140px !important;
-  }
-
-  h1, h2, h3, h4 {
-    color: #ffffff !important;
-    break-after: avoid !important;
-  }
-
-  .text-gradient, .text-gradient-warm {
-    -webkit-text-fill-color: #00f0ff !important;
-    color: #00f0ff !important;
-  }
-
-  .badge {
-    border: 1px solid #00f0ff !important;
-    color: #00f0ff !important;
-  }
-}
-
-/* ==========================================================================
-   RESPONSIVE BREAKPOINTS
-   ========================================================================== */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .stat-divider:nth-child(4) {
-    display: none;
-  }
-  .modal-body-grid {
-    grid-template-columns: 1fr;
-  }
-  .nav-links-desktop {
-    display: none;
-  }
-}
+    :root {
+      --bg-primary: #040711;
+      --bg-secondary: #080d1e;
+      --bg-card: rgba(14, 21, 46, 0.75);
+      --bg-card-hover: rgba(22, 34, 72, 0.9);
+      --bg-glass: rgba(10, 16, 35, 0.75);
+      
+      --neon-cyan: #00f0ff;
+      --neon-purple: #9d00ff;
+      --neon-magenta: #ff007f;
+      --neon-orange: #ff5500;
+      
+      --grad-primary: linear-gradient(135deg, #00f0ff 0%, #9d00ff 50%, #ff007f 100%);
+      --grad-warm: linear-gradient(135deg, #ff007f 0%, #ff5500 100%);
+      
+      --text-main: #f0f4fc;
+      --text-secondary: #a2b4d6;
+      --text-muted: #64748b;
+      
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-display: 'Outfit', var(--font-sans);
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --border-subtle: rgba(0, 240, 255, 0.15);
+      --border-active: rgba(0, 240, 255, 0.5);
+      --shadow-glow: 0 0 25px rgba(0, 240, 255, 0.2);
+      
+      --container-max: 1240px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 16px;
+      }
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .text-gradient {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 7, 17, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--grad-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #040711;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .brand-text span {
+      font-size: 0.7rem;
+      color: var(--neon-cyan);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--neon-cyan);
+    }
+
+    /* Mobile Hamburger Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(14, 21, 46, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--neon-cyan);
+      font-size: 1.3rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .mobile-nav-drawer {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      width: 100%;
+      background: rgba(4, 7, 17, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 20px 24px;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 99;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .mobile-nav-drawer.open {
+      display: flex;
+    }
+
+    .mobile-nav-drawer a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: rgba(14, 21, 46, 0.6);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .mobile-nav-drawer a:hover {
+      color: var(--neon-cyan);
+      border-color: var(--neon-cyan);
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    /* Section Styles */
+    section {
+      padding: 60px 0;
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 40px 0;
+      }
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+      margin-bottom: 8px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: clamp(50px, 8vw, 90px) 0 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(157, 0, 255, 0.18), transparent 70%);
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 5.5vw, 3.4rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .hero-institution {
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-height: 46px;
+    }
+
+    @media (max-width: 480px) {
+      .hero-buttons .btn {
+        width: 100%;
+      }
+    }
+
+    .btn-primary {
+      background: var(--grad-primary);
+      color: #040711;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(255, 0, 127, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(14, 21, 46, 0.8);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--neon-cyan);
+      color: var(--neon-cyan);
+    }
+
+    /* About Section */
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: clamp(20px, 4vw, 36px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .about-card p {
+      font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+      line-height: 1.8;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    /* Category Filter Tabs (Swipeable on Mobile) */
+    .filter-container {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--neon-cyan) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-container::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .filter-container::-webkit-scrollbar-thumb {
+      background: var(--neon-cyan);
+      border-radius: 4px;
+    }
+
+    .filter-btn {
+      white-space: nowrap;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(14, 21, 46, 0.7);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--neon-cyan);
+      color: #040711;
+      border-color: var(--neon-cyan);
+      font-weight: 600;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+    }
+
+    /* Responsive Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* Card Item */
+    .card-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .card-item:hover {
+      border-color: var(--border-active);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.12);
+    }
+
+    .card-media-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background: #060a17;
+      overflow: hidden;
+    }
+
+    .card-media-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card-item:hover .card-media-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .card-media-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(4, 7, 17, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--neon-cyan);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+    }
+
+    .card-body {
+      padding: 16px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-category {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .card-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      color: var(--neon-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-height: 42px;
+    }
+
+    .card-action-btn:hover {
+      background: var(--neon-cyan);
+      color: #040711;
+    }
+
+    /* Team Grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 640px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .team-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 240, 255, 0.1);
+    }
+
+    .team-avatar-box {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px solid var(--neon-cyan);
+      overflow: hidden;
+      margin-bottom: 14px;
+      background: #0b1228;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+      flex-shrink: 0;
+    }
+
+    .team-avatar-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-name {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .team-role {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-family: var(--font-mono);
+      color: var(--neon-cyan);
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      max-width: 100%;
+    }
+
+    .team-degree {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Modal for Interactive Videos/Images */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(2, 4, 10, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+    }
+
+    .modal-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-active);
+      border-radius: var(--radius-lg);
+      max-width: 860px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .modal-title {
+      font-size: 1.15rem;
+      color: #ffffff;
+      padding-right: 16px;
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--neon-magenta);
+      background: rgba(255, 0, 127, 0.1);
+    }
+
+    .modal-body {
+      padding: 16px;
+    }
+
+    .modal-media-box {
+      width: 100%;
+      background: #000000;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .modal-media-box video, .modal-media-box img {
+      width: 100%;
+      max-height: 520px;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px 0;
+      text-align: center;
+      background: #02040a;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
   </style>
+  
+  <!-- React 18 & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
 
-  <!-- React 18 Production Scripts -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-  <!-- Complete Application Script -->
   <script>
     (function() {
-      // MASTER DATASET (Enriched & fully defined)
-      const DATA = {
-        centerInfo: {
-          name: "Centro de Prototipado & STEAM",
-          institution: "Unidad Central del Valle del Cauca (UCEVA)",
-          tagline: "Laboratorio de Innovación, Fabricación Digital & Realidades Extendidas",
-          badge: "Industria 4.0 & 5.0 • I+D+i",
-          impactQuote: "Transformamos la curiosidad científica y los retos del entorno en prototipos tangibles de alto impacto tecnológico.",
-          description: "El Centro de Prototipado surgió en el año 2023 como respuesta a las necesidades tecnológicas de la comunidad docente, estudiantil e investigadores de la UCEVA. Desarrolla capacidades en desarrollo físico, tecnológico y científico con un equipo interdisciplinario preparado para responder a la Industria 4.0 y 5.0.",
-          purpose: "Consolidar un ecosistema universitario de vanguardia que integre la investigación aplicada, el prototipado rápido, la inteligencia artificial y la computación espacial al servicio de la educación y el tejido productivo regional.",
-          domains: [
-            "Realidades Extendidas (VR / AR / MR / WebXR)",
-            "Inteligencia Artificial & Computer Vision",
-            "Gemelos Digitales & Fotogrametría 3D",
-            "Aeronáutica & Robótica Aérea",
-            "Diseño & Fabricación Digital 3D",
-            "IoT & Ciudades Inteligentes",
-            "Energías Renovables & Sostenibilidad",
-            "Vocaciones Científicas STEAM+"
-          ]
-        },
-        developmentLines: [
-          {
-            id: "line-xr",
-            name: "Realidades Extendidas (XR)",
-            subtitle: "VR • AR • MR • WebXR",
-            count: 4,
-            desc: "Simuladores inmersivos para salud pública, divulgación científica en WebAR y spatial computing en Realidad Mixta con Meta Quest 3.",
-            techs: ["Unity 3D", "Unreal Engine", "Meta Quest SDK", "WebXR", "Three.js", "Spatial Anchors"],
-            image: "assets/posters/simulador_museo_del_dengue_vr.jpg",
-            badgeColor: "cyan"
-          },
-          {
-            id: "line-ia",
-            name: "Inteligencia Artificial & Visión",
-            subtitle: "Deep Learning • Computer Vision • Biometría",
-            count: 2,
-            desc: "Modelos de estimación postural (Motion Tracking) sin marcadores y análisis biométrico de respuestas emocionales en Neuromarketing.",
-            techs: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Facial Landmark", "Deep Learning"],
-            image: "assets/posters/motion_tracker_ia.jpg",
-            badgeColor: "magenta"
-          },
-          {
-            id: "line-3d",
-            name: "Gemelos Digitales & Fotogrametría",
-            subtitle: "Nubes de Puntos • Mallas 3D • Digital Humans",
-            count: 2,
-            desc: "Levantamiento aerofotogramétrico de campus y digitalización humana para avatares hiperrealistas con texturas 8K.",
-            techs: ["Agisoft Metashape", "Drones DJI", "CloudCompare", "Blender", "ZBrush", "Mallas 3D"],
-            image: "assets/projects/slide_render_12.jpg",
-            badgeColor: "purple"
-          },
-          {
-            id: "line-aero",
-            name: "Aeronáutica & Robótica Aérea",
-            subtitle: "UAVs • Aviónica Pixhawk • Telemetría",
-            count: 1,
-            desc: "Diseño aerodinámico, prototipado de chasis en compuestos de carbono, integración de controladores de vuelo e inspección aérea.",
-            techs: ["CAD Aeronáutico", "Pixhawk", "ArduPilot", "Telemetría RF", "Motores Brushless", "CNC"],
-            image: "assets/posters/construccion_aeronaves_drones.jpg",
-            badgeColor: "orange"
-          },
-          {
-            id: "line-fab",
-            name: "Fabricación Digital & Economía Circular",
-            subtitle: "Impresión 3D • Mecanizado CNC • Reciclaje",
-            count: 2,
-            desc: "Maquinaria de triturado para reciclaje de polímeros (PET/PLA) y manufactura aditiva técnica FDM/SLA de alta precisión.",
-            techs: ["SolidWorks", "Corte Láser CNC", "Impresoras FDM & Resina", "Extrusión", "FEA Analysis"],
-            image: "assets/projects/minitrituradora_plastico.jpg",
-            badgeColor: "green"
-          },
-          {
-            id: "line-iot",
-            name: "Electrónica, IoT & Smart Cities",
-            subtitle: "PCBs Custom • LoRaWAN • Energía Solar",
-            count: 2,
-            desc: "Diseño y fabricación in-house de placas de circuito impreso y redes de telemetría meteorológica conectadas 24/7.",
-            techs: ["KiCad", "ESP32", "LoRaWAN", "MQTT", "Sensores Ambientales", "Energía Solar"],
-            image: "assets/projects/slide_render_21.jpg",
-            badgeColor: "cyan"
-          }
-        ],
-        projects: [
-          {
-            id: "vr-museo-dengue",
-            slide: 15,
-            title: "Simulador VR: Museo del Dengue",
-            category: "Realidad Virtual (VR)",
-            lineId: "line-xr",
-            tag: "Salud Pública & Divulgación",
-            shortDesc: "Museo interactivo en Realidad Virtual para sensibilizar sobre el ciclo biológico del mosquito Aedes aegypti y prevención en comunidades.",
-            fullDesc: "Entorno inmersivo de Realidad Virtual desarrollado para Meta Quest que recrea el ciclo de vida del mosquito transmisor del dengue a escala microscópica y macroscópica. Permite a los usuarios interactuar con escenarios residenciales, identificar criaderos y aprender protocolos de erradicación mediante dinámicas lúdicas de alto impacto pedagógico.",
-            techStack: ["Meta Quest 2/3", "Unity VR", "Modelado Anatómico 3D", "Shaders PBR", "C#", "Audio Espacial"],
-            role: "Dirección técnica, modelado biológico 3D, programación de interacciones físicas y despliegue en campo",
-            featured: true,
-            previewImage: "assets/posters/simulador_museo_del_dengue_vr.jpg",
-            gif: "assets/gifs/simulador_museo_del_dengue_vr.gif",
-            video: "assets/videos/museo_del_dengue_vr.mp4",
-            gallery: [
-              "assets/posters/simulador_museo_del_dengue_vr.jpg",
-              "assets/projects/slide_render_15.jpg",
-              "assets/projects/slide_render_9.jpg",
-              "assets/projects/slide_render_10.jpg"
-            ]
-          },
-          {
-            id: "mr-campus-uceva",
-            slide: 17,
-            title: "Campus UCEVA Realidad Mixta (MR)",
-            category: "Realidad Mixta (MR)",
-            lineId: "line-xr",
-            tag: "Spatial Computing",
-            shortDesc: "Superposición holográfica e interactiva de la maqueta digital e información del campus universitario sobre el entorno real.",
-            fullDesc: "Sistema de Realidad Mixta que ancla hologramas interactivos del campus UCEVA sobre mesas y espacios físicos utilizando spatial mapping y hand tracking nativo de Meta Quest 3, permitiendo inspeccionar bloques académicos, telemetría y áreas verdes con las manos.",
-            techStack: ["Meta Quest 3 Passthrough", "Spatial Anchors", "Unity MR", "Hand Tracking", "Occlusion Culling", "C#"],
-            role: "Arquitectura de Spatial Mapping, desarrollo del tracking gestual y shaders holográficos",
-            featured: true,
-            previewImage: "assets/posters/campus_uceva_mr_1.jpg",
-            gif: "assets/gifs/campus_uceva_mr_1.gif",
-            video: "assets/videos/campus_uceva_mr_1.mp4",
-            gallery: [
-              "assets/posters/campus_uceva_mr_1.jpg",
-              "assets/posters/campus_uceva_mr_2.jpg",
-              "assets/projects/slide_render_17.jpg"
-            ]
-          },
-          {
-            id: "ia-motion-tracker",
-            slide: 23,
-            title: "Motion Tracker con IA & Computer Vision",
-            category: "Inteligencia Artificial",
-            lineId: "line-ia",
-            tag: "Markerless Pose Tracking",
-            shortDesc: "Sistema inteligente de rastreo cinemático y estimación de posturas humanas en 3D sin sensores corporales adheridos.",
-            fullDesc: "Pipeline de aprendizaje profundo basado en visión artificial que detecta y realiza seguimiento tridimensional de 33 puntos de referencia articulares del cuerpo humano a partir de cámaras convencionales, aplicable a biomecánica deportiva, ergonomía y control gestual.",
-            techStack: ["MediaPipe / OpenPose", "Python / C++", "Computer Vision", "3D Kinematics", "Análisis de Datos"],
-            role: "Desarrollo del algoritmo de extracción de coordenadas 3D y calibración en tiempo real",
-            featured: true,
-            previewImage: "assets/posters/motion_tracker_ia.jpg",
-            gif: "assets/gifs/motion_tracker_ia.gif",
-            video: "assets/videos/motion_tracker_ia.mp4",
-            gallery: [
-              "assets/posters/motion_tracker_ia.jpg",
-              "assets/projects/slide_render_23.jpg"
-            ]
-          },
-          {
-            id: "prototipado-aeronaves-drones",
-            slide: 19,
-            title: "Construcción de Aeronaves No Tripuladas (UAVs)",
-            category: "Aeronáutica & Robótica",
-            lineId: "line-aero",
-            tag: "Hardware & Fabricación",
-            shortDesc: "Diseño, fabricación digital y telemetría de drones y aeronaves para aplicaciones de teledetección y monitoreo.",
-            fullDesc: "Diseño aerodinámico, prototipado rápido en fibra de carbono y polímeros de ingeniería, integración de aviónica Pixhawk de código abierto, configuración de telemetría de largo alcance y pruebas en banco dinámico para aplicaciones ambientales y agrícolas.",
-            techStack: ["CAD Aeronáutico", "Impresión 3D / CNC", "Pixhawk Flight Controller", "ArduPilot", "Telemetría RF"],
-            role: "Diseño estructural CAD, ensamble de aviónica y sistemas de propulsión brushless",
-            featured: true,
-            previewImage: "assets/posters/construccion_aeronaves_drones.jpg",
-            gif: "assets/gifs/construccion_aeronaves_drones.gif",
-            video: "assets/videos/aeronaves_drones.mp4",
-            gallery: [
-              "assets/posters/construccion_aeronaves_drones.jpg",
-              "assets/projects/slide_render_19.jpg"
-            ]
-          },
-          {
-            id: "vr-acoso-callejero",
-            slide: 14,
-            title: "Visualizador para Sensibilización: Acoso Callejero VR",
-            category: "Realidad Virtual (VR)",
-            lineId: "line-xr",
-            tag: "Impacto Social & Empatía",
-            shortDesc: "Experiencia interactiva en Realidad Virtual orientada a generar empatía y conciencia sobre el acoso en el espacio público.",
-            fullDesc: "Simulador inmersivo desarrollado para colocar al usuario en situaciones cotidianas de acoso callejero desde una perspectiva de primera persona, promoviendo la empatía ciudadana y la prevención de violencias de género en entornos urbanos y universitarios.",
-            techStack: ["Unity 3D", "Meta Quest 2/3", "Audio 3D Espacial Binaural", "Animación 3D", "C#"],
-            role: "Diseño de escenarios, guion interactivo, programación de eventos y optimización VR",
-            featured: true,
-            previewImage: "assets/posters/visualizador_acoso_callejero_vr.jpg",
-            gif: "assets/gifs/visualizador_acoso_callejero_vr.gif",
-            video: "assets/videos/acoso_callejero_vr.mp4",
-            gallery: [
-              "assets/posters/visualizador_acoso_callejero_vr.jpg",
-              "assets/projects/slide_render_14.jpg"
-            ]
-          },
-          {
-            id: "ar-web-divulgacion",
-            slide: 16,
-            title: "Aplicativo Web AR para Divulgación",
-            category: "Realidad Aumentada (AR)",
-            lineId: "line-xr",
-            tag: "WebXR Zero-Install",
-            shortDesc: "Plataforma WebAR que permite proyectar modelos 3D interactivos en el mundo real desde cualquier navegador móvil.",
-            fullDesc: "Aplicativo de Realidad Aumentada web que permite a estudiantes y visitantes escanear códigos QR y visualizar modelos 3D interactivos superpuestos en su entorno físico sin necesidad de instalar apps desde tiendas, logrando máxima accesibilidad.",
-            techStack: ["WebXR", "Three.js / A-Frame", "MindAR", "JavaScript", "HTML5 / CSS3", "GLTF"],
-            role: "Arquitectura WebAR, compresión de mallas poligonales y desarrollo frontend responsive",
-            featured: true,
-            previewImage: "assets/posters/aplicativo_web_ar_divulgacion.jpg",
-            gif: "assets/gifs/aplicativo_web_ar_divulgacion.gif",
-            video: "assets/videos/webar_divulgacion.mp4",
-            gallery: [
-              "assets/posters/aplicativo_web_ar_divulgacion.jpg",
-              "assets/projects/slide_render_16.jpg"
-            ]
-          },
-          {
-            id: "fotogrametria-campus",
-            slide: 12,
-            title: "Fotogrametría Campus UCEVA",
-            category: "Fotogrametría & 3D",
-            lineId: "line-3d",
-            tag: "Gemelos Digitales",
-            shortDesc: "Reconstrucción digital tridimensional de alta precisión de las instalaciones del campus universitario UCEVA.",
-            fullDesc: "Levantamiento con drones y sensores terrestres para generar gemelos digitales con millones de puntos de alta precisión, mallas poligonales optimizadas y ortofotos georreferenciadas para planificación de infraestructura.",
-            techStack: ["Fotogrametría Aérea", "Agisoft Metashape", "Drones DJI", "Modelado 3D", "CloudCompare"],
-            role: "Captura aerofotogramétrica, densificación de nubes de puntos y texturizado 3D",
-            featured: false,
-            previewImage: "assets/projects/slide_render_12.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_12.jpg"]
-          },
-          {
-            id: "fotogrametria-personas",
-            slide: 13,
-            title: "Fotogrametría a Personas & Avatares 3D",
-            category: "Fotogrametría & 3D",
-            lineId: "line-3d",
-            tag: "Digital Humans",
-            shortDesc: "Digitalización corporal y facial para avatares 3D hiperrealistas en entornos virtuales y de metaverso.",
-            fullDesc: "Pipeline de escaneo fotogramétrico sincronizado para crear réplicas digitales humanas de alta fidelidad, retopología limpia y texturas 8K para su uso en simulaciones VR y producción de medios transmedia.",
-            techStack: ["Fotogrametría Multicámara", "Texturizado 8K", "Blender", "ZBrush", "Rigging Humanoide"],
-            role: "Calibración fotográfica, reconstrucción volumétrica y rigging anatómico",
-            featured: false,
-            previewImage: "assets/projects/slide_render_13.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_13.jpg"]
-          },
-          {
-            id: "diseno-minitrituradora-plastico",
-            slide: 24,
-            title: "Minitrituradora de Plástico para Reciclaje",
-            category: "Fabricación Digital",
-            lineId: "line-fab",
-            tag: "Economía Circular",
-            shortDesc: "Diseño y manufactura de maquinaria de triturado para reutilización de termoplásticos en impresión 3D.",
-            fullDesc: "Diseño de ingeniería mecánica, análisis de elementos finitos (FEA) y mecanizado CNC de una trituradora compacta de polímeros (PET, HDPE, PLA) para reinsertar el plástico desechado como materia prima de filamento para impresión 3D.",
-            techStack: ["SolidWorks / Fusion 360", "Corte Láser CNC", "Torneado & Fresado", "Motorreductor", "FEA Analysis"],
-            role: "Diseño mecánico de cuchillas y eje, simulación de esfuerzos y ensamble",
-            featured: true,
-            previewImage: "assets/projects/minitrituradora_plastico.jpg",
-            gif: null,
-            video: null,
-            gallery: [
-              "assets/projects/minitrituradora_plastico.jpg",
-              "assets/projects/slide_render_24.jpg"
-            ]
-          },
-          {
-            id: "recorrido-360-cenicafe",
-            slide: 18,
-            title: "Recorrido Web 360° CENICAFÉ",
-            category: "Fotogrametría & 3D",
-            lineId: "line-xr",
-            tag: "Inmersión Web",
-            shortDesc: "Tour virtual interactivo e inmersivo en 360 grados por los laboratorios científicos de CENICAFÉ.",
-            fullDesc: "Desarrollo de plataforma web interactiva de recorridos en 360 grados para el Centro Nacional de Investigaciones de Café, integrando hotspots multimedia interactivos, navegación guiada y compatibilidad con pantallas y visores VR.",
-            techStack: ["Fotografía Esférica 360°", "Pannellum / WebGL", "Hotspots Multimedia", "HTML5/CSS3"],
-            role: "Captura fotográfica panorámica HDR, programación de puntos de interacción y despliegue web",
-            featured: false,
-            previewImage: "assets/projects/slide_render_18.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_18.jpg"]
-          },
-          {
-            id: "iot-estacion-meteorologica",
-            slide: 21,
-            title: "Sistema Meteorológico IoT & Smart Cities",
-            category: "Electrónica & IoT",
-            lineId: "line-iot",
-            tag: "Telemetría Cloud",
-            shortDesc: "Red de monitoreo ambiental y meteorológico en tiempo real con transmisión inalámbrica LoRaWAN y alimentación solar.",
-            fullDesc: "Estación meteorológica autónoma con sensores de temperatura, humedad, presión, radiación solar y calidad del aire. Integra panel solar, microcontrolador de ultrabajo consumo y transmisión de telemetría hacia la nube.",
-            techStack: ["ESP32 / LoRaWAN", "Sensores Ambientales", "MQTT / HTTP REST", "Dashboard Web", "Energía Solar"],
-            role: "Integración de sensórica, firmware de bajo consumo y plataforma de visualización en la nube",
-            featured: false,
-            previewImage: "assets/projects/slide_render_21.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_21.jpg"]
-          },
-          {
-            id: "diseno-placas-electronicas",
-            slide: 20,
-            title: "Diseño & Fabricación de Placas Electrónicas (PCBs)",
-            category: "Electrónica & IoT",
-            lineId: "line-iot",
-            tag: "PCB Custom",
-            shortDesc: "Ingeniería de esquemáticos, ruteo multicapa y fabricación de circuitos impresos para sistemas embebidos.",
-            fullDesc: "Desarrollo completo de hardware electrónico: concepción de circuitos, ruteo de pistas de alta frecuencia, fresado CNC de cobre, ensamble SMD con soldadura por reflujo y pruebas de validación con osciloscopio.",
-            techStack: ["KiCad / EasyEDA", "Microcontroladores ESP32/STM32", "Diseño SMD/SMT", "Fresado PCB CNC"],
-            role: "Diseño esquemático, layout de PCB multicapa y manufactura física",
-            featured: false,
-            previewImage: "assets/projects/slide_render_20.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_20.jpg"]
-          },
-          {
-            id: "ia-neuromarketing",
-            slide: 22,
-            title: "Proyectos IA + Neuromarketing",
-            category: "Inteligencia Artificial",
-            lineId: "line-ia",
-            tag: "Biometría & Visión",
-            shortDesc: "Análisis biométrico de emociones, atención visual y mapas de calor cognitivos mediante visión por computador.",
-            fullDesc: "Modelos de inteligencia artificial para decodificar microexpresiones faciales y zonas de fijación de la mirada (Heatmaps) en usuarios frente a estímulos multimedia, combinando visión artificial y neurociencia aplicada.",
-            techStack: ["Python", "OpenCV", "TensorFlow", "Eye Tracking", "Heatmap Generation"],
-            role: "Entrenamiento de clasificadores de microexpresiones y pipeline de análisis visual",
-            featured: false,
-            previewImage: "assets/projects/slide_render_22.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_22.jpg"]
-          },
-          {
-            id: "diseno-soportes-elementos-3d",
-            slide: 25,
-            title: "Soportes & Elementos Mecánicos Personalizados 3D",
-            category: "Fabricación Digital",
-            lineId: "line-fab",
-            tag: "Manufactura Aditiva",
-            shortDesc: "Desarrollo de piezas de ingeniería, carcasas y soportes funcionales mediante manufactura aditiva FDM/SLA.",
-            fullDesc: "Ingeniería inversa y diseño paramétrico para producir piezas mecánicas a medida en polímeros técnicos (PETG, Nylon, Fibra de Carbono, Resina Tough) para laboratorios y proyectos de investigación.",
-            techStack: ["CAD Paramétrico", "Impresoras FDM & Resina SLA", "Materiales Técnicos", "Ingeniería Inversa"],
-            role: "Modelado CAD paramétrico y parametrización de impresión 3D técnica",
-            featured: false,
-            previewImage: "assets/projects/slide_render_25.jpg",
-            gif: null,
-            video: null,
-            gallery: ["assets/projects/slide_render_25.jpg"]
-          }
-        ],
-        equipment: [
-          {
-            category: "Realidades Extendidas (XR) & Spatial Computing",
-            items: [
-              "Visores Meta Quest 3 & Meta Quest 2 con Hand Tracking y Passthrough Full-Color",
-              "Estaciones de computación gráfica de alto rendimiento con GPU RTX",
-              "Sistemas de captura de audio espacial y micrófonos direccionales",
-              "Periféricos de interacción háptica y sensores biométricos"
-            ]
-          },
-          {
-            category: "Fabricación Digital, Mecanizado & Prototipado Rápido",
-            items: [
-              "Parque de Impresoras 3D FDM de grado técnico (PETG, ABS, Fibra de Carbono)",
-              "Impresoras 3D de resina SLA/MSLA de ultra alta resolución milimétrica",
-              "Cortadora y Grabadora Láser CNC de precisión para acrílicos y maderas",
-              "Minitrituradora y sistema de reciclaje electromecánico de polímeros"
-            ]
-          },
-          {
-            category: "Robótica Aérea, Fotogrametría & Sensórica IoT",
-            items: [
-              "Flota de drones DJI para levantamiento aerofotogramétrico y gemelos digitales",
-              "Plataformas UAV personalizadas con aviónica Pixhawk y control ArduPilot",
-              "Banco de desarrollo electrónico in-house (ruteado de PCB, osciloscopio, estación SMD)",
-              "Nodos de telemetría ambiental inalámbrica LoRaWAN y microcontroladores ESP32"
-            ]
-          },
-          {
-            category: "Equipos Educativos & Divulgación STEAM+",
-            items: [
-              "Kits de robótica modular y electrónica educativa para colegios",
-              "Módulos portátiles de experimentación en ciencias y energías renovables",
-              "Materiales pedagógicos para talleres de fomento de vocaciones científicas"
-            ]
-          }
-        ],
-        team: {
-          professionals: [
-            {
-              name: "Juan Sebastián Correa Fernández",
-              role: "Coordinador del Centro STEAM / Prototipado",
-              degrees: ["Ing. Electrónico", "Mgtr. Instrumentación Física"],
-              focus: "Liderazgo técnico, instrumentación física y gestión de proyectos 4.0/5.0",
-              avatar: "assets/team/juan_sebastian_correa.jpg"
-            },
-            {
-              name: "Juan David Villegas Tamayo",
-              role: "Experto STEM+",
-              degrees: ["Ing. Electrónico", "Mgtr. Medio Ambiente"],
-              focus: "Pedagogía STEAM+, sostenibilidad y tecnologías verdes",
-              avatar: "assets/team/juan_david_villegas.jpg"
-            },
-            {
-              name: "Ingrid Tatiana Bocanegra García",
-              role: "Experta en Vocaciones Científicas",
-              degrees: ["Ing. Mecatrónica"],
-              focus: "Fomento de vocaciones STEAM, divulgación científica y robótica educativa",
-              avatar: "assets/team/ingrid_tatiana_bocanegra.jpg"
-            },
-            {
-              name: "David Tenorio Cruz",
-              role: "Experto en Fabricación & Prototipado",
-              degrees: ["Ing. Aeronáutico"],
-              focus: "Diseño aeroespacial, drones, mecanizado CNC y manufactura aditiva",
-              avatar: "assets/team/david_tenorio_cruz.jpg"
-            },
-            {
-              name: "Alberto José Duque",
-              role: "Especialista en IA & Modelos AA",
-              degrees: ["Ing. Biomédico", "Estudiante Mg. Pedagogía"],
-              focus: "Machine Learning, visión artificial y tecnologías biomédicas",
-              avatar: "assets/team/alberto_jose_duque.jpg"
-            },
-            {
-              name: "David G. Bustamante Herrera",
-              role: "Especialista en Inteligencia Artificial",
-              degrees: ["Ing. Mecatrónico", "Mgtr. Inteligencia Artificial"],
-              focus: "Robótica avanzada, deep learning y control inteligente",
-              avatar: "assets/team/david_bustamante_herrera.jpg"
-            }
-          ],
-          support: [
-            {
-              name: "Georleans González Marmolejo",
-              role: "Monitor Centro STEAM",
-              focus: "UX/UI & Electrónica",
-              degree: "Estudiante Ing. Electrónica 9°",
-              avatar: "assets/team/georleans_gonzalez.jpg"
-            },
-            {
-              name: "Michael Andrés Hernández",
-              role: "Desarrollador VR/AR/MR",
-              focus: "Desarrollo de Software Inmersivo",
-              degree: "Ing. de Sistemas",
-              avatar: "assets/team/michael_andres_hernandez.jpg"
-            },
-            {
-              name: "Alejandro Burbano Vivas",
-              role: "Estudiante Practicante VR/AR/MR",
-              focus: "Entornos Virtuales y XR",
-              degree: "Estudiante Ing. Sistemas 10°",
-              avatar: "assets/team/alejandro_burbano.jpg"
-            },
-            {
-              name: "María Camila Tigreros Sánchez",
-              role: "Estudiante Voluntaria",
-              focus: "Comunicación & Media",
-              degree: "Est. Comunicación Transmedia 3°",
-              avatar: "assets/team/maria_camila_tigreros.jpg"
-            },
-            {
-              name: "Valery Gabriela Guerrero Macías",
-              role: "Estudiante Voluntaria",
-              focus: "Comunicación & Media",
-              degree: "Est. Comunicación Transmedia 3°",
-              avatar: "assets/team/valery_gabriela_guerrero.jpg"
-            },
-            {
-              name: "Ana Sofía Guzmán Díaz",
-              role: "Estudiante Voluntaria",
-              focus: "Comunicación & Media",
-              degree: "Est. Comunicación Transmedia 3°",
-              avatar: "assets/team/ana_sofia_guzman.jpg"
-            },
-            {
-              name: "Lidier Felipe Sicacha Granado",
-              role: "Estudiante Practicante",
-              focus: "Software & Tecnologías XR",
-              degree: "Estudiante Ing. Sistemas 10°",
-              avatar: "assets/team/lidier_felipe_sicacha.jpg"
-            },
-            {
-              name: "Eliana López Franco",
-              role: "Estudiante Monitora",
-              focus: "Electrónica & Circuitos",
-              degree: "Estudiante Ing. Electrónica 7°",
-              avatar: "assets/team/eliana_lopez_franco.jpg"
-            },
-            {
-              name: "Samuel Lozano Vásquez",
-              role: "Estudiante Voluntario",
-              focus: "Electrónica Aplicada",
-              degree: "Estudiante Ing. Electrónica 9°",
-              avatar: "assets/team/samuel_lozano_vasquez.jpg"
-            },
-            {
-              name: "Miguel Ángel Peláez Valencia",
-              role: "Estudiante Voluntario",
-              focus: "Electrónica Aplicada",
-              degree: "Estudiante Ing. Electrónica 9°",
-              avatar: "assets/team/miguel_angel_pelaez.jpg"
-            },
-            {
-              name: "Luisa Fernanda Madrigal Suárez",
-              role: "Estudiante Voluntaria",
-              focus: "Comunicación & Media",
-              degree: "Est. Comunicación Transmedia 3°",
-              avatar: "assets/team/luisa_fernanda_madrigal.jpg"
-            },
-            {
-              name: "Kelly Johanna Arboleda Grueso",
-              role: "Científica Voluntaria",
-              focus: "Agroecología & Ciencias",
-              degree: "Ingeniera Agropecuaria",
-              avatar: "assets/team/kelly_johanna_arboleda.jpg"
-            }
-          ]
-        }
-      };
-
-      // REACT NATIVE RENDERER WITHOUT BABEL DEPENDENCY (100% Reliable & Fast)
       const e = React.createElement;
       const useState = React.useState;
-      const useEffect = React.useEffect;
-      const useMemo = React.useMemo;
-      const useRef = React.useRef;
 
-      // NAVBAR
-      function Navbar(props) {
-        const [scrolled, setScrolled] = useState(false);
-        const [activeSection, setActiveSection] = useState('hero');
+      const PRESENTATION = {"title": "Centro de Prototipado & STEAM UCEVA", "subtitle": "Unidad Central del Valle del Cauca", "about": "El Centro de Prototipado surgió en el año 2023 como respuesta a las necesidades tecnológicas de comunidad docente, estudiantil e investigadores de la UCEVA. El Centro adquirió en los últimos años capacidades en desarrollo físico, tecnológico y científico, con un equipo humano interdisciplinario dotado de habilidades para responder a las necesidades de industria 4.0 y 5.0, como lo es la energía renovable, la programación, la robótica, la Inteligencia artificial, las realidades extendidas (Realidad Virtual VR, Realidad Aumentada AR y Realidad Mixta MR), gemelos digitales, aplicaciones móviles, aeronáutica, prototipado físico, modelado 3D, fotogrametría, entre otras.", "team_profesionales": [{"name": "Juan Sebastián Correa Fernández", "role": "Coordinador del Centro", "degree": "Ing Electrónico | Mgtr Instrumentación Física", "photo": "assets/team/juan_sebastian_correa.jpg"}, {"name": "Juan David Villegas Tamayo", "role": "Experto STEM+", "degree": "Ing Electrónico | Mgtr Medio Ambiente", "photo": "assets/team/juan_david_villegas.jpg"}, {"name": "David Tenorio Cruz", "role": "Experto en fabricación", "degree": "ING Aeronáutico", "photo": "assets/team/david_tenorio_cruz.jpg"}, {"name": "Alberto José Duque", "role": "IA y modelos AA", "degree": "Ing biomédico | Estudiante de Mg pedagogía", "photo": "assets/team/alberto_jose_duque.jpg"}, {"name": "David G. Bustamante Herrera", "role": "Especialista", "degree": "Ing. Mecatrónico | Mgtr IA", "photo": "assets/team/david_bustamante_herrera.jpg"}, {"name": "Ingrid Tatiana Bocanegra García", "role": "Experta en vocaciones", "degree": "ING. Mecatrónica", "photo": "assets/team/ingrid_tatiana_bocanegra.jpg"}], "team_apoyo": [{"name": "Georleans González Marmolejo", "role": "Monitor Centro STEAM", "degree": "Estudiante de Ing. Electrónica 9° | UX/UX/Electrónica", "photo": "assets/team/georleans_gonzalez.jpg"}, {"name": "Michael Andrés Hernández", "role": "Estudiante VR/AR/MR", "degree": "Ing Sistemas", "photo": "assets/team/michael_andres_hernandez.jpg"}, {"name": "Alejandro Burbano Vivas", "role": "Estudiante practicante VR/AR/MR", "degree": "Estudiante ing de sistemas 10°", "photo": "assets/team/alejandro_burbano.jpg"}, {"name": "María Camila Tigreros Sánchez", "role": "Estudiante Voluntaria", "degree": "Est de Comunicación Transmedia 3°", "photo": "assets/team/maria_camila_tigreros.jpg"}, {"name": "Valery Gabriela Guerrero Macías", "role": "Estudiante Voluntaria", "degree": "Est de Comunicación Transmedia 3°", "photo": "assets/team/valery_gabriela_guerrero.jpg"}, {"name": "Ana Sofía Guzmán Díaz", "role": "Estudiante Voluntaria", "degree": "Est de Comunicación Transmedia 3°", "photo": "assets/team/ana_sofia_guzman.jpg"}, {"name": "Lidier Felipe Sicacha Granado", "role": "Estudiante practicante", "degree": "Estudiante Ing. de sistemas 10°", "photo": "assets/team/lidier_felipe_sicacha.jpg"}, {"name": "Eliana López Franco", "role": "Estudiante Monitora", "degree": "Estudiante Ing. de Electrónica 7°", "photo": "assets/team/eliana_lopez_franco.jpg"}, {"name": "Samuel Lozano Vásquez", "role": "Estudiante Voluntario", "degree": "Estudiante de ing. Electrónica 9°", "photo": "assets/team/samuel_lozano_vasquez.jpg"}, {"name": "Miguel Ángel Peláez Valencia", "role": "Estudiante Voluntario", "degree": "Estudiante de ing. Electrónica 9°", "photo": "assets/team/miguel_angel_pelaez.jpg"}, {"name": "Luisa Fernanda Madrigal Suárez", "role": "Estudiante Voluntaria", "degree": "Est de Comunicación Transmedia 3°", "photo": "assets/team/luisa_fernanda_madrigal.jpg"}, {"name": "Kelly Johanna Arboleda Grueso", "role": "Científica Voluntaria", "degree": "Ingeniera Agropecuaria", "photo": "assets/team/kelly_johanna_arboleda.jpg"}], "equipos": [{"title": "Equipos Educativos", "slide": 6, "image": "assets/projects/slide_render_6.jpg"}, {"title": "Equipos Tecnológicos", "slide": 7, "image": "assets/projects/slide_render_7.jpg"}, {"title": "Equipos Tecnológicos", "slide": 8, "image": "assets/projects/slide_render_8.jpg"}], "impactos": [{"title": "Simulador para sensibilización: Museo del Dengue VR", "category": "IMPACTOS", "slide": 9, "image": "assets/projects/slide_render_9.jpg"}, {"title": "Simulador para sensibilización: Museo del Dengue VR", "category": "RELACIONAMIENTOS EXTERNOS", "slide": 10, "image": "assets/projects/slide_render_10.jpg"}, {"title": "Simulador para sensibilización: Museo del Dengue VR", "category": "PROYECCIÓN SOCIAL", "slide": 11, "image": "assets/projects/slide_render_11.jpg"}], "proyectos": [{"title": "Fotogrametría Campus UCEVA", "category": "PROYECTOS FOTOGRAMETRÍA", "slide": 12, "image": "assets/projects/slide_render_12.jpg", "video": null, "gif": null}, {"title": "Fotogrametría a personas", "category": "PROYECTOS FOTOGRAMETRÍA", "slide": 13, "image": "assets/projects/slide_render_13.jpg", "video": null, "gif": null}, {"title": "Visualizador para sensibilización: Acoso Callejero", "category": "PROYECTOS VR", "slide": 14, "image": "assets/posters/visualizador_acoso_callejero_vr.jpg", "video": "assets/videos/acoso_callejero_vr.mp4", "gif": "assets/gifs/visualizador_acoso_callejero_vr.gif"}, {"title": "Simulador VR para sensibilización de información: Museo del dengue", "category": "PROYECTOS VR", "slide": 15, "image": "assets/posters/simulador_museo_del_dengue_vr.jpg", "video": "assets/videos/museo_del_dengue_vr.mp4", "gif": "assets/gifs/simulador_museo_del_dengue_vr.gif"}, {"title": "Aplicativo WEB AR para divulgación", "category": "PROYECTOS AR", "slide": 16, "image": "assets/posters/aplicativo_web_ar_divulgacion.jpg", "video": "assets/videos/webar_divulgacion.mp4", "gif": "assets/gifs/aplicativo_web_ar_divulgacion.gif"}, {"title": "Campus UCEVA MR", "category": "PROYECTOS MR", "slide": 17, "image": "assets/posters/campus_uceva_mr_1.jpg", "video": "assets/videos/campus_uceva_mr_1.mp4", "gif": "assets/gifs/campus_uceva_mr_1.gif"}, {"title": "Recorrido WEB 360° CENICAFE", "category": "PROYECTOS 360°", "slide": 18, "image": "assets/projects/slide_render_18.jpg", "video": null, "gif": null}, {"title": "Construcción de Aeronaves no tripuladas", "category": "PROYECTOS PROTOTIPADO AERONÁUTICO", "slide": 19, "image": "assets/posters/construccion_aeronaves_drones.jpg", "video": "assets/videos/aeronaves_drones.mp4", "gif": "assets/gifs/construccion_aeronaves_drones.gif"}, {"title": "Diseño y desarrollo de placa electrónicas", "category": "PROYECTOS ELECTRÓNICOS", "slide": 20, "image": "assets/projects/slide_render_20.jpg", "video": null, "gif": null}, {"title": "Proyectos IoT + Ciudades Inteligentes: Diseño y desarrollo de sistema meteorológico", "category": "PROYECTOS ELECTRÓNICOS", "slide": 21, "image": "assets/projects/slide_render_21.jpg", "video": null, "gif": null}, {"title": "Proyectos IA + Neuromarketing", "category": "PROYECTOS IA", "slide": 22, "image": "assets/projects/slide_render_22.jpg", "video": null, "gif": null}, {"title": "Motion tracker", "category": "PROYECTOS IA", "slide": 23, "image": "assets/posters/motion_tracker_ia.jpg", "video": "assets/videos/motion_tracker_ia.mp4", "gif": "assets/gifs/motion_tracker_ia.gif"}, {"title": "Minitrituradora de plástico", "category": "PROYECTOS DE DISEÑO", "slide": 24, "image": "assets/projects/minitrituradora_plastico.jpg", "video": null, "gif": null}, {"title": "Soportes y elementos 3D", "category": "PROYECTOS DE DISEÑO", "slide": 25, "image": "assets/projects/slide_render_25.jpg", "video": null, "gif": null}]};
 
-        useEffect(function() {
-          function handleScroll() {
-            setScrolled(window.scrollY > 40);
-            const sections = ['hero', 'about', 'lines', 'projects', 'capabilities', 'team', 'contact'];
-            const scrollPos = window.scrollY + 200;
-            for (let i = 0; i < sections.length; i++) {
-              const el = document.getElementById(sections[i]);
-              if (el) {
-                const top = el.offsetTop;
-                const height = el.offsetHeight;
-                if (scrollPos >= top && scrollPos < top + height) {
-                  setActiveSection(sections[i]);
-                  break;
-                }
-              }
-            }
-          }
-          window.addEventListener('scroll', handleScroll, { passive: true });
-          return function() { window.removeEventListener('scroll', handleScroll); };
-        }, []);
+      function Navbar() {
+        const [mobileOpen, setMobileOpen] = useState(false);
 
-        const navLinks = [
-          { id: 'hero', label: 'Inicio' },
-          { id: 'about', label: 'El Centro' },
-          { id: 'lines', label: 'Líneas I+D' },
-          { id: 'projects', label: 'Proyectos' },
-          { id: 'capabilities', label: 'Equipos' },
-          { id: 'team', label: 'Equipo' },
-          { id: 'contact', label: 'Contacto' }
+        function toggle() {
+          setMobileOpen(!mobileOpen);
+        }
+
+        function close() {
+          setMobileOpen(false);
+        }
+
+        return e('header', { className: 'navbar' },
+          e('div', { className: 'container' },
+            e('div', { className: 'nav-inner' },
+              e('a', { href: '#', className: 'brand-logo' },
+                e('div', { className: 'brand-icon' }, 'S'),
+                e('div', { className: 'brand-text' },
+                  e('h1', null, 'Centro STEAM'),
+                  e('span', null, 'UCEVA')
+                )
+              ),
+              e('nav', null,
+                e('ul', { className: 'nav-links' },
+                  e('li', null, e('a', { href: '#acerca' }, 'Acerca del Centro')),
+                  e('li', null, e('a', { href: '#proyectos' }, 'Proyectos')),
+                  e('li', null, e('a', { href: '#equipos' }, 'Equipos')),
+                  e('li', null, e('a', { href: '#impactos' }, 'Impactos')),
+                  e('li', null, e('a', { href: '#equipo' }, 'Equipo'))
+                )
+              ),
+              e('button', { className: 'mobile-menu-btn', onClick: toggle, 'aria-label': 'Menú' },
+                mobileOpen ? '✕' : '☰'
+              )
+            )
+          ),
+          e('div', { className: 'mobile-nav-drawer' + (mobileOpen ? ' open' : '') },
+            e('a', { href: '#acerca', onClick: close }, 'Acerca del Centro'),
+            e('a', { href: '#proyectos', onClick: close }, 'Proyectos'),
+            e('a', { href: '#equipos', onClick: close }, 'Equipos'),
+            e('a', { href: '#impactos', onClick: close }, 'Impactos'),
+            e('a', { href: '#equipo', onClick: close }, 'Equipo')
+          )
+        );
+      }
+
+      function Hero() {
+        return e('section', { className: 'hero-section' },
+          e('div', { className: 'container' },
+            e('span', { className: 'section-tag' }, 'Diapositiva 1 — Portafolio'),
+            e('h1', { className: 'hero-title' },
+              'Centro de Prototipado & ',
+              e('span', { className: 'text-gradient' }, 'STEAM')
+            ),
+            e('p', { className: 'hero-institution' }, PRESENTATION.subtitle),
+            e('div', { className: 'hero-buttons' },
+              e('a', { href: '#proyectos', className: 'btn btn-primary' }, 'Ver Proyectos'),
+              e('a', { href: '#equipo', className: 'btn btn-secondary' }, 'Equipo de Trabajo')
+            )
+          )
+        );
+      }
+
+      function About() {
+        return e('section', { id: 'acerca' },
+          e('div', { className: 'container' },
+            e('div', { className: 'section-header' },
+              e('span', { className: 'section-tag' }, 'Diapositiva 2 — Reseña'),
+              e('h2', { className: 'section-title' }, 'Acerca del ', e('span', { className: 'text-gradient' }, 'Centro'))
+            ),
+            e('div', { className: 'about-card' },
+              e('p', null, PRESENTATION.about)
+            )
+          )
+        );
+      }
+
+      function Proyectos(props) {
+        const [filter, setFilter] = useState('TODOS');
+        const categories = [
+          'TODOS',
+          'PROYECTOS VR',
+          'PROYECTOS AR',
+          'PROYECTOS MR',
+          'PROYECTOS 360°',
+          'PROYECTOS FOTOGRAMETRÍA',
+          'PROYECTOS PROTOTIPADO AERONÁUTICO',
+          'PROYECTOS ELECTRÓNICOS',
+          'PROYECTOS IA',
+          'PROYECTOS DE DISEÑO'
         ];
 
-        function scrollTo(id) {
-          const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
+        const filtered = filter === 'TODOS' ? PRESENTATION.proyectos : PRESENTATION.proyectos.filter(function(p) {
+          return p.category === filter;
+        });
 
-        return e('header', { className: 'navbar-header no-print ' + (scrolled ? 'scrolled' : '') },
-          e('div', { className: 'container nav-inner' },
-            e('a', { 
-              href: '#hero', 
-              className: 'nav-brand',
-              onClick: function(ev) { ev.preventDefault(); scrollTo('hero'); }
-            },
-              e('div', { className: 'brand-icon-hex' },
-                e('svg', { viewBox: '0 0 100 100', className: 'hex-svg' },
-                  e('polygon', { points: '50 3, 93 25, 93 75, 50 97, 7 75, 7 25', fill: 'none', stroke: 'currentColor', strokeWidth: '6' })
-                ),
-                e('span', { className: 'brand-letter' }, 'U')
-              ),
-              e('div', { className: 'brand-text' },
-                e('span', { className: 'brand-main' }, 'CENTRO STEAM'),
-                e('span', { className: 'brand-sub' }, 'UCEVA • PROTOTIPADO')
-              )
+        return e('section', { id: 'proyectos' },
+          e('div', { className: 'container' },
+            e('div', { className: 'section-header' },
+              e('span', { className: 'section-tag' }, 'Diapositivas 12 a 25'),
+              e('h2', { className: 'section-title' }, 'Proyectos de ', e('span', { className: 'text-gradient' }, 'Desarrollo'))
             ),
-            e('nav', { className: 'nav-links-desktop' },
-              navLinks.map(function(link) {
+            e('div', { className: 'filter-container' },
+              categories.map(function(cat, idx) {
                 return e('button', {
-                  key: link.id,
-                  onClick: function() { scrollTo(link.id); },
-                  className: 'nav-link-btn ' + (activeSection === link.id ? 'active' : '')
-                },
-                  link.label,
-                  activeSection === link.id ? e('span', { className: 'nav-link-indicator' }) : null
-                );
+                  key: idx,
+                  className: 'filter-btn' + (filter === cat ? ' active' : ''),
+                  onClick: function() { setFilter(cat); }
+                }, cat.replace('PROYECTOS ', ''));
               })
             ),
-            e('div', { className: 'nav-actions' },
-              e('button', { onClick: props.onPrintPdf, className: 'btn-cyber-print', title: 'Exportar Dossier PDF' },
-                e('span', null, '📄 Dossier PDF')
-              )
-            )
-          )
-        );
-      }
-
-      // HERO
-      const TYPEWRITER_PHRASES = [
-        'Realidades Extendidas (VR / AR / MR / WebXR)',
-        'Inteligencia Artificial & Modelos AA',
-        'Gemelos Digitales & Fotogrametría 3D',
-        'Aeronáutica & Drones No Tripulados',
-        'Diseño & Fabricación Digital 3D',
-        'IoT & Ciudades Inteligentes'
-      ];
-
-      function Hero(props) {
-        const [phraseIdx, setPhraseIdx] = useState(0);
-        const [text, setText] = useState('');
-        const [isDeleting, setIsDeleting] = useState(false);
-        const canvasRef = useRef(null);
-
-        useEffect(function() {
-          const currentPhrase = TYPEWRITER_PHRASES[phraseIdx];
-          const speed = isDeleting ? 35 : 75;
-          const timer = setTimeout(function() {
-            if (!isDeleting) {
-              setText(currentPhrase.substring(0, text.length + 1));
-              if (text === currentPhrase) {
-                setTimeout(function() { setIsDeleting(true); }, 2200);
-              }
-            } else {
-              setText(currentPhrase.substring(0, text.length - 1));
-              if (text === '') {
-                setIsDeleting(false);
-                setPhraseIdx(function(prev) { return (prev + 1) % TYPEWRITER_PHRASES.length; });
-              }
-            }
-          }, speed);
-          return function() { clearTimeout(timer); };
-        }, [text, isDeleting, phraseIdx]);
-
-        useEffect(function() {
-          const canvas = canvasRef.current;
-          if (!canvas) return;
-          const ctx = canvas.getContext('2d');
-          let animId;
-          let w = (canvas.width = canvas.parentElement.offsetWidth || window.innerWidth);
-          let h = (canvas.height = canvas.parentElement.offsetHeight || 600);
-
-          const particles = [];
-          const count = Math.min(45, Math.floor(w / 28));
-          for (let i = 0; i < count; i++) {
-            particles.push({
-              x: Math.random() * w,
-              y: Math.random() * h,
-              vx: (Math.random() - 0.5) * 0.7,
-              vy: (Math.random() - 0.5) * 0.7,
-              r: Math.random() * 2 + 1,
-              color: Math.random() > 0.5 ? '#00f0ff' : '#9d00ff'
-            });
-          }
-
-          function render() {
-            ctx.clearRect(0, 0, w, h);
-            for (let i = 0; i < particles.length; i++) {
-              const p = particles[i];
-              p.x += p.vx; p.y += p.vy;
-              if (p.x < 0 || p.x > w) p.vx *= -1;
-              if (p.y < 0 || p.y > h) p.vy *= -1;
-              ctx.beginPath();
-              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-              ctx.fillStyle = p.color;
-              ctx.fill();
-
-              for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const d = Math.hypot(p.x - p2.x, p.y - p2.y);
-                if (d < 110) {
-                  ctx.beginPath();
-                  ctx.moveTo(p.x, p.y);
-                  ctx.lineTo(p2.x, p2.y);
-                  ctx.strokeStyle = 'rgba(0, 240, 255, ' + (0.12 * (1 - d / 110)) + ')';
-                  ctx.stroke();
-                }
-              }
-            }
-            animId = requestAnimationFrame(render);
-          }
-          render();
-          return function() { cancelAnimationFrame(animId); };
-        }, []);
-
-        function scrollTo(id) {
-          const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        return e('section', { id: 'hero', className: 'hero-section' },
-          e('canvas', { ref: canvasRef, className: 'hero-canvas' }),
-          e('div', { className: 'container hero-container' },
-            e('div', { className: 'hero-badge-wrap' },
-              e('div', { className: 'badge' },
-                e('span', { className: 'live-dot' }),
-                e('span', null, 'INDUSTRIA 4.0 & 5.0 • I+D+i UCEVA')
-              )
-            ),
-            e('h1', { className: 'hero-title' },
-              'Centro de Prototipado',
-              e('br'),
-              e('span', { className: 'text-gradient' }, '& STEAM UCEVA')
-            ),
-            e('div', { className: 'hero-typewriter-box' },
-              e('span', { className: 'typewriter-prefix' }, '> Especialidad: '),
-              e('span', { className: 'typewriter-text' }, text),
-              e('span', { className: 'typewriter-cursor' })
-            ),
-            e('p', { className: 'hero-desc' },
-              'Ecosistema universitario de investigación aplicada, fabricación digital y tecnologías inmersivas de la ',
-              e('strong', null, 'Unidad Central del Valle del Cauca'),
-              '. Transformamos los retos del entorno en prototipos tangibles de alto impacto tecnológico.'
-            ),
-            e('div', { className: 'hero-cta-group' },
-              e('button', { onClick: function() { scrollTo('projects'); }, className: 'btn-cyber-primary' },
-                e('span', null, 'Explorar Proyectos I+D'),
-                e('span', null, ' →')
-              ),
-              e('button', { onClick: function() { scrollTo('lines'); }, className: 'btn-cyber-secondary' },
-                e('span', null, 'Líneas Tecnológicas')
-              )
-            ),
-            e('div', { className: 'hero-stats-grid glass-panel' },
-              e('div', { className: 'stat-card' },
-                e('span', { className: 'stat-number text-gradient' }, '14+'),
-                e('span', { className: 'stat-label' }, 'Proyectos I+D')
-              ),
-              e('div', { className: 'stat-divider' }),
-              e('div', { className: 'stat-card' },
-                e('span', { className: 'stat-number text-cyan' }, '6'),
-                e('span', { className: 'stat-label' }, 'Líneas Principales')
-              ),
-              e('div', { className: 'stat-divider' }),
-              e('div', { className: 'stat-card' },
-                e('span', { className: 'stat-number text-magenta' }, '18+'),
-                e('span', { className: 'stat-label' }, 'Investigadores & Apoyo')
-              ),
-              e('div', { className: 'stat-divider' }),
-              e('div', { className: 'stat-card' },
-                e('span', { className: 'stat-number text-gradient-warm' }, '100%'),
-                e('span', { className: 'stat-label' }, 'Prototipado Físico')
-              )
-            )
-          )
-        );
-      }
-
-      // ABOUT
-      function About(props) {
-        const info = props.centerInfo || {};
-        const domains = info.domains || [];
-
-        return e('section', { id: 'about', className: 'about-section', style: { background: 'var(--bg-secondary)' } },
-          e('div', { className: 'container' },
-            e('div', { className: 'section-header' },
-              e('span', { className: 'section-subtitle' }, '< GESTIÓN DE INNOVACIÓN & STEAM / >'),
-              e('h2', { className: 'section-title' }, 'Acerca del ', e('span', { className: 'text-gradient' }, 'Centro STEAM UCEVA')),
-              e('p', { className: 'section-desc' }, 'Surgido en el año 2023 como respuesta a las necesidades tecnológicas de la comunidad docente, estudiantil e investigadores.')
-            ),
-            e('div', { className: 'glass-panel', style: { padding: '36px 40px' } },
-              e('span', { className: 'badge badge-purple', style: { marginBottom: '16px' } }, 'Trayectoria 2023 – Presente'),
-              e('h3', { style: { fontSize: '1.6rem', marginBottom: '16px', color: '#fff' } },
-                'Capacidades en Desarrollo Físico, Tecnológico y Científico'
-              ),
-              e('p', { style: { color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '20px' } },
-                info.description
-              ),
-              e('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '10px' } },
-                domains.map(function(d, i) {
-                  return e('span', { key: i, className: 'badge', style: { textTransform: 'none', fontSize: '0.85rem' } },
-                    '⚡ ' + d
-                  );
-                })
-              )
-            )
-          )
-        );
-      }
-
-      // DEVELOPMENT LINES
-      function DevelopmentLines(props) {
-        const lines = props.lines || [];
-
-        return e('section', { id: 'lines', className: 'lines-section' },
-          e('div', { className: 'container' },
-            e('div', { className: 'section-header' },
-              e('span', { className: 'section-subtitle' }, '< EJES ESTRATÉGICOS / >'),
-              e('h2', { className: 'section-title' }, 'Líneas de ', e('span', { className: 'text-gradient' }, 'Desarrollo Tecnológico')),
-              e('p', { className: 'section-desc' }, 'Áreas temáticas que articulan la investigación aplicada y la creación de prototipos funcionales.')
-            ),
-            e('div', { className: 'dev-lines-grid' },
-              lines.map(function(line) {
-                return e('div', { key: line.id, className: 'line-card glass-panel' },
-                  e('div', { className: 'line-card-header' },
-                    e('div', null,
-                      e('h3', { className: 'line-name' }, line.name),
-                      e('span', { className: 'line-sub' }, line.subtitle)
-                    ),
-                    e('span', { className: 'line-count-pill' }, line.count + ' Proyectos')
+            e('div', { className: 'cards-grid' },
+              filtered.map(function(proj, idx) {
+                return e('div', { key: idx, className: 'card-item' },
+                  e('div', { className: 'card-media-wrapper' },
+                    e('img', { src: proj.image, alt: proj.title, loading: 'lazy' }),
+                    e('span', { className: 'card-media-badge' }, 'Diapositiva ' + proj.slide)
                   ),
-                  e('p', { className: 'line-desc' }, line.desc),
-                  e('div', { className: 'line-tech-wrap' },
-                    (line.techs || []).map(function(t, idx) {
-                      return e('span', { key: idx, className: 'tech-tag-sm' }, t);
-                    })
+                  e('div', { className: 'card-body' },
+                    e('div', null,
+                      e('div', { className: 'card-category' }, proj.category),
+                      e('h3', { className: 'card-title' }, proj.title)
+                    ),
+                    (proj.video || proj.gif) ? e('button', {
+                      className: 'card-action-btn',
+                      onClick: function() { props.onOpenModal(proj); }
+                    }, '▶ Ver Video / Interactivo') : e('button', {
+                      className: 'card-action-btn',
+                      onClick: function() { props.onOpenModal(proj); }
+                    }, '🔍 Ver Lámina Completa')
                   )
                 );
               })
@@ -2154,352 +830,127 @@ section {
         );
       }
 
-      // PROJECT CARD
-      function ProjectCard(props) {
-        const p = props.project;
-        const [hovered, setHovered] = useState(false);
-
-        const imgSrc = (p.gif && hovered) ? p.gif : (p.previewImage || (p.gallery && p.gallery[0]) || 'assets/projects/slide_render_1.jpg');
-
-        return e('div', {
-          className: 'project-card glass-panel',
-          onMouseEnter: function() { setHovered(true); },
-          onMouseLeave: function() { setHovered(false); },
-          onClick: function() { props.onSelect(p); }
-        },
-          e('div', { className: 'card-media-wrapper' },
-            e('img', {
-              src: imgSrc,
-              alt: p.title,
-              className: 'card-img',
-              onError: function(ev) { ev.target.src = 'assets/projects/slide_render_1.jpg'; }
-            }),
-            e('div', { className: 'media-overlay-top' },
-              e('span', { className: 'badge' }, p.category),
-              p.gif ? e('span', { className: 'live-demo-tag' }, 'DEMO VIVO') : null
-            ),
-            e('div', { className: 'slide-tag-badge' }, 'Slide ' + p.slide)
-          ),
-          e('div', { className: 'card-content' },
-            e('span', { className: 'project-tag-pill' }, p.tag),
-            e('h3', { className: 'card-title' }, p.title),
-            e('p', { className: 'card-desc' }, p.shortDesc),
-            e('div', { className: 'card-tech-stack' },
-              (p.techStack || []).slice(0, 3).map(function(t, idx) {
-                return e('span', { key: idx, className: 'tech-badge' }, t);
-              })
-            ),
-            e('div', { className: 'card-footer-action' },
-              e('span', null, 'Ver Detalles & Multimedia'),
-              e('span', { className: 'action-icon' }, '→')
-            )
-          )
-        );
-      }
-
-      // PROJECT GRID
-      function Projects(props) {
-        const [cat, setCat] = useState('ALL');
-        const [search, setSearch] = useState('');
-
-        const categories = [
-          { id: 'ALL', label: 'Todos' },
-          { id: 'VR', label: 'VR & Inmersión' },
-          { id: 'MR', label: 'Realidad Mixta (MR)' },
-          { id: 'AR', label: 'Realidad Aumentada (AR)' },
-          { id: 'IA', label: 'Inteligencia Artificial' },
-          { id: '3D', label: 'Fotogrametría & 3D' },
-          { id: 'AERO', label: 'Aeronáutica & Drones' },
-          { id: 'FAB', label: 'Fabricación Digital' },
-          { id: 'IOT', label: 'Electrónica & IoT' }
-        ];
-
-        const filtered = useMemo(function() {
-          return (props.projects || []).filter(function(item) {
-            let matchCat = true;
-            if (cat !== 'ALL') {
-              if (cat === 'VR') matchCat = item.category.includes('VR');
-              else if (cat === 'MR') matchCat = item.category.includes('MR');
-              else if (cat === 'AR') matchCat = item.category.includes('AR');
-              else if (cat === 'IA') matchCat = item.category.includes('IA') || item.category.includes('Inteligencia');
-              else if (cat === '3D') matchCat = item.category.includes('Fotogrametría') || item.category.includes('3D');
-              else if (cat === 'AERO') matchCat = item.category.includes('Aeronáutica') || item.category.includes('Robótica');
-              else if (cat === 'FAB') matchCat = item.category.includes('Fabricación');
-              else if (cat === 'IOT') matchCat = item.category.includes('IoT') || item.category.includes('Electrónica');
-            }
-            let matchSearch = true;
-            if (search.trim() !== '') {
-              const q = search.toLowerCase();
-              matchSearch = item.title.toLowerCase().includes(q) ||
-                            item.fullDesc.toLowerCase().includes(q) ||
-                            (item.techStack || []).some(function(t) { return t.toLowerCase().includes(q); });
-            }
-            return matchCat && matchSearch;
-          });
-        }, [props.projects, cat, search]);
-
-        return e('section', { id: 'projects', className: 'projects-section' },
+      function Equipos(props) {
+        return e('section', { id: 'equipos', style: { background: 'var(--bg-secondary)' } },
           e('div', { className: 'container' },
             e('div', { className: 'section-header' },
-              e('span', { className: 'section-subtitle' }, '< PORTAFOLIO DE I+D+i / >'),
-              e('h2', { className: 'section-title' }, 'Desarrollos & ', e('span', { className: 'text-gradient' }, 'Proyectos Tecnológicos')),
-              e('p', { className: 'section-desc' }, 'Soluciones inmersivas, gemelos digitales, hardware de precisión y sistemas de IA de la UCEVA.')
+              e('span', { className: 'section-tag' }, 'Diapositivas 6, 7 y 8'),
+              e('h2', { className: 'section-title' }, 'Equipos ', e('span', { className: 'text-gradient' }, 'Educativos y Tecnológicos'))
             ),
-            e('div', { className: 'filter-controls-wrap no-print' },
-              e('div', { className: 'filter-tabs-scroll' },
-                e('div', { className: 'filter-tabs' },
-                  categories.map(function(c) {
-                    return e('button', {
-                      key: c.id,
-                      onClick: function() { setCat(c.id); },
-                      className: 'filter-btn ' + (cat === c.id ? 'active' : '')
-                    }, c.label);
-                  })
-                )
-              ),
-              e('div', { className: 'filter-search-row' },
-                e('div', { className: 'search-input-box' },
-                  e('input', {
-                    type: 'text',
-                    placeholder: 'Buscar por tecnología, título o palabra clave...',
-                    value: search,
-                    onChange: function(ev) { setSearch(ev.target.value); },
-                    className: 'search-input'
-                  })
-                ),
-                e('div', { className: 'projects-counter-badge' },
-                  'Mostrando: ', e('strong', null, filtered.length), ' proyectos'
-                )
-              )
-            ),
-            e('div', { className: 'projects-grid' },
-              filtered.map(function(p) {
-                return e(ProjectCard, { key: p.id, project: p, onSelect: props.onSelectProject });
+            e('div', { className: 'cards-grid' },
+              PRESENTATION.equipos.map(function(eq, idx) {
+                return e('div', { key: idx, className: 'card-item' },
+                  e('div', { className: 'card-media-wrapper' },
+                    e('img', { src: eq.image, alt: eq.title, loading: 'lazy' }),
+                    e('span', { className: 'card-media-badge' }, 'Diapositiva ' + eq.slide)
+                  ),
+                  e('div', { className: 'card-body' },
+                    e('h3', { className: 'card-title' }, eq.title),
+                    e('button', {
+                      className: 'card-action-btn',
+                      onClick: function() { props.onOpenModal(eq); }
+                    }, '🔍 Ver Lámina')
+                  )
+                );
               })
             )
           )
         );
       }
 
-      // MODAL LIGHTBOX
-      function ProjectModal(props) {
-        const p = props.project;
-        const [idx, setIdx] = useState(0);
+      function Impactos(props) {
+        return e('section', { id: 'impactos' },
+          e('div', { className: 'container' },
+            e('div', { className: 'section-header' },
+              e('span', { className: 'section-tag' }, 'Diapositivas 9, 10 y 11'),
+              e('h2', { className: 'section-title' }, 'Impactos, Relacionamientos & ', e('span', { className: 'text-gradient' }, 'Proyección'))
+            ),
+            e('div', { className: 'cards-grid' },
+              PRESENTATION.impactos.map(function(imp, idx) {
+                return e('div', { key: idx, className: 'card-item' },
+                  e('div', { className: 'card-media-wrapper' },
+                    e('img', { src: imp.image, alt: imp.title, loading: 'lazy' }),
+                    e('span', { className: 'card-media-badge' }, 'Diapositiva ' + imp.slide)
+                  ),
+                  e('div', { className: 'card-body' },
+                    e('div', { className: 'card-category' }, imp.category),
+                    e('h3', { className: 'card-title' }, imp.title),
+                    e('button', {
+                      className: 'card-action-btn',
+                      onClick: function() { props.onOpenModal(imp); }
+                    }, '🔍 Ver Lámina')
+                  )
+                );
+              })
+            )
+          )
+        );
+      }
 
-        useEffect(function() {
-          function onKey(ev) { if (ev.key === 'Escape') props.onClose(); }
-          window.addEventListener('keydown', onKey);
-          return function() { window.removeEventListener('keydown', onKey); };
-        }, [props.onClose]);
+      function Equipo() {
+        return e('section', { id: 'equipo', style: { background: 'var(--bg-secondary)' } },
+          e('div', { className: 'container' },
+            e('div', { className: 'section-header' },
+              e('span', { className: 'section-tag' }, 'Diapositivas 3, 4 y 5'),
+              e('h2', { className: 'section-title' }, 'Equipo de ', e('span', { className: 'text-gradient' }, 'Profesionales & Apoyo'))
+            ),
 
-        if (!p) return null;
+            e('div', { style: { marginBottom: '40px' } },
+              e('h3', { style: { fontSize: '1.2rem', marginBottom: '20px', color: 'var(--neon-cyan)', borderLeft: '3px solid var(--neon-cyan)', paddingLeft: '12px' } }, 'EQUIPO DE PROFESIONALES (Diapositiva 3)'),
+              e('div', { className: 'team-grid' },
+                PRESENTATION.team_profesionales.map(function(m, idx) {
+                  return e('div', { key: idx, className: 'team-card' },
+                    e('div', { className: 'team-avatar-box' },
+                      e('img', { src: m.photo, alt: m.name, loading: 'lazy' })
+                    ),
+                    e('h4', { className: 'team-name' }, m.name),
+                    e('span', { className: 'team-role' }, m.role),
+                    e('p', { className: 'team-degree' }, m.degree)
+                  );
+                })
+              )
+            ),
 
-        const media = [];
-        if (p.gif) media.push({ type: 'gif', src: p.gif, label: 'Demo Animado' });
-        if (p.gallery && p.gallery.length) {
-          p.gallery.forEach(function(img, i) {
-            media.push({ type: 'img', src: img, label: 'Captura ' + (i + 1) });
-          });
-        }
-        if (!media.length && p.previewImage) {
-          media.push({ type: 'img', src: p.previewImage, label: 'Vista previa' });
-        }
+            e('div', null,
+              e('h3', { style: { fontSize: '1.2rem', marginBottom: '20px', color: 'var(--neon-magenta)', borderLeft: '3px solid var(--neon-magenta)', paddingLeft: '12px' } }, 'EQUIPO DE APOYO (Diapositivas 4 y 5)'),
+              e('div', { className: 'team-grid' },
+                PRESENTATION.team_apoyo.map(function(m, idx) {
+                  return e('div', { key: idx, className: 'team-card' },
+                    e('div', { className: 'team-avatar-box', style: { borderColor: 'var(--neon-magenta)' } },
+                      e('img', { src: m.photo, alt: m.name, loading: 'lazy' })
+                    ),
+                    e('h4', { className: 'team-name' }, m.name),
+                    e('span', { className: 'team-role', style: { color: 'var(--neon-magenta)', borderColor: 'rgba(255,0,127,0.3)', background: 'rgba(255,0,127,0.08)' } }, m.role),
+                    e('p', { className: 'team-degree' }, m.degree)
+                  );
+                })
+              )
+            )
+          )
+        );
+      }
 
-        const current = media[idx] || media[0] || { src: 'assets/projects/slide_render_1.jpg' };
+      function Modal(props) {
+        const item = props.item;
+        if (!item) return null;
 
         return e('div', { className: 'modal-overlay', onClick: props.onClose },
-          e('div', { className: 'modal-content glass-panel modal-enter', onClick: function(ev) { ev.stopPropagation(); } },
+          e('div', { className: 'modal-content', onClick: function(ev) { ev.stopPropagation(); } },
             e('div', { className: 'modal-header' },
-              e('div', { className: 'modal-header-meta' },
-                e('span', { className: 'badge' }, p.category),
-                e('span', { className: 'badge badge-purple' }, p.tag),
-                e('span', { className: 'slide-num-pill' }, 'Diapositiva ' + p.slide)
-              ),
+              e('h3', { className: 'modal-title' }, item.title),
               e('button', { className: 'modal-close-btn', onClick: props.onClose }, '✕')
             ),
-            e('h2', { className: 'modal-title' }, p.title),
-            e('div', { className: 'modal-body-grid' },
-              e('div', { className: 'modal-media-col' },
-                e('div', { className: 'modal-media-main-box' },
-                  e('img', {
-                    src: current.src,
-                    alt: p.title,
-                    className: 'modal-display-media',
-                    onError: function(ev) { ev.target.src = 'assets/projects/slide_render_1.jpg'; }
-                  })
-                ),
-                media.length > 1 ? e('div', { className: 'modal-thumbs-row' },
-                  media.map(function(m, i) {
-                    return e('button', {
-                      key: i,
-                      onClick: function() { setIdx(i); },
-                      className: 'thumb-btn ' + (idx === i ? 'active' : '')
-                    },
-                      e('img', { src: m.src, alt: '', className: 'thumb-img' })
-                    );
-                  })
-                ) : null
-              ),
-              e('div', { className: 'modal-details-col' },
-                e('div', { className: 'detail-section' },
-                  e('h4', { className: 'detail-subtitle' }, 'Descripción Técnica'),
-                  e('p', { className: 'detail-text' }, p.fullDesc)
-                ),
-                e('div', { className: 'detail-section' },
-                  e('h4', { className: 'detail-subtitle' }, 'Rol Desempeñado'),
-                  e('p', { className: 'detail-text' }, '⚡ ' + p.role)
-                ),
-                e('div', { className: 'detail-section' },
-                  e('h4', { className: 'detail-subtitle' }, 'Stack de Tecnologías'),
-                  e('div', { className: 'modal-tech-pills' },
-                    (p.techStack || []).map(function(t, i) {
-                      return e('span', { key: i, className: 'tech-pill-modal' }, t);
-                    })
-                  )
-                )
-              )
-            )
-          )
-        );
-      }
-
-      // CAPABILITIES / EQUIPMENT
-      function Capabilities(props) {
-        const eqList = props.equipment || [];
-
-        return e('section', { id: 'capabilities', className: 'capabilities-section', style: { background: 'var(--bg-secondary)' } },
-          e('div', { className: 'container' },
-            e('div', { className: 'section-header' },
-              e('span', { className: 'section-subtitle' }, '< INFRAESTRUCTURA TÉCNICA / >'),
-              e('h2', { className: 'section-title' }, 'Equipamiento ', e('span', { className: 'text-gradient' }, 'Tecnológico & Educativo')),
-              e('p', { className: 'section-desc' }, 'Herramientas de última generación para diseño, simulación, manufactura aditiva y despliegue.')
-            ),
-            e('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' } },
-              eqList.map(function(eq, i) {
-                return e('div', { key: i, className: 'glass-panel', style: { padding: '28px' } },
-                  e('h3', { style: { color: 'var(--neon-cyan)', fontSize: '1.2rem', marginBottom: '16px' } }, eq.category),
-                  e('ul', { style: { listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', color: 'var(--text-secondary)', fontSize: '0.92rem' } },
-                    (eq.items || []).map(function(item, idx) {
-                      return e('li', { key: idx }, '✓ ' + item);
-                    })
-                  )
-                );
-              })
-            )
-          )
-        );
-      }
-
-      // TEAM SECTION
-      function Team(props) {
-        const teamData = props.team || {};
-        const professionals = teamData.professionals || [];
-        const support = teamData.support || [];
-        const [activeTab, setActiveTab] = useState('ALL');
-
-        return e('section', { id: 'team', className: 'team-section' },
-          e('div', { className: 'container' },
-            e('div', { className: 'section-header' },
-              e('span', { className: 'section-subtitle' }, '< TALENTO HUMANO / >'),
-              e('h2', { className: 'section-title' }, 'Equipo de ', e('span', { className: 'text-gradient' }, 'Investigadores & Apoyo')),
-              e('p', { className: 'section-desc' }, 'Equipo interdisciplinario de la UCEVA preparado para responder a las necesidades de la Industria 4.0 y 5.0.')
-            ),
-
-            e('div', { className: 'filter-controls-wrap no-print', style: { alignItems: 'center', marginBottom: '32px' } },
-              e('div', { className: 'filter-tabs' },
-                e('button', {
-                  onClick: function() { setActiveTab('ALL'); },
-                  className: 'filter-btn ' + (activeTab === 'ALL' ? 'active' : '')
-                }, 'Todo el Equipo (18)'),
-                e('button', {
-                  onClick: function() { setActiveTab('PRO'); },
-                  className: 'filter-btn ' + (activeTab === 'PRO' ? 'active' : '')
-                }, 'Investigadores Profesionales (6)'),
-                e('button', {
-                  onClick: function() { setActiveTab('SUPPORT'); },
-                  className: 'filter-btn ' + (activeTab === 'SUPPORT' ? 'active' : '')
-                }, 'Equipo de Apoyo & Semilleros (12)')
-              )
-            ),
-
-            (activeTab === 'ALL' || activeTab === 'PRO') ? e('div', { style: { marginBottom: '48px' } },
-              e('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' } },
-                e('span', { className: 'badge badge-cyan' }, 'Slide 3 — Presentación'),
-                e('h3', { style: { fontSize: '1.35rem', color: '#ffffff' } }, 'Equipo de Profesionales & Líderes I+D')
-              ),
-              e('div', { className: 'team-grid' },
-                professionals.map(function(prof, i) {
-                  const initials = prof.name.split(' ').map(function(n) { return n[0]; }).slice(0, 2).join('');
-                  return e('div', { key: i, className: 'team-card glass-panel' },
-                    e('div', { className: 'member-avatar-box' },
-                      e('img', {
-                        src: prof.avatar,
-                        alt: prof.name,
-                        className: 'member-avatar-img',
-                        onError: function(ev) { ev.target.style.display = 'none'; }
-                      }),
-                      e('div', { className: 'avatar-fallback' }, initials)
-                    ),
-                    e('span', { className: 'member-role-tag' }, prof.role),
-                    e('h3', { className: 'member-name' }, prof.name),
-                    (prof.degrees && prof.degrees.length) ? e('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '4px', justifyContent: 'center', marginBottom: '8px' } },
-                      prof.degrees.map(function(deg, dIdx) {
-                        return e('span', { key: dIdx, className: 'tech-tag-sm', style: { fontSize: '0.7rem' } }, deg);
-                      })
-                    ) : null,
-                    e('p', { className: 'member-focus' }, prof.focus)
-                  );
+            e('div', { className: 'modal-body' },
+              item.video ? e('div', { className: 'modal-media-box' },
+                e('video', {
+                  src: item.video,
+                  controls: true,
+                  autoPlay: true,
+                  playsInline: true,
+                  style: { width: '100%', borderRadius: '8px' }
                 })
-              )
-            ) : null,
-
-            (activeTab === 'ALL' || activeTab === 'SUPPORT') ? e('div', null,
-              e('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' } },
-                e('span', { className: 'badge badge-purple' }, 'Slides 4 y 5 — Presentación'),
-                e('h3', { style: { fontSize: '1.35rem', color: '#ffffff' } }, 'Equipo de Apoyo, Monitores & Practicantes')
-              ),
-              e('div', { className: 'team-grid' },
-                support.map(function(sup, i) {
-                  const initials = sup.name.split(' ').map(function(n) { return n[0]; }).slice(0, 2).join('');
-                  return e('div', { key: i, className: 'team-card glass-panel' },
-                    e('div', { className: 'member-avatar-box', style: { borderColor: 'var(--neon-magenta)' } },
-                      e('img', {
-                        src: sup.avatar,
-                        alt: sup.name,
-                        className: 'member-avatar-img',
-                        onError: function(ev) { ev.target.style.display = 'none'; }
-                      }),
-                      e('div', { className: 'avatar-fallback' }, initials)
-                    ),
-                    e('span', { className: 'member-role-tag' }, sup.role),
-                    e('h3', { className: 'member-name' }, sup.name),
-                    e('span', { className: 'tech-tag-sm', style: { marginBottom: '8px', fontSize: '0.72rem' } }, sup.degree),
-                    e('p', { className: 'member-focus' }, sup.focus)
-                  );
-                })
-              )
-            ) : null
-          )
-        );
-      }
-
-      // CONTACT & FOOTER
-      function Contact(props) {
-        return e('section', { id: 'contact', className: 'contact-section', style: { background: 'var(--bg-secondary)', paddingBottom: '80px' } },
-          e('div', { className: 'container' },
-            e('div', { className: 'section-header' },
-              e('span', { className: 'section-subtitle' }, '< CONEXIÓN & TRANSFERENCIA / >'),
-              e('h2', { className: 'section-title' }, 'Contacto & ', e('span', { className: 'text-gradient' }, 'Alianzas I+D')),
-              e('p', { className: 'section-desc' }, 'Vinculación tecnológica con la academia, la industria y el sector público.')
-            ),
-            e('div', { className: 'glass-panel', style: { padding: '40px', maxWidth: '780px', margin: '0 auto', textAlign: 'center' } },
-              e('h3', { style: { fontSize: '1.6rem', marginBottom: '14px', color: '#fff' } }, 'Centro de Prototipado & STEAM UCEVA'),
-              e('p', { style: { color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: '1.8' } },
-                'Campus Universitario UCEVA — Cra. 27 A # 48-144, Tuluá, Valle del Cauca, Colombia', e('br'),
-                'Correo institucional: ', e('strong', { style: { color: 'var(--neon-cyan)' } }, 'centrosteam@uceva.edu.co')
-              ),
-              e('button', { onClick: props.onPrintPdf, className: 'btn-cyber-primary' },
-                e('span', null, '📄 Descargar Dossier PDF Oficial')
+              ) : e('div', { className: 'modal-media-box' },
+                e('img', { src: item.image, alt: item.title, style: { width: '100%', borderRadius: '8px' } })
               )
             )
           )
@@ -2507,40 +958,31 @@ section {
       }
 
       function Footer() {
-        return e('footer', { style: { padding: '36px 0', borderTop: '1px solid rgba(255,255,255,0.08)', background: '#02040a', textAlign: 'center' } },
+        return e('footer', null,
           e('div', { className: 'container' },
-            e('p', { style: { color: '#64748b', fontSize: '0.85rem' } },
-              '© ' + new Date().getFullYear() + ' Unidad Central del Valle del Cauca (UCEVA) — Centro de Prototipado & STEAM. Todos los derechos reservados.'
-            )
+            e('p', null, 'Centro de Prototipado & STEAM — Unidad Central del Valle del Cauca (UCEVA)')
           )
         );
       }
 
-      // APP ROOT
       function App() {
-        const [activeProject, setActiveProject] = useState(null);
+        const [modalItem, setModalItem] = useState(null);
 
-        function handlePrint() {
-          window.print();
-        }
-
-        return e('div', { className: 'portfolio-app' },
-          e(Navbar, { onPrintPdf: handlePrint }),
+        return e('div', null,
+          e(Navbar),
           e('main', null,
-            e(Hero, { onPrintPdf: handlePrint }),
-            e(About, { centerInfo: DATA.centerInfo }),
-            e(DevelopmentLines, { lines: DATA.developmentLines }),
-            e(Projects, { projects: DATA.projects, onSelectProject: function(p) { setActiveProject(p); } }),
-            e(Capabilities, { equipment: DATA.equipment }),
-            e(Team, { team: DATA.team }),
-            e(Contact, { onPrintPdf: handlePrint })
+            e(Hero),
+            e(About),
+            e(Proyectos, { onOpenModal: function(it) { setModalItem(it); } }),
+            e(Equipos, { onOpenModal: function(it) { setModalItem(it); } }),
+            e(Impactos, { onOpenModal: function(it) { setModalItem(it); } }),
+            e(Equipo)
           ),
           e(Footer),
-          activeProject ? e(ProjectModal, { project: activeProject, onClose: function() { setActiveProject(null); } }) : null
+          e(Modal, { item: modalItem, onClose: function() { setModalItem(null); } })
         );
       }
 
-      // MOUNT APPLICATION
       ReactDOM.createRoot(document.getElementById('root')).render(e(App));
     })();
   </script>
