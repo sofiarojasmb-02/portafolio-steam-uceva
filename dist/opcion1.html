@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro de Prototipado & STEAM UCEVA | Opción 1: Cyber Dark Neón</title>
+  <meta name="description" content="Portafolio tecnológico del Centro de Prototipado y STEAM de la UCEVA.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <style>
+/* ==========================================================================
+   DESIGN SYSTEM - CENTRO DE PROTOTIPADO & STEAM UCEVA
+   Estética: Dark Tech, Neón Cyan -> Magenta -> Naranja, Hexagonal & Glass
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Neon Cyber Dark */
+  --bg-primary: #040711;
+  --bg-secondary: #080d1e;
+  --bg-tertiary: #0e152e;
+  --bg-card: rgba(14, 21, 46, 0.7);
+  --bg-card-hover: rgba(20, 31, 68, 0.85);
+  --bg-glass: rgba(10, 16, 35, 0.65);
+  --bg-glass-heavy: rgba(5, 9, 22, 0.92);
+
+  /* Neon Gradients & Accents */
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.4);
+  --neon-purple: #9d00ff;
+  --neon-magenta: #ff007f;
+  --neon-magenta-glow: rgba(255, 0, 127, 0.4);
+  --neon-orange: #ff5500;
+  --neon-orange-glow: rgba(255, 85, 0, 0.4);
+  --neon-green: #00ff88;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #00f0ff 0%, #9d00ff 50%, #ff007f 100%);
+  --grad-warm: linear-gradient(135deg, #ff007f 0%, #ff5500 100%);
+  --grad-cyan-purple: linear-gradient(135deg, #00f0ff 0%, #9d00ff 100%);
+  --grad-dark-card: linear-gradient(180deg, rgba(20, 30, 65, 0.6) 0%, rgba(8, 14, 32, 0.9) 100%);
+  --grad-glow-border: linear-gradient(135deg, rgba(0, 240, 255, 0.6), rgba(157, 0, 255, 0.6), rgba(255, 0, 127, 0.6));
+
+  /* Typography */
+  --text-main: #f0f4fc;
+  --text-secondary: #a2b4d6;
+  --text-muted: #62749d;
+  --text-cyan: #00f0ff;
+  --text-magenta: #ff4da6;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Space Grotesk', var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(0, 240, 255, 0.15);
+  --border-active: rgba(0, 240, 255, 0.5);
+  --shadow-neon-cyan: 0 0 25px rgba(0, 240, 255, 0.25);
+  --shadow-neon-magenta: 0 0 25px rgba(255, 0, 127, 0.25);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+
+  /* Spacing & Layout */
+  --nav-height: 76px;
+  --container-max: 1280px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Global Reset & Base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Futuristic background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(157, 0, 255, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta));
+}
+
+/* Links & Typography helpers */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   Utility Classes & Design Primitives
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-gradient {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-warm {
+  background: var(--grad-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-cyan {
+  color: var(--neon-cyan);
+}
+
+.text-magenta {
+  color: var(--neon-magenta);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 240, 255, 0.06);
+  color: var(--neon-cyan);
+  backdrop-filter: blur(10px);
+}
+
+.badge-warm {
+  border-color: rgba(255, 85, 0, 0.3);
+  background: rgba(255, 85, 0, 0.08);
+  color: #ff8c42;
+}
+
+.badge-purple {
+  border-color: rgba(157, 0, 255, 0.3);
+  background: rgba(157, 0, 255, 0.08);
+  color: #c975ff;
+}
+
+.badge-green {
+  border-color: rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.08);
+  color: var(--neon-green);
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+  opacity: 0.6;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 14px 40px -10px rgba(0, 240, 255, 0.18), var(--shadow-card);
+  transform: translateY(-4px);
+}
+
+/* Hexagonal / Cyber Accent Cut */
+.tech-cut-corner {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    18px 100%,
+    0 calc(100% - 18px)
+  );
+}
+
+/* Buttons */
+.btn-cyber-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00f0ff 0%, #9d00ff 100%);
+  color: #040711;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cyber-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.7), 0 0 15px rgba(157, 0, 255, 0.5);
+  color: #000;
+}
+
+.btn-cyber-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background: rgba(14, 21, 46, 0.8);
+  border: 1px solid var(--border-active);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.btn-cyber-secondary:hover {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  color: var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-cyber-print {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 0, 127, 0.12);
+  border: 1px solid rgba(255, 0, 127, 0.4);
+  color: #ff4da6;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  transition: all var(--transition-normal);
+}
+
+.btn-cyber-print:hover {
+  background: rgba(255, 0, 127, 0.25);
+  border-color: var(--neon-magenta);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Section Header standard */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.section-header .section-subtitle {
+  font-family: var(--font-mono);
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-header .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.section-header .section-desc {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* Section padding */
+section {
+  padding: 96px 0;
+  position: relative;
+}
+
+/* ==========================================================================
+   ANIMATIONS & MICROINTERACTIONS
+   ========================================================================== */
+
+@keyframes pulseGlowCyan {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), 0 0 30px rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 0 50px rgba(0, 240, 255, 0.25);
+  }
+}
+
+@keyframes pulseGlowMagenta {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.7), 0 0 45px rgba(157, 0, 255, 0.3);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes gradShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Applied animation utility classes */
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-cyan {
+  animation: pulseGlowCyan 3s ease-in-out infinite;
+}
+
+.animate-pulse-magenta {
+  animation: pulseGlowMagenta 3s ease-in-out infinite;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background-color: var(--neon-cyan);
+  vertical-align: middle;
+  margin-left: 4px;
+  animation: blinkCursor 0.9s infinite;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-enter {
+  animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scanning Line Effect for Tech Cards */
+.scan-line-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.scan-line-overlay:hover::after {
+  opacity: 1;
+  animation: scanline 2.5s linear infinite;
+}
+
+/* Reduced Motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   PRINT STYLES (@media print) - DOSSIER EJECUTIVO PDF
+   ========================================================================== */
+
+@media print {
+  /* Enforce exact background colors and gradients */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html, body {
+    background-color: #040711 !important;
+    color: #f0f4fc !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide interactive/non-printable elements */
+  .no-print,
+  .navbar-container,
+  .btn-cyber-primary,
+  .btn-cyber-secondary,
+  .btn-cyber-print,
+  .filter-bar,
+  .modal-overlay,
+  .typewriter-cursor,
+  .mobile-menu-toggle,
+  .scan-line-overlay::after {
+    display: none !important;
+  }
+
+  /* Show print-only elements */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Page setup */
+  @page {
+    size: letter portrait;
+    margin: 1.5cm 1.2cm;
+  }
+
+  /* Avoid breaking elements inside cards */
+  .project-card,
+  .glass-panel,
+  .team-card,
+  .capability-card,
+  .impact-card,
+  .section-header,
+  .hero-stats-grid,
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Reorganize sections for paper */
+  section {
+    padding: 30px 0 !important;
+    page-break-after: auto;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  /* Ensure project grid fits 2 clean columns in print */
+  .projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* Card styles in print */
+  .project-card {
+    background: #0a1024 !important;
+    border: 1px solid rgba(0, 240, 255, 0.4) !important;
+    box-shadow: none !important;
+  }
+
+  .project-card .card-media {
+    height: 180px !important;
+  }
+
+  /* Hide GIFs and force static posters in print */
+  .card-media img.gif-media {
+    display: none !important;
+  }
+
+  .card-media img.poster-media {
+    display: block !important;
+  }
+
+  /* High contrast text */
+  h1, h2, h3, h4 {
+    color: #ffffff !important;
+  }
+
+  p, span {
+    color: #cbd5e1 !important;
+  }
+
+  .text-cyan {
+    color: #00f0ff !important;
+  }
+
+  .text-magenta {
+    color: #ff007f !important;
+  }
+
+  .text-gradient, .text-gradient-warm {
+    -webkit-text-fill-color: #00f0ff !important;
+  }
+
+  /* Header banner for print */
+  .print-dossier-header {
+    display: block !important;
+    border-bottom: 2px solid #00f0ff;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+
+  .print-dossier-header .brand-title {
+    font-size: 18pt;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .print-dossier-header .brand-sub {
+    font-size: 10pt;
+    color: #00f0ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+/* Screen defaults for print-only classes */
+.print-only {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Mobile-First)
+   ========================================================================== */
+
+/* Mobile Phones (≤ 480px) */
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .section-header .section-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+
+  .hero-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-content {
+    width: 95% !important;
+    max-height: 92vh !important;
+    padding: 20px !important;
+  }
+
+  .modal-body-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+}
+
+/* Tablets & Small Laptops (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-body-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Medium Desktops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Large Screens (≥ 1025px) */
+@media (min-width: 1025px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Ultra-Wide Screens (≥ 1440px) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1380px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const portfolioData = {"centerInfo": {"name": "Centro de Prototipado & STEAM", "institution": "Unidad Central del Valle del Cauca (UCEVA)", "tagline": "Laboratorio de Innovación, Fabricación Digital & Realidades Extendidas", "badge": "Industria 4.0 & 5.0 • I+D+i", "impactQuote": "Transformamos la curiosidad científica y los retos del entorno en prototipos tangibles de alto impacto tecnológico.", "description": "El Centro de Prototipado surgió en el año 2023 como respuesta a las necesidades tecnológicas de la comunidad docente, estudiantil e investigadores de la UCEVA. Desarrolla capacidades en desarrollo físico, tecnológico y científico con un equipo interdisciplinario preparado para responder a la Industria 4.0 y 5.0.", "purpose": "Consolidar un ecosistema universitario de vanguardia que integre la investigación aplicada, el prototipado rápido, la inteligencia artificial y la computación espacial al servicio de la educación y el tejido productivo regional."}, "developmentLines": [{"id": "line-xr", "name": "Realidades Extendidas (XR)", "subtitle": "VR • AR • MR • WebXR", "count": 4, "desc": "Simuladores inmersivos para salud pública, divulgación científica en WebAR y spatial computing en Realidad Mixta con Meta Quest 3.", "techs": ["Unity 3D", "Unreal Engine", "Meta Quest SDK", "WebXR", "Three.js", "Spatial Anchors"], "image": "/assets/posters/simulador_museo_del_dengue_vr.jpg", "badgeColor": "cyan"}, {"id": "line-ia", "name": "Inteligencia Artificial & Visión", "subtitle": "Deep Learning • Computer Vision • Biometría", "count": 2, "desc": "Modelos de estimación postural (Motion Tracking) sin marcadores y análisis biométrico de respuestas emocionales en Neuromarketing.", "techs": ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Facial Landmark", "Deep Learning"], "image": "/assets/posters/motion_tracker_ia.jpg", "badgeColor": "magenta"}, {"id": "line-3d", "name": "Gemelos Digitales & Fotogrametría", "subtitle": "Nubes de Puntos • Mallas 3D • Digital Humans", "count": 2, "desc": "Levantamiento aerofotogramétrico de campus y digitalización humana para avatares hiperrealistas con texturas 8K.", "techs": ["Agisoft Metashape", "Drones DJI", "CloudCompare", "Blender", "ZBrush", "Mallas 3D"], "image": "/assets/projects/slide_render_12.jpg", "badgeColor": "purple"}, {"id": "line-aero", "name": "Aeronáutica & Robótica Aérea", "subtitle": "UAVs • Aviónica Pixhawk • Telemetría", "count": 1, "desc": "Diseño aerodinámico, prototipado de chasis en compuestos de carbono, integración de controladores de vuelo e inspección aérea.", "techs": ["CAD Aeronáutico", "Pixhawk", "ArduPilot", "Telemetría RF", "Motores Brushless", "CNC"], "image": "/assets/posters/construccion_aeronaves_drones.jpg", "badgeColor": "orange"}, {"id": "line-fab", "name": "Fabricación Digital & Economía Circular", "subtitle": "Impresión 3D • Mecanizado CNC • Reciclaje", "count": 2, "desc": "Maquinaria de triturado para reciclaje de polímeros (PET/PLA) y manufactura aditiva técnica FDM/SLA de alta precisión.", "techs": ["SolidWorks", "Corte Láser CNC", "Impresoras FDM & Resina", "Extrusión", "FEA Analysis"], "image": "/assets/projects/minitrituradora_plastico.jpg", "badgeColor": "green"}, {"id": "line-iot", "name": "Electrónica, IoT & Smart Cities", "subtitle": "PCBs Custom • LoRaWAN • Energía Solar", "count": 2, "desc": "Diseño y fabricación in-house de placas de circuito impreso y redes de telemetría meteorológica conectadas 24/7.", "techs": ["KiCad", "ESP32", "LoRaWAN", "MQTT", "Sensores Ambientales", "Energía Solar"], "image": "/assets/projects/slide_render_21.jpg", "badgeColor": "cyan"}], "projects": [{"id": "vr-museo-dengue", "slide": 15, "title": "Simulador VR: Museo del Dengue", "category": "Realidad Virtual (VR)", "lineId": "line-xr", "tag": "Salud Pública & Divulgación", "devType": "Simulador Inmersivo / Prototipo Funcional", "bentoSpan": "span-large", "shortDesc": "Museo interactivo en Realidad Virtual para sensibilizar sobre el ciclo biológico del mosquito Aedes aegypti y prevención en comunidades.", "fullDesc": "Entorno inmersivo de Realidad Virtual desarrollado para Meta Quest que recrea el ciclo de vida del mosquito transmisor del dengue a escala microscópica y macroscópica. Permite a los usuarios interactuar con escenarios residenciales, identificar criaderos y aprender protocolos de erradicación mediante dinámicas lúdicas de alto impacto pedagógico.", "techStack": ["Meta Quest 2/3", "Unity VR", "Modelado Anatómico 3D", "Shaders PBR", "C#", "Audio Espacial"], "role": "Dirección técnica, modelado biológico 3D, programación de interacciones físicas y despliegue en campo", "featured": true, "previewImage": "assets/posters/simulador_museo_del_dengue_vr.jpg", "gif": "assets/gifs/simulador_museo_del_dengue_vr.gif", "video": "/assets/videos/museo_del_dengue_vr.mp4", "gallery": ["assets/posters/simulador_museo_del_dengue_vr.jpg", "assets/projects/slide_render_15.jpg", "assets/projects/slide_render_9.jpg", "assets/projects/slide_render_10.jpg", "assets/projects/slide_render_11.jpg"], "metrics": {"impacto": "Proyección comunitaria en colegios del Valle", "plataforma": "Meta Quest Standalone 6DOF", "validación": "Herramienta de Salud Pública UCEVA"}}, {"id": "mr-campus-uceva", "slide": 17, "title": "Campus UCEVA Realidad Mixta (MR)", "category": "Realidad Mixta (MR)", "lineId": "line-xr", "tag": "Spatial Computing", "devType": "Sistema Holográfico / Passthrough", "bentoSpan": "span-wide", "shortDesc": "Superposición holográfica e interactiva de la maqueta digital e información del campus universitario sobre el entorno real.", "fullDesc": "Sistema de Realidad Mixta que ancla hologramas interactivos del campus UCEVA sobre mesas y espacios físicos utilizando spatial mapping y hand tracking nativo de Meta Quest 3, permitiendo inspeccionar bloques académicos, telemetría y áreas verdes con las manos.", "techStack": ["Meta Quest 3 Passthrough", "Spatial Anchors", "Unity MR", "Hand Tracking", "Occlusion Culling", "C#"], "role": "Arquitectura de Spatial Mapping, desarrollo del tracking gestual y shaders holográficos", "featured": true, "previewImage": "assets/posters/campus_uceva_mr_1.jpg", "gif": "assets/gifs/campus_uceva_mr_1.gif", "video": "/assets/videos/campus_uceva_mr_1.mp4", "gallery": ["assets/posters/campus_uceva_mr_1.jpg", "assets/posters/campus_uceva_mr_2.jpg", "assets/projects/slide_render_17.jpg"], "metrics": {"control": "Reconocimiento de manos sin mandos (100% Hand Tracking)", "visualización": "Passthrough a todo color en tiempo real", "precisión": "Anclaje espacial persistente"}}, {"id": "ia-motion-tracker", "slide": 23, "title": "Motion Tracker con IA & Computer Vision", "category": "Inteligencia Artificial", "lineId": "line-ia", "tag": "Markerless Pose Tracking", "devType": "Algoritmo de IA / Pipeline en Tiempo Real", "bentoSpan": "span-medium", "shortDesc": "Sistema inteligente de rastreo cinemático y estimación de posturas humanas en 3D sin sensores corporales adheridos.", "fullDesc": "Pipeline de aprendizaje profundo basado en visión artificial que detecta y realiza seguimiento tridimensional de 33 puntos de referencia articulares del cuerpo humano a partir de cámaras convencionales, aplicable a biomecánica deportiva, ergonomía y control gestual.", "techStack": ["MediaPipe / OpenPose", "Python / C++", "Computer Vision", "3D Kinematics", "Análisis de Datos"], "role": "Desarrollo del algoritmo de extracción de coordenadas 3D y calibración en tiempo real", "featured": true, "previewImage": "assets/posters/motion_tracker_ia.jpg", "gif": "assets/gifs/motion_tracker_ia.gif", "video": "/assets/videos/motion_tracker_ia.mp4", "gallery": ["assets/posters/motion_tracker_ia.jpg", "assets/projects/slide_render_23.jpg"], "metrics": {"articulaciones": "33 Puntos clave anatómicos", "rendimiento": "30+ FPS en hardware estándar", "metodología": "Markerless (Sin trajes costosos)"}}, {"id": "prototipado-aeronaves-drones", "slide": 19, "title": "Construcción de Aeronaves No Tripuladas (UAVs)", "category": "Aeronáutica & Robótica", "lineId": "line-aero", "tag": "Hardware & Fabricación", "devType": "Prototipo Físico / Vuelo Autónomo", "bentoSpan": "span-medium", "shortDesc": "Diseño, fabricación digital y telemetría de drones y aeronaves para aplicaciones de teledetección y monitoreo.", "fullDesc": "Diseño aerodinámico, prototipado rápido en fibra de carbono y polímeros de ingeniería, integración de aviónica Pixhawk de código abierto, configuración de telemetría de largo alcance y pruebas en banco dinámico para aplicaciones ambientales y agrícolas.", "techStack": ["CAD Aeronáutico", "Impresión 3D / CNC", "Pixhawk Flight Controller", "ArduPilot", "Telemetría RF"], "role": "Diseño estructural CAD, ensamble de aviónica y sistemas de propulsión brushless", "featured": true, "previewImage": "assets/posters/construccion_aeronaves_drones.jpg", "gif": "assets/gifs/construccion_aeronaves_drones.gif", "video": "/assets/videos/aeronaves_drones.mp4", "gallery": ["assets/posters/construccion_aeronaves_drones.jpg", "assets/projects/slide_render_19.jpg"], "metrics": {"autonomía": "Plataforma para vuelos de inspección", "controlador": "Pixhawk Open Source Firmware", "estructura": "Compuestos ligeros + Manufactura Aditiva"}}, {"id": "vr-acoso-callejero", "slide": 14, "title": "Visualizador para Sensibilización: Acoso Callejero VR", "category": "Realidad Virtual (VR)", "lineId": "line-xr", "tag": "Impacto Social & Empatía", "devType": "Experiencia Inmersiva VR", "bentoSpan": "span-medium", "shortDesc": "Experiencia interactiva en Realidad Virtual orientada a generar empatía y conciencia sobre el acoso en el espacio público.", "fullDesc": "Simulador inmersivo desarrollado para colocar al usuario en situaciones cotidianas de acoso callejero desde una perspectiva de primera persona, promoviendo la empatía ciudadana y la prevención de violencias de género en entornos urbanos y universitarios.", "techStack": ["Unity 3D", "Meta Quest 2/3", "Audio 3D Espacial Binaural", "Animación 3D", "C#"], "role": "Diseño de escenarios, guion interactivo, programación de eventos y optimización VR", "featured": true, "previewImage": "assets/posters/visualizador_acoso_callejero_vr.jpg", "gif": "assets/gifs/visualizador_acoso_callejero_vr.gif", "video": "/assets/videos/acoso_callejero_vr.mp4", "gallery": ["assets/posters/visualizador_acoso_callejero_vr.jpg", "assets/projects/slide_render_14.jpg"], "metrics": {"enfoque": "Sensibilización y formación ciudadana", "audio": "Sonido binaural 360° direccional", "plataforma": "Meta Quest Standalone"}}, {"id": "ar-web-divulgacion", "slide": 16, "title": "Aplicativo Web AR para Divulgación", "category": "Realidad Aumentada (AR)", "lineId": "line-xr", "tag": "WebXR Zero-Install", "devType": "Web Application / WebAR", "bentoSpan": "span-medium", "shortDesc": "Plataforma WebAR que permite proyectar modelos 3D interactivos en el mundo real desde cualquier navegador móvil.", "fullDesc": "Aplicativo de Realidad Aumentada web que permite a estudiantes y visitantes escanear códigos QR y visualizar modelos 3D interactivos superpuestos en su entorno físico sin necesidad de instalar apps desde tiendas, logrando máxima accesibilidad.", "techStack": ["WebXR", "Three.js / A-Frame", "MindAR", "JavaScript", "HTML5 / CSS3", "GLTF"], "role": "Arquitectura WebAR, compresión de mallas poligonales y desarrollo frontend responsive", "featured": true, "previewImage": "assets/posters/aplicativo_web_ar_divulgacion.jpg", "gif": "assets/gifs/aplicativo_web_ar_divulgacion.gif", "video": "/assets/videos/webar_divulgacion.mp4", "gallery": ["assets/posters/aplicativo_web_ar_divulgacion.jpg", "assets/projects/slide_render_16.jpg"], "metrics": {"acceso": "100% en navegador (Zero-Install)", "compatibilidad": "iOS Safari & Android Chrome", "tasa_cuadros": "60 FPS fluidos en smartphones"}}, {"id": "fotogrametria-campus", "slide": 12, "title": "Fotogrametría Campus UCEVA", "category": "Fotogrametría & 3D", "lineId": "line-3d", "tag": "Gemelos Digitales", "devType": "Levantamiento Aerofotogramétrico", "bentoSpan": "span-medium", "shortDesc": "Reconstrucción digital tridimensional de alta precisión de las instalaciones del campus universitario UCEVA.", "fullDesc": "Levantamiento con drones y sensores terrestres para generar gemelos digitales con millones de puntos de alta precisión, mallas poligonales optimizadas y ortofotos georreferenciadas para planificación de infraestructura.", "techStack": ["Fotogrametría Aérea", "Agisoft Metashape", "Drones DJI", "Modelado 3D", "CloudCompare"], "role": "Captura aerofotogramétrica, densificación de nubes de puntos y texturizado 3D", "featured": false, "previewImage": "assets/projects/slide_render_12.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_12.jpg", "extracted_assets/images/page_12_img_1.png", "extracted_assets/images/page_12_img_2.jpeg"], "metrics": {"resolución": "GSD < 2 cm/pixel", "salida": "Mallas OBJ/FBX y nubes LAS", "área": "Campus completo UCEVA"}}, {"id": "fotogrametria-personas", "slide": 13, "title": "Fotogrametría a Personas & Avatares 3D", "category": "Fotogrametría & 3D", "lineId": "line-3d", "tag": "Digital Humans", "devType": "Escaneo Corporal & Facial", "bentoSpan": "span-medium", "shortDesc": "Digitalización corporal y facial para avatares 3D hiperrealistas en entornos virtuales y de metaverso.", "fullDesc": "Pipeline de escaneo fotogramétrico sincronizado para crear réplicas digitales humanas de alta fidelidad, retopología limpia y texturas 8K para su uso en simulaciones VR y producción de medios transmedia.", "techStack": ["Fotogrametría Multicámara", "Texturizado 8K", "Blender", "ZBrush", "Rigging Humanoide"], "role": "Calibración fotográfica, reconstrucción volumétrica y rigging anatómico", "featured": false, "previewImage": "assets/projects/slide_render_13.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_13.jpg", "extracted_assets/images/page_13_img_1.png"], "metrics": {"textura": "Mapas de textura 8K HDR", "geometría": "Malla optimizada para VR en tiempo real"}}, {"id": "diseno-minitrituradora-plastico", "slide": 24, "title": "Minitrituradora de Plástico para Reciclaje", "category": "Diseño & Fabricación Digital", "lineId": "line-fab", "tag": "Economía Circular & Sostenibilidad", "devType": "Maquinaria Electromecánica", "bentoSpan": "span-medium", "shortDesc": "Diseño y manufactura de maquinaria de triturado para reutilización de termoplásticos en impresión 3D.", "fullDesc": "Diseño de ingeniería mecánica, análisis de elementos finitos (FEA) y mecanizado CNC de una trituradora compacta de polímeros (PET, HDPE, PLA) para reinsertar el plástico desechado como materia prima de filamento para impresión 3D.", "techStack": ["SolidWorks / Fusion 360", "Corte Láser CNC", "Torneado & Fresado", "Motorreductor", "FEA Analysis"], "role": "Diseño mecánico de cuchillas y eje, simulación de esfuerzos y ensamble", "featured": true, "previewImage": "assets/projects/minitrituradora_plastico.jpg", "gif": null, "video": null, "gallery": ["assets/projects/minitrituradora_plastico.jpg", "assets/projects/slide_render_24.jpg"], "metrics": {"rendimiento": "5 kg/h de procesamiento", "aplicación": "Extrusión de filamento 3D reciclado"}}, {"id": "recorrido-360-cenicafe", "slide": 18, "title": "Recorrido Web 360° CENICAFÉ", "category": "Tours Virtuales 360°", "lineId": "line-xr", "tag": "Inmersión Web", "devType": "Plataforma Web Interactiva", "bentoSpan": "span-medium", "shortDesc": "Tour virtual interactivo e inmersivo en 360 grados por los laboratorios científicos de CENICAFÉ.", "fullDesc": "Desarrollo de plataforma web interactiva de recorridos en 360 grados para el Centro Nacional de Investigaciones de Café, integrando hotspots multimedia interactivos, navegación guiada y compatibilidad con pantallas y visores VR.", "techStack": ["Fotografía Esférica 360°", "Pannellum / WebGL", "Hotspots Multimedia", "HTML5/CSS3"], "role": "Captura fotográfica panorámica HDR, programación de puntos de interacción y despliegue web", "featured": false, "previewImage": "assets/projects/slide_render_18.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_18.jpg"], "metrics": {"calidad": "Panorámicas esféricas 12K HDR", "alianza": "Divulgación científica nacional CENICAFÉ"}}, {"id": "iot-estacion-meteorologica", "slide": 21, "title": "Sistema Meteorológico IoT & Smart Cities", "category": "IoT & Ciudades Inteligentes", "lineId": "line-iot", "tag": "Telemetría Cloud", "devType": "Dispositivo IoT Autónomo", "bentoSpan": "span-medium", "shortDesc": "Red de monitoreo ambiental y meteorológico en tiempo real con transmisión inalámbrica LoRaWAN y alimentación solar.", "fullDesc": "Estación meteorológica autónoma con sensores de temperatura, humedad, presión, radiación solar y calidad del aire. Integra panel solar, microcontrolador de ultrabajo consumo y transmisión de telemetría hacia la nube.", "techStack": ["ESP32 / LoRaWAN", "Sensores Ambientales", "MQTT / HTTP REST", "Dashboard Web", "Energía Solar"], "role": "Integración de sensórica, firmware de bajo consumo y plataforma de visualización en la nube", "featured": false, "previewImage": "assets/projects/slide_render_21.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_21.jpg"], "metrics": {"operación": "24/7 Autónoma con Energía Solar", "alcance": "Comunicación LoRaWAN de largo alcance"}}, {"id": "diseno-placas-electronicas", "slide": 20, "title": "Diseño & Fabricación de Placas Electrónicas (PCBs)", "category": "Electrónica & Hardware", "lineId": "line-iot", "tag": "PCB Custom", "devType": "Hardware Electrónico Custom", "bentoSpan": "span-medium", "shortDesc": "Ingeniería de esquemáticos, ruteo multicapa y fabricación de circuitos impresos para sistemas embebidos.", "fullDesc": "Desarrollo completo de hardware electrónico: concepción de circuitos, ruteo de pistas de alta frecuencia, fresado CNC de cobre, ensamble SMD con soldadura por reflujo y pruebas de validación con osciloscopio.", "techStack": ["KiCad / EasyEDA", "Microcontroladores ESP32/STM32", "Diseño SMD/SMT", "Fresado PCB CNC"], "role": "Diseño esquemático, layout de PCB multicapa y manufactura física", "featured": false, "previewImage": "assets/projects/slide_render_20.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_20.jpg"], "metrics": {"tecnología": "Montaje superficial SMD 0603", "fabricación": "Prototipado in-house en minutos"}}, {"id": "ia-neuromarketing", "slide": 22, "title": "Proyectos IA + Neuromarketing", "category": "Inteligencia Artificial", "lineId": "line-ia", "tag": "Biometría & Visión", "devType": "Modelo de Investigación / Visión Artificial", "bentoSpan": "span-medium", "shortDesc": "Análisis biométrico de emociones, atención visual y mapas de calor cognitivos mediante visión por computador.", "fullDesc": "Modelos de inteligencia artificial para decodificar microexpresiones faciales y zonas de fijación de la mirada (Heatmaps) en usuarios frente a estímulos multimedia, combinando visión artificial y neurociencia aplicada.", "techStack": ["Python", "OpenCV", "TensorFlow", "Eye Tracking", "Heatmap Generation"], "role": "Entrenamiento de clasificadores de microexpresiones y pipeline de análisis visual", "featured": false, "previewImage": "assets/projects/slide_render_22.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_22.jpg"], "metrics": {"precisión": ">94% en clasificación emocional", "procesamiento": "Análisis de video en tiempo real"}}, {"id": "diseno-soportes-elementos-3d", "slide": 25, "title": "Soportes & Elementos Mecánicos Personalizados 3D", "category": "Diseño & Fabricación Digital", "lineId": "line-fab", "tag": "Manufactura Aditiva", "devType": "Piezas Funcionales de Ingeniería", "bentoSpan": "span-medium", "shortDesc": "Desarrollo de piezas de ingeniería, carcasas y soportes funcionales mediante manufactura aditiva FDM/SLA.", "fullDesc": "Ingeniería inversa y diseño paramétrico para producir piezas mecánicas a medida en polímeros técnicos (PETG, Nylon, Fibra de Carbono, Resina Tough) para laboratorios y proyectos de investigación.", "techStack": ["CAD Paramétrico", "Impresoras FDM & Resina SLA", "Materiales Técnicos (Nylon, Carbon)", "Ingeniería Inversa"], "role": "Modelado CAD paramétrico y parametrización de impresión 3D técnica", "featured": false, "previewImage": "assets/projects/slide_render_25.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_25.jpg"], "metrics": {"tolerancia": "Precisión milimétrica ±0.1 mm", "materiales": "PETG, ABS, Fibra de Carbono, Resina"}}], "team": {"professionals": [{"name": "Juan Sebastián Correa Fernández", "role": "Coordinador del Centro STEAM / Prototipado", "degrees": ["Ing. Electrónico", "Mgtr. Instrumentación Física"], "focus": "Liderazgo técnico, instrumentación, gestión de proyectos 4.0/5.0", "avatar": "assets/team/page_3_img_2.jpeg"}, {"name": "Juan David Villegas Tamayo", "role": "Experto STEM+", "degrees": ["Ing. Electrónico", "Mgtr. Medio Ambiente"], "focus": "Pedagogía STEAM+, sostenibilidad, tecnologías verdes", "avatar": "assets/team/page_3_img_3.jpeg"}, {"name": "David Tenorio Cruz", "role": "Experto en Fabricación & Prototipado", "degrees": ["Ing. Aeronáutico"], "focus": "Diseño aeroespacial, drones, mecanizado CNC, manufactura aditiva", "avatar": "assets/team/page_3_img_4.jpeg"}, {"name": "Alberto José Duque", "role": "Especialista en IA & Modelos AA", "degrees": ["Ing. Biomédico", "Estudiante Mg. Pedagogía"], "focus": "Machine Learning, visión artificial, tecnologías biomédicas", "avatar": "assets/team/page_3_img_5.jpeg"}, {"name": "David G. Bustamante Herrera", "role": "Especialista en Inteligencia Artificial", "degrees": ["Ing. Mecatrónico", "Mgtr. Inteligencia Artificial"], "focus": "Robótica avanzada, deep learning, control inteligente", "avatar": "assets/team/page_3_img_6.jpeg"}, {"name": "Ingrid Tatiana Bocanegra García", "role": "Experta en Vocaciones Científicas", "degrees": ["Ing. Mecatrónica"], "focus": "Fomento de vocaciones STEAM, divulgación científica, robótica educativa", "avatar": "assets/team/page_3_img_7.jpeg"}], "support": [{"name": "Georleans González Marmolejo", "role": "Monitor Centro STEAM (UX/UI / Electrónica)", "degree": "Estudiante Ing. Electrónica 9°"}, {"name": "Michael Andrés Hernández", "role": "Desarrollador VR/AR/MR", "degree": "Ing. de Sistemas"}, {"name": "Alejandro Burbano Vivas", "role": "Estudiante Practicante VR/AR/MR", "degree": "Estudiante Ing. Sistemas 10°"}, {"name": "Lidier Felipe Sicacha Granado", "role": "Estudiante Practicante Software/XR", "degree": "Estudiante Ing. Sistemas 10°"}, {"name": "Eliana López Franco", "role": "Estudiante Monitora Electrónica", "degree": "Estudiante Ing. Electrónica 7°"}, {"name": "Samuel Lozano Vásquez", "role": "Estudiante Voluntario", "degree": "Estudiante Ing. Electrónica 9°"}, {"name": "Miguel Ángel Peláez Valencia", "role": "Estudiante Voluntario", "degree": "Estudiante Ing. Electrónica 9°"}, {"name": "María Camila Tigreros Sánchez", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Valery Gabriela Guerrero Macías", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Ana Sofía Guzmán Díaz", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Luisa Fernanda Madrigal Suárez", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Kelly Johanna Arboleda Grueso", "role": "Científica Voluntaria", "degree": "Ingeniera Agropecuaria"}]}};
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    function Navbar({ onPrintPdf }) {
+      const [scrolled, setScrolled] = useState(false);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [activeSection, setActiveSection] = useState('hero');
+
+      useEffect(() => {
+        const handleScroll = () => {
+          setScrolled(window.scrollY > 40);
+          const sections = ['hero', 'about', 'projects', 'capabilities', 'team', 'contact'];
+          const scrollPos = window.scrollY + 200;
+          for (const sec of sections) {
+            const el = document.getElementById(sec);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPos >= top && scrollPos < top + height) {
+                setActiveSection(sec);
+                break;
+              }
+            }
+          }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      const navLinks = [
+        { id: 'hero', label: 'Inicio' },
+        { id: 'about', label: 'El Centro' },
+        { id: 'projects', label: 'Proyectos' },
+        { id: 'capabilities', label: 'Equipos' },
+        { id: 'team', label: 'Equipo' },
+        { id: 'contact', label: 'Contacto' }
+      ];
+
+      const scrollTo = (id) => {
+        setMobileMenuOpen(false);
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      return (
+        <header className={`navbar-header no-print ${scrolled ? 'scrolled' : ''}`}>
+          <div className="container nav-inner">
+            <a href="#hero" className="nav-brand" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}>
+              <div className="brand-icon-hex">
+                <svg viewBox="0 0 100 100" className="hex-svg">
+                  <polygon points="50 3, 93 25, 93 75, 50 97, 7 75, 7 25" fill="none" stroke="currentColor" strokeWidth="6" />
+                </svg>
+                <span className="brand-letter">U</span>
+              </div>
+              <div className="brand-text">
+                <span className="brand-main">CENTRO STEAM</span>
+                <span className="brand-sub">UCEVA • PROTOTIPADO</span>
+              </div>
+            </a>
+
+            <nav className="nav-links-desktop">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
+                  className={`nav-link-btn ${activeSection === link.id ? 'active' : ''}`}
+                >
+                  {link.label}
+                  {activeSection === link.id && <span className="nav-link-indicator" />}
+                </button>
+              ))}
+            </nav>
+
+            <div className="nav-actions">
+              <a href="opcion2.html" className="btn-cyber-secondary" style={{ padding: '8px 16px', fontSize: '0.8rem' }} title="Ir a la Opción 2">
+                <span>🔬 Ver Opción 2</span>
+              </a>
+              <button onClick={onPrintPdf} className="btn-cyber-print" title="Guardar dossier PDF">
+                <span>Dossier PDF</span>
+              </button>
+            </div>
+          </div>
+        </header>
+      );
+    }
+
+    const TYPEWRITER_PHRASES = [
+      'Realidades Extendidas (VR / AR / MR)',
+      'Inteligencia Artificial & Modelos AA',
+      'Gemelos Digitales & Fotogrametría 3D',
+      'Aeronáutica & Drones No Tripulados',
+      'Diseño & Fabricación Digital 3D',
+      'IoT & Ciudades Inteligentes'
+    ];
+
+    function Hero({ onPrintPdf }) {
+      const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+      const [currentText, setCurrentText] = useState('');
+      const [isDeleting, setIsDeleting] = useState(false);
+      const canvasRef = useRef(null);
+
+      useEffect(() => {
+        const fullPhrase = TYPEWRITER_PHRASES[currentPhraseIndex];
+        const typingSpeed = isDeleting ? 40 : 80;
+        const timer = setTimeout(() => {
+          if (!isDeleting) {
+            setCurrentText(fullPhrase.substring(0, currentText.length + 1));
+            if (currentText === fullPhrase) setTimeout(() => setIsDeleting(true), 2000);
+          } else {
+            setCurrentText(fullPhrase.substring(0, currentText.length - 1));
+            if (currentText === '') {
+              setIsDeleting(false);
+              setCurrentPhraseIndex((prev) => (prev + 1) % TYPEWRITER_PHRASES.length);
+            }
+          }
+        }, typingSpeed);
+        return () => clearTimeout(timer);
+      }, [currentText, isDeleting, currentPhraseIndex]);
+
+      useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+        let width = (canvas.width = canvas.parentElement.offsetWidth);
+        let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+        const particleCount = Math.min(50, Math.floor(width / 24));
+        const particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
+            radius: Math.random() * 2 + 1,
+            color: Math.random() > 0.5 ? '#00f0ff' : '#9d00ff'
+          });
+        }
+
+        const render = () => {
+          ctx.clearRect(0, 0, width, height);
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            for (let j = i + 1; j < particles.length; j++) {
+              const p2 = particles[j];
+              const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+              if (dist < 100) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 100)})`;
+                ctx.stroke();
+              }
+            }
+          }
+          animationFrameId = requestAnimationFrame(render);
+        };
+        render();
+
+        return () => cancelAnimationFrame(animationFrameId);
+      }, []);
+
+      const scrollTo = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      return (
+        <section id="hero" className="hero-section">
+          <canvas ref={canvasRef} className="hero-canvas" />
+          <div className="container hero-container">
+            <div className="hero-badge-wrap">
+              <div className="badge badge-cyan animate-pulse-cyan">
+                <span className="live-dot" />
+                <span>INDUSTRIA 4.0 &amp; 5.0 • UCEVA</span>
+              </div>
+            </div>
+
+            <h1 className="hero-title">
+              Centro de Prototipado <br />
+              <span className="text-gradient">&amp; STEAM UCEVA</span>
+            </h1>
+
+            <div className="hero-typewriter-box">
+              <span className="typewriter-prefix">&gt; Especialidad: </span>
+              <span className="typewriter-text">{currentText}</span>
+              <span className="typewriter-cursor" />
+            </div>
+
+            <p className="hero-desc">
+              Ecosistema de investigación aplicada, fabricación digital y tecnologías inmersivas de la <strong>Unidad Central del Valle del Cauca</strong>. Transformamos retos de la comunidad académica y el sector productivo en soluciones tangibles.
+            </p>
+
+            <div className="hero-cta-group">
+              <button onClick={() => scrollTo('projects')} className="btn-cyber-primary">
+                <span>Explorar Proyectos</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <button onClick={() => scrollTo('capabilities')} className="btn-cyber-secondary">
+                <span>Ver Equipamiento</span>
+              </button>
+            </div>
+
+            <div className="hero-stats-grid glass-panel">
+              <div className="stat-card">
+                <span className="stat-number text-gradient">14+</span>
+                <span className="stat-label">Proyectos de I+D</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat-card">
+                <span className="stat-number text-cyan">8</span>
+                <span className="stat-label">Líneas Tecnológicas</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat-card">
+                <span className="stat-number text-magenta">18+</span>
+                <span className="stat-label">Investigadores &amp; Red</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat-card">
+                <span className="stat-number text-gradient-warm">100%</span>
+                <span className="stat-label">Prototipado In-House</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function AboutCenter({ centerInfo }) {
+      return (
+        <section id="about" className="about-section">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-subtitle">&lt; GESTIÓN DE INNOVACIÓN &amp; PROTOTIPADO /&gt;</span>
+              <h2 className="section-title">Acerca del <span className="text-gradient">Centro STEAM UCEVA</span></h2>
+              <p className="section-desc">Surgido en el año 2023 como el motor de transferencia tecnológica e innovación abierta de la UCEVA.</p>
+            </div>
+            <div className="glass-panel" style={{ padding: '36px 40px' }}>
+              <span className="badge badge-purple" style={{ marginBottom: '16px' }}>Trayectoria 2023 – Presente</span>
+              <h3 style={{ fontSize: '1.8rem', marginBottom: '16px', color: '#fff' }}>
+                Respuesta Tecnológica para la <span className="text-cyan">Industria 4.0 &amp; 5.0</span>
+              </h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '16px' }}>
+                {centerInfo.description}
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px' }}>
+                {centerInfo.domains.map((d, i) => (
+                  <span key={i} className="badge" style={{ textTransform: 'none', fontSize: '0.85rem' }}>
+                    ⚡ {d}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function ProjectCard({ project, onSelect }) {
+      const [isHovered, setIsHovered] = useState(false);
+      return (
+        <div 
+          className="project-card glass-panel scan-line-overlay"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onClick={() => onSelect(project)}
+        >
+          <div className="card-media-wrapper">
+            <img 
+              src={(project.gif && isHovered) ? project.gif : (project.previewImage || project.gallery[0])} 
+              alt={project.title}
+              className="card-img"
+              onError={(e) => { e.target.src = 'assets/projects/slide_render_1.jpg'; }}
+            />
+            <div className="media-overlay-top">
+              <span className="badge badge-cyan">{project.category}</span>
+              {project.gif && <span className="live-demo-tag"><span className="pulse-dot" />DEMO VIVO</span>}
+            </div>
+            <div className="slide-tag-badge">Slide {project.slide}</div>
+          </div>
+          <div className="card-content">
+            <span className="project-tag-pill">{project.tag}</span>
+            <h3 className="card-title">{project.title}</h3>
+            <p className="card-desc">{project.shortDesc}</p>
+            <div className="card-tech-stack">
+              {project.techStack.slice(0, 3).map((tech, idx) => (
+                <span key={idx} className="tech-badge">{tech}</span>
+              ))}
+            </div>
+            <div className="card-footer-action">
+              <span>Ver Proyecto &amp; Galería</span>
+              <div className="action-icon">→</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function ProjectGrid({ projects, onSelectProject }) {
+      const [selectedCategory, setSelectedCategory] = useState('ALL');
+      const [searchQuery, setSearchQuery] = useState('');
+
+      const categories = [
+        { id: 'ALL', label: 'Todos' },
+        { id: 'VR', label: 'Realidad Virtual (VR)' },
+        { id: 'AR', label: 'Realidad Aumentada (AR)' },
+        { id: 'MR', label: 'Realidad Mixta (MR)' },
+        { id: 'IA', label: 'Inteligencia Artificial' },
+        { id: '3D', label: 'Fotogrametría & 3D' },
+        { id: 'Drones', label: 'Aeronáutica & Drones' },
+        { id: 'IoT', label: 'Electrónica & IoT' },
+        { id: 'FAB', label: 'Fabricación Digital' }
+      ];
+
+      const filtered = useMemo(() => {
+        return projects.filter(item => {
+          let matchCat = true;
+          if (selectedCategory !== 'ALL') {
+            if (selectedCategory === 'VR') matchCat = item.category.includes('VR');
+            else if (selectedCategory === 'AR') matchCat = item.category.includes('AR');
+            else if (selectedCategory === 'MR') matchCat = item.category.includes('MR');
+            else if (selectedCategory === 'IA') matchCat = item.category.includes('IA');
+            else if (selectedCategory === '3D') matchCat = item.category.includes('Fotogrametría') || item.category.includes('360');
+            else if (selectedCategory === 'Drones') matchCat = item.category.includes('Aeronáutica');
+            else if (selectedCategory === 'IoT') matchCat = item.category.includes('IoT') || item.category.includes('Electrónica');
+            else if (selectedCategory === 'FAB') matchCat = item.category.includes('Diseño') || item.category.includes('Fabricación');
+          }
+          let matchSearch = true;
+          if (searchQuery.trim() !== '') {
+            const q = searchQuery.toLowerCase();
+            matchSearch = item.title.toLowerCase().includes(q) || item.fullDesc.toLowerCase().includes(q) || item.techStack.some(t => t.toLowerCase().includes(q));
+          }
+          return matchCat && matchSearch;
+        });
+      }, [projects, selectedCategory, searchQuery]);
+
+      return (
+        <section id="projects" className="projects-section">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-subtitle">&lt; PORTAFOLIO DE I+D+i /&gt;</span>
+              <h2 className="section-title">Desarrollos &amp; <span className="text-gradient">Proyectos Tecnológicos</span></h2>
+              <p className="section-desc">Soluciones inmersivas, gemelos digitales, hardware de precisión y sistemas de IA de la UCEVA.</p>
+            </div>
+
+            <div className="filter-controls-wrap no-print">
+              <div className="filter-tabs-scroll">
+                <div className="filter-tabs">
+                  {categories.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedCategory(cat.id)}
+                      className={`filter-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="filter-search-row">
+                <div className="search-input-box">
+                  <input
+                    type="text"
+                    placeholder="Buscar por tecnología, nombre o rol..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="search-input"
+                  />
+                </div>
+                <div className="projects-counter-badge">
+                  Mostrando: <strong>{filtered.length}</strong> proyectos
+                </div>
+              </div>
+            </div>
+
+            <div className="projects-grid">
+              {filtered.map(p => (
+                <ProjectCard key={p.id} project={p} onSelect={onSelectProject} />
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function ProjectModal({ project, onClose }) {
+      const [mediaIdx, setMediaIdx] = useState(0);
+      useEffect(() => {
+        const handleKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [onClose]);
+
+      if (!project) return null;
+
+      const mediaList = [];
+      if (project.gif) mediaList.push({ type: 'gif', src: project.gif, label: 'Demo GIF' });
+      if (project.gallery) {
+        project.gallery.forEach((img, i) => mediaList.push({ type: 'img', src: img, label: `Img ${i+1}` }));
+      }
+
+      const current = mediaList[mediaIdx] || mediaList[0];
+
+      return (
+        <div className="modal-overlay" onClick={onClose}>
+          <div className="modal-content glass-panel modal-enter" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div className="modal-header-meta">
+                <span className="badge badge-cyan">{project.category}</span>
+                <span className="badge badge-purple">{project.tag}</span>
+                <span className="slide-num-pill">Slide {project.slide}</span>
+              </div>
+              <button className="modal-close-btn" onClick={onClose}>✕</button>
+            </div>
+
+            <h2 className="modal-title">{project.title}</h2>
+
+            <div className="modal-body-grid">
+              <div className="modal-media-col">
+                <div className="modal-media-main-box">
+                  <img src={current.src} alt={project.title} className="modal-display-media" onError={(e) => { e.target.src = 'assets/projects/slide_render_1.jpg'; }} />
+                </div>
+                {mediaList.length > 1 && (
+                  <div className="modal-thumbs-row">
+                    {mediaList.map((m, i) => (
+                      <button key={i} onClick={() => setMediaIdx(i)} className={`thumb-btn ${mediaIdx === i ? 'active' : ''}`}>
+                        <img src={m.src} alt="" className="thumb-img" onError={(e) => { e.target.src = 'assets/projects/slide_render_1.jpg'; }} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="modal-details-col">
+                <div className="detail-section">
+                  <h4 className="detail-subtitle">Descripción del Desarrollo</h4>
+                  <p className="detail-text">{project.fullDesc}</p>
+                </div>
+                <div className="detail-section">
+                  <h4 className="detail-subtitle">Rol Desempeñado</h4>
+                  <p className="detail-text">⚡ {project.role}</p>
+                </div>
+                <div className="detail-section">
+                  <h4 className="detail-subtitle">Stack Tecnológico</h4>
+                  <div className="modal-tech-pills">
+                    {project.techStack.map((t, idx) => (
+                      <span key={idx} className="tech-pill-modal">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function Capabilities({ equipment }) {
+      return (
+        <section id="capabilities" className="capabilities-section" style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <div className="section-header">
+              <span className="section-subtitle">&lt; INFRAESTRUCTURA TÉCNICA /&gt;</span>
+              <h2 className="section-title">Equipamiento <span className="text-gradient">Tecnológico &amp; Educativo</span></h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+              {equipment.map((eq, i) => (
+                <div key={i} className="glass-panel" style={{ padding: '24px' }}>
+                  <h3 style={{ color: 'var(--neon-cyan)', fontSize: '1.2rem', marginBottom: '14px' }}>{eq.category}</h3>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                    {eq.items.map((it, idx) => (
+                      <li key={idx}>✓ {it}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function TeamSection({ team }) {
+      return (
+        <section id="team" style={{ padding: '80px 0' }}>
+          <div className="container">
+            <div className="section-header">
+              <span className="section-subtitle">&lt; TALENTO HUMANO /&gt;</span>
+              <h2 className="section-title">Equipo de <span className="text-gradient">Investigadores &amp; Expertos</span></h2>
+            </div>
+            <div className="team-grid">
+              {team.professionals.map((prof, i) => (
+                <div key={i} className="team-card glass-panel">
+                  <div className="member-avatar-box">
+                    <img src={prof.avatar} alt={prof.name} className="member-avatar-img" onError={(e) => { e.target.style.display='none'; }} />
+                    <div className="avatar-fallback"><span>{prof.name.split(' ').map(n=>n[0]).slice(0,2).join('')}</span></div>
+                  </div>
+                  <span className="member-role-tag">{prof.role}</span>
+                  <h3 className="member-name">{prof.name}</h3>
+                  <p className="member-focus">{prof.focus}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function ContactSection({ onPrintPdf }) {
+      return (
+        <section id="contact" style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <div className="section-header">
+              <span className="section-subtitle">&lt; CONEXIÓN &amp; TRANSFERENCIA /&gt;</span>
+              <h2 className="section-title">Contacto &amp; <span className="text-gradient">Alianzas I+D</span></h2>
+            </div>
+            <div className="glass-panel" style={{ padding: '36px', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '12px', color: '#fff' }}>Centro de Prototipado &amp; STEAM UCEVA</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '20px' }}>
+                Campus Universitario UCEVA — Cra. 27 A # 48-144, Tuluá, Valle del Cauca, Colombia<br />
+                Correo: <strong style={{ color: 'var(--neon-cyan)' }}>centrosteam@uceva.edu.co</strong>
+              </p>
+              <button onClick={onPrintPdf} className="btn-cyber-primary">
+                <span>Exportar Dossier PDF</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer style={{ padding: '40px 0', borderTop: '1px solid rgba(255,255,255,0.08)', background: '#02040a', textAlign: 'center' }}>
+          <div className="container">
+            <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
+              © {new Date().getFullYear()} Unidad Central del Valle del Cauca (UCEVA) — Centro de Prototipado &amp; STEAM.
+            </p>
+          </div>
+        </footer>
+      );
+    }
+
+    function App() {
+      const [activeModal, setActiveModal] = useState(null);
+      const handlePrint = () => window.print();
+
+      return (
+        <div className="portfolio-app">
+          <Navbar onPrintPdf={handlePrint} />
+          <main>
+            <Hero onPrintPdf={handlePrint} />
+            <AboutCenter centerInfo={portfolioData.centerInfo} />
+            <ProjectGrid projects={portfolioData.projects} onSelectProject={(p) => setActiveModal(p)} />
+            <Capabilities equipment={portfolioData.equipment} />
+            <TeamSection team={portfolioData.team} />
+            <ContactSection onPrintPdf={handlePrint} />
+          </main>
+          <Footer />
+          {activeModal && <ProjectModal project={activeModal} onClose={() => setActiveModal(null)} />}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Raw heavy presentation files & raw media
+*.pptx
+*.jfif
+*.mp4
+!assets/videos/*.mp4
+!public/assets/videos/*.mp4
+!dist/assets/videos/*.mp4
+raw_media/
+**/raw_media/**
+extracted_assets/
+Centro steam.pptx
+Video*.mp4
+
+# Dependencies & Build
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+
+# Logs & temp
+*.log
+__pycache__/

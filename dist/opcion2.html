@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro de Prototipado & STEAM UCEVA | Opción 2: Lab Innovation Showcase</title>
+  <meta name="description" content="Opción 2: Portafolio de Innovación Tecnológica, Laboratorio y Bento Grid del Centro de Prototipado y STEAM UCEVA.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <style>
+/* ==========================================================================
+   DESIGN SYSTEM - CENTRO DE PROTOTIPADO & STEAM UCEVA
+   Estética: Dark Tech, Neón Cyan -> Magenta -> Naranja, Hexagonal & Glass
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Neon Cyber Dark */
+  --bg-primary: #040711;
+  --bg-secondary: #080d1e;
+  --bg-tertiary: #0e152e;
+  --bg-card: rgba(14, 21, 46, 0.7);
+  --bg-card-hover: rgba(20, 31, 68, 0.85);
+  --bg-glass: rgba(10, 16, 35, 0.65);
+  --bg-glass-heavy: rgba(5, 9, 22, 0.92);
+
+  /* Neon Gradients & Accents */
+  --neon-cyan: #00f0ff;
+  --neon-cyan-glow: rgba(0, 240, 255, 0.4);
+  --neon-purple: #9d00ff;
+  --neon-magenta: #ff007f;
+  --neon-magenta-glow: rgba(255, 0, 127, 0.4);
+  --neon-orange: #ff5500;
+  --neon-orange-glow: rgba(255, 85, 0, 0.4);
+  --neon-green: #00ff88;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #00f0ff 0%, #9d00ff 50%, #ff007f 100%);
+  --grad-warm: linear-gradient(135deg, #ff007f 0%, #ff5500 100%);
+  --grad-cyan-purple: linear-gradient(135deg, #00f0ff 0%, #9d00ff 100%);
+  --grad-dark-card: linear-gradient(180deg, rgba(20, 30, 65, 0.6) 0%, rgba(8, 14, 32, 0.9) 100%);
+  --grad-glow-border: linear-gradient(135deg, rgba(0, 240, 255, 0.6), rgba(157, 0, 255, 0.6), rgba(255, 0, 127, 0.6));
+
+  /* Typography */
+  --text-main: #f0f4fc;
+  --text-secondary: #a2b4d6;
+  --text-muted: #62749d;
+  --text-cyan: #00f0ff;
+  --text-magenta: #ff4da6;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Space Grotesk', var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(0, 240, 255, 0.15);
+  --border-active: rgba(0, 240, 255, 0.5);
+  --shadow-neon-cyan: 0 0 25px rgba(0, 240, 255, 0.25);
+  --shadow-neon-magenta: 0 0 25px rgba(255, 0, 127, 0.25);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+
+  /* Spacing & Layout */
+  --nav-height: 76px;
+  --container-max: 1280px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Global Reset & Base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Futuristic background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(157, 0, 255, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom Cyber Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta));
+}
+
+/* Links & Typography helpers */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   Utility Classes & Design Primitives
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-gradient {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-warm {
+  background: var(--grad-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-cyan {
+  color: var(--neon-cyan);
+}
+
+.text-magenta {
+  color: var(--neon-magenta);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 240, 255, 0.06);
+  color: var(--neon-cyan);
+  backdrop-filter: blur(10px);
+}
+
+.badge-warm {
+  border-color: rgba(255, 85, 0, 0.3);
+  background: rgba(255, 85, 0, 0.08);
+  color: #ff8c42;
+}
+
+.badge-purple {
+  border-color: rgba(157, 0, 255, 0.3);
+  background: rgba(157, 0, 255, 0.08);
+  color: #c975ff;
+}
+
+.badge-green {
+  border-color: rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.08);
+  color: var(--neon-green);
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+  opacity: 0.6;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 14px 40px -10px rgba(0, 240, 255, 0.18), var(--shadow-card);
+  transform: translateY(-4px);
+}
+
+/* Hexagonal / Cyber Accent Cut */
+.tech-cut-corner {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    18px 100%,
+    0 calc(100% - 18px)
+  );
+}
+
+/* Buttons */
+.btn-cyber-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00f0ff 0%, #9d00ff 100%);
+  color: #040711;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cyber-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.7), 0 0 15px rgba(157, 0, 255, 0.5);
+  color: #000;
+}
+
+.btn-cyber-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background: rgba(14, 21, 46, 0.8);
+  border: 1px solid var(--border-active);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.btn-cyber-secondary:hover {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  color: var(--neon-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-cyber-print {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 0, 127, 0.12);
+  border: 1px solid rgba(255, 0, 127, 0.4);
+  color: #ff4da6;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  transition: all var(--transition-normal);
+}
+
+.btn-cyber-print:hover {
+  background: rgba(255, 0, 127, 0.25);
+  border-color: var(--neon-magenta);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Section Header standard */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.section-header .section-subtitle {
+  font-family: var(--font-mono);
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-header .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.section-header .section-desc {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* Section padding */
+section {
+  padding: 96px 0;
+  position: relative;
+}
+
+/* ==========================================================================
+   OPCIÓN 2 DESIGN SYSTEM: LABORATORIO TECNOLÓGICO & INNOVACIÓN BENTO
+   Estética: Futuristic Lab, Obsidian Slate, Laser Cyan & Hyper Indigo Accents,
+   HUD Telemetry, Microinteracciones de Laboratorio y Bento Grid Dinámico
+   ========================================================================== */
+
+.theme-option2 {
+  /* Palette - Lab Deep Slate */
+  --lab-bg-base: #07090e;
+  --lab-bg-surface: #0c1017;
+  --lab-bg-card: rgba(15, 20, 31, 0.75);
+  --lab-bg-card-hover: rgba(22, 30, 48, 0.9);
+  --lab-bg-glass: rgba(12, 17, 27, 0.7);
+  --lab-bg-glass-solid: rgba(8, 11, 18, 0.95);
+
+  /* Lab Accents */
+  --lab-accent-cyan: #00F5D4;
+  --lab-accent-cyan-glow: rgba(0, 245, 212, 0.35);
+  --lab-accent-indigo: #6366F1;
+  --lab-accent-indigo-glow: rgba(99, 102, 241, 0.35);
+  --lab-accent-amber: #F59E0B;
+  --lab-accent-rose: #F43F5E;
+  --lab-accent-emerald: #10B981;
+
+  /* Gradients */
+  --lab-grad-hero: linear-gradient(135deg, #00F5D4 0%, #6366F1 50%, #EC4899 100%);
+  --lab-grad-glow: linear-gradient(135deg, rgba(0, 245, 212, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+  --lab-grad-border: linear-gradient(135deg, rgba(0, 245, 212, 0.5), rgba(99, 102, 241, 0.3), rgba(244, 63, 94, 0.4));
+  --lab-grad-dark-panel: linear-gradient(180deg, rgba(18, 24, 38, 0.8) 0%, rgba(10, 14, 23, 0.95) 100%);
+
+  /* Typography */
+  --lab-text-primary: #F8FAFC;
+  --lab-text-secondary: #94A3B8;
+  --lab-text-muted: #64748B;
+  --lab-text-accent: #00F5D4;
+
+  /* Borders & Shadows */
+  --lab-border-subtle: rgba(255, 255, 255, 0.08);
+  --lab-border-hover: rgba(0, 245, 212, 0.4);
+  --lab-shadow-subtle: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  --lab-shadow-glow: 0 0 30px rgba(0, 245, 212, 0.2);
+
+  /* Geometry & Layout */
+  --lab-radius-sm: 8px;
+  --lab-radius-md: 14px;
+  --lab-radius-lg: 22px;
+  --lab-radius-xl: 32px;
+
+  background-color: var(--lab-bg-base);
+  color: var(--lab-text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background HUD Grid Pattern */
+.theme-option2::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(0, 245, 212, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.03) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating View Switcher Bar */
+.version-switcher-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: rgba(10, 14, 24, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 212, 0.35);
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 245, 212, 0.2);
+}
+
+.version-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--lab-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.version-switch-btn:hover {
+  color: #ffffff;
+}
+
+.version-switch-btn.active {
+  background: linear-gradient(135deg, #00F5D4, #6366F1);
+  color: #07090E;
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.4);
+}
+
+/* Lab Typography & Utility Elements */
+.theme-option2 h1,
+.theme-option2 h2,
+.theme-option2 h3,
+.theme-option2 h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+}
+
+.lab-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(0, 245, 212, 0.08);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+  color: var(--lab-accent-cyan);
+  backdrop-filter: blur(10px);
+}
+
+.lab-badge-indigo {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: #A5B4FC;
+}
+
+.lab-badge-amber {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #FCD34D;
+}
+
+.lab-text-gradient {
+  background: var(--lab-grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* HUD telemetry indicators */
+.hud-corner-bracket {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(0, 245, 212, 0.4);
+  pointer-events: none;
+}
+
+.hud-tl { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+.hud-tr { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
+.hud-bl { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
+.hud-br { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+
+/* ==========================================================================
+   BENTO GRID & EDITORIAL SHOWCASE STYLES (OPCIÓN 2)
+   ========================================================================== */
+
+.bento-section {
+  padding: 110px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.bento-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Category Quick Filter Ribbon */
+.bento-filter-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.bento-filters-group {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+
+.bento-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(18, 24, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: var(--lab-text-secondary);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.bento-filter-pill:hover {
+  border-color: var(--lab-accent-cyan);
+  color: #ffffff;
+  background: rgba(0, 245, 212, 0.1);
+}
+
+.bento-filter-pill.active {
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.25), rgba(99, 102, 241, 0.25));
+  border-color: var(--lab-accent-cyan);
+  color: var(--lab-accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.25);
+}
+
+.bento-search-box {
+  position: relative;
+  min-width: 280px;
+}
+
+.bento-search-input {
+  width: 100%;
+  padding: 10px 16px 10px 38px;
+  background: rgba(18, 24, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--lab-radius-md);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.bento-search-input:focus {
+  border-color: var(--lab-accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+}
+
+.bento-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--lab-accent-cyan);
+  pointer-events: none;
+}
+
+/* Master Bento Grid (12 Columns Architecture) */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  grid-auto-flow: dense;
+}
+
+/* Base Bento Card */
+.bento-card {
+  position: relative;
+  background: var(--lab-grad-dark-panel);
+  border: 1px solid var(--lab-border-subtle);
+  border-radius: var(--lab-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--lab-shadow-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bento-card:hover {
+  border-color: var(--lab-accent-cyan);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 245, 212, 0.2);
+}
+
+/* Card Column Spans */
+.span-featured-hero {
+  grid-column: span 8;
+  min-height: 480px;
+}
+
+.span-featured-side {
+  grid-column: span 4;
+  min-height: 480px;
+}
+
+.span-wide {
+  grid-column: span 6;
+  min-height: 380px;
+}
+
+.span-standard {
+  grid-column: span 4;
+  min-height: 380px;
+}
+
+.span-telemetry {
+  grid-column: span 4;
+  min-height: 320px;
+}
+
+/* Media Box inside Bento */
+.bento-media-container {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 220px;
+  background: #04060A;
+  overflow: hidden;
+}
+
+.bento-media-container img,
+.bento-media-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-media-container img,
+.bento-card:hover .bento-media-container video {
+  transform: scale(1.04);
+}
+
+.bento-media-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.2) 0%, rgba(7, 9, 14, 0.85) 100%);
+  pointer-events: none;
+}
+
+.bento-card-top-tags {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bento-video-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--lab-accent-cyan);
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--lab-accent-cyan);
+  backdrop-filter: blur(8px);
+}
+
+.bento-video-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lab-accent-cyan);
+  box-shadow: 0 0 8px var(--lab-accent-cyan);
+  animation: blinkCursor 1s infinite;
+}
+
+/* Bento Card Text & Details */
+.bento-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(12, 16, 26, 0.95);
+  position: relative;
+  z-index: 2;
+}
+
+.bento-tag-category {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--lab-accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.bento-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.bento-card-desc {
+  font-size: 0.92rem;
+  color: var(--lab-text-secondary);
+  line-height: 1.6;
+}
+
+.bento-tech-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.bento-tech-pill {
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #CBD5E1;
+}
+
+.bento-card-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--lab-accent-cyan);
+}
+
+/* Fullscreen / Side Drawer Project View */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 12, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.drawer-panel {
+  width: 100%;
+  max-width: 1080px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(11, 15, 25, 0.98);
+  border: 1px solid rgba(0, 245, 212, 0.4);
+  border-radius: var(--lab-radius-xl);
+  box-shadow: 0 0 60px rgba(0, 245, 212, 0.25), 0 30px 60px rgba(0, 0, 0, 0.9);
+  padding: 36px;
+  position: relative;
+}
+
+/* Responsive Grid Rules */
+@media (max-width: 1080px) {
+  .span-featured-hero,
+  .span-featured-side,
+  .span-wide,
+  .span-standard,
+  .span-telemetry {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 680px) {
+  .span-featured-hero,
+  .span-featured-side,
+  .span-wide,
+  .span-standard,
+  .span-telemetry {
+    grid-column: span 12;
+    min-height: auto;
+  }
+
+  .bento-grid {
+    gap: 16px;
+  }
+
+  .drawer-panel {
+    padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   OPCIÓN 2 PRINT STYLES (@media print) - DOSSIER CIENTÍFICO Y EDITORIAL PDF
+   ========================================================================== */
+
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .theme-option2 {
+    background: #07090e !important;
+    color: #f8fafc !important;
+    font-size: 10.5pt !important;
+  }
+
+  .theme-option2 .version-switcher-bar,
+  .theme-option2 .bento-filter-ribbon,
+  .theme-option2 .drawer-backdrop,
+  .theme-option2 .no-print {
+    display: none !important;
+  }
+
+  .theme-option2 .bento-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .theme-option2 .bento-card {
+    grid-column: span 1 !important;
+    min-height: auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    border: 1px solid rgba(0, 245, 212, 0.4) !important;
+    background: #0c1017 !important;
+    box-shadow: none !important;
+    margin-bottom: 20px !important;
+  }
+
+  .theme-option2 .bento-media-container video {
+    display: none !important;
+  }
+
+  .theme-option2 .bento-media-container img {
+    display: block !important;
+    max-height: 200px !important;
+  }
+}
+
+  </style>
+</head>
+<body class="theme-option2">
+  <div id="root-opt2"></div>
+
+  <script type="text/babel">
+    const portfolioData = {"centerInfo": {"name": "Centro de Prototipado & STEAM", "institution": "Unidad Central del Valle del Cauca (UCEVA)", "tagline": "Laboratorio de Innovación, Fabricación Digital & Realidades Extendidas", "badge": "Industria 4.0 & 5.0 • I+D+i", "impactQuote": "Transformamos la curiosidad científica y los retos del entorno en prototipos tangibles de alto impacto tecnológico.", "description": "El Centro de Prototipado surgió en el año 2023 como respuesta a las necesidades tecnológicas de la comunidad docente, estudiantil e investigadores de la UCEVA. Desarrolla capacidades en desarrollo físico, tecnológico y científico con un equipo interdisciplinario preparado para responder a la Industria 4.0 y 5.0.", "purpose": "Consolidar un ecosistema universitario de vanguardia que integre la investigación aplicada, el prototipado rápido, la inteligencia artificial y la computación espacial al servicio de la educación y el tejido productivo regional."}, "developmentLines": [{"id": "line-xr", "name": "Realidades Extendidas (XR)", "subtitle": "VR • AR • MR • WebXR", "count": 4, "desc": "Simuladores inmersivos para salud pública, divulgación científica en WebAR y spatial computing en Realidad Mixta con Meta Quest 3.", "techs": ["Unity 3D", "Unreal Engine", "Meta Quest SDK", "WebXR", "Three.js", "Spatial Anchors"], "image": "/assets/posters/simulador_museo_del_dengue_vr.jpg", "badgeColor": "cyan"}, {"id": "line-ia", "name": "Inteligencia Artificial & Visión", "subtitle": "Deep Learning • Computer Vision • Biometría", "count": 2, "desc": "Modelos de estimación postural (Motion Tracking) sin marcadores y análisis biométrico de respuestas emocionales en Neuromarketing.", "techs": ["Python", "OpenCV", "MediaPipe", "TensorFlow", "Facial Landmark", "Deep Learning"], "image": "/assets/posters/motion_tracker_ia.jpg", "badgeColor": "magenta"}, {"id": "line-3d", "name": "Gemelos Digitales & Fotogrametría", "subtitle": "Nubes de Puntos • Mallas 3D • Digital Humans", "count": 2, "desc": "Levantamiento aerofotogramétrico de campus y digitalización humana para avatares hiperrealistas con texturas 8K.", "techs": ["Agisoft Metashape", "Drones DJI", "CloudCompare", "Blender", "ZBrush", "Mallas 3D"], "image": "/assets/projects/slide_render_12.jpg", "badgeColor": "purple"}, {"id": "line-aero", "name": "Aeronáutica & Robótica Aérea", "subtitle": "UAVs • Aviónica Pixhawk • Telemetría", "count": 1, "desc": "Diseño aerodinámico, prototipado de chasis en compuestos de carbono, integración de controladores de vuelo e inspección aérea.", "techs": ["CAD Aeronáutico", "Pixhawk", "ArduPilot", "Telemetría RF", "Motores Brushless", "CNC"], "image": "/assets/posters/construccion_aeronaves_drones.jpg", "badgeColor": "orange"}, {"id": "line-fab", "name": "Fabricación Digital & Economía Circular", "subtitle": "Impresión 3D • Mecanizado CNC • Reciclaje", "count": 2, "desc": "Maquinaria de triturado para reciclaje de polímeros (PET/PLA) y manufactura aditiva técnica FDM/SLA de alta precisión.", "techs": ["SolidWorks", "Corte Láser CNC", "Impresoras FDM & Resina", "Extrusión", "FEA Analysis"], "image": "/assets/projects/minitrituradora_plastico.jpg", "badgeColor": "green"}, {"id": "line-iot", "name": "Electrónica, IoT & Smart Cities", "subtitle": "PCBs Custom • LoRaWAN • Energía Solar", "count": 2, "desc": "Diseño y fabricación in-house de placas de circuito impreso y redes de telemetría meteorológica conectadas 24/7.", "techs": ["KiCad", "ESP32", "LoRaWAN", "MQTT", "Sensores Ambientales", "Energía Solar"], "image": "/assets/projects/slide_render_21.jpg", "badgeColor": "cyan"}], "projects": [{"id": "vr-museo-dengue", "slide": 15, "title": "Simulador VR: Museo del Dengue", "category": "Realidad Virtual (VR)", "lineId": "line-xr", "tag": "Salud Pública & Divulgación", "devType": "Simulador Inmersivo / Prototipo Funcional", "bentoSpan": "span-large", "shortDesc": "Museo interactivo en Realidad Virtual para sensibilizar sobre el ciclo biológico del mosquito Aedes aegypti y prevención en comunidades.", "fullDesc": "Entorno inmersivo de Realidad Virtual desarrollado para Meta Quest que recrea el ciclo de vida del mosquito transmisor del dengue a escala microscópica y macroscópica. Permite a los usuarios interactuar con escenarios residenciales, identificar criaderos y aprender protocolos de erradicación mediante dinámicas lúdicas de alto impacto pedagógico.", "techStack": ["Meta Quest 2/3", "Unity VR", "Modelado Anatómico 3D", "Shaders PBR", "C#", "Audio Espacial"], "role": "Dirección técnica, modelado biológico 3D, programación de interacciones físicas y despliegue en campo", "featured": true, "previewImage": "assets/posters/simulador_museo_del_dengue_vr.jpg", "gif": "assets/gifs/simulador_museo_del_dengue_vr.gif", "video": "/assets/videos/museo_del_dengue_vr.mp4", "gallery": ["assets/posters/simulador_museo_del_dengue_vr.jpg", "assets/projects/slide_render_15.jpg", "assets/projects/slide_render_9.jpg", "assets/projects/slide_render_10.jpg", "assets/projects/slide_render_11.jpg"], "metrics": {"impacto": "Proyección comunitaria en colegios del Valle", "plataforma": "Meta Quest Standalone 6DOF", "validación": "Herramienta de Salud Pública UCEVA"}}, {"id": "mr-campus-uceva", "slide": 17, "title": "Campus UCEVA Realidad Mixta (MR)", "category": "Realidad Mixta (MR)", "lineId": "line-xr", "tag": "Spatial Computing", "devType": "Sistema Holográfico / Passthrough", "bentoSpan": "span-wide", "shortDesc": "Superposición holográfica e interactiva de la maqueta digital e información del campus universitario sobre el entorno real.", "fullDesc": "Sistema de Realidad Mixta que ancla hologramas interactivos del campus UCEVA sobre mesas y espacios físicos utilizando spatial mapping y hand tracking nativo de Meta Quest 3, permitiendo inspeccionar bloques académicos, telemetría y áreas verdes con las manos.", "techStack": ["Meta Quest 3 Passthrough", "Spatial Anchors", "Unity MR", "Hand Tracking", "Occlusion Culling", "C#"], "role": "Arquitectura de Spatial Mapping, desarrollo del tracking gestual y shaders holográficos", "featured": true, "previewImage": "assets/posters/campus_uceva_mr_1.jpg", "gif": "assets/gifs/campus_uceva_mr_1.gif", "video": "/assets/videos/campus_uceva_mr_1.mp4", "gallery": ["assets/posters/campus_uceva_mr_1.jpg", "assets/posters/campus_uceva_mr_2.jpg", "assets/projects/slide_render_17.jpg"], "metrics": {"control": "Reconocimiento de manos sin mandos (100% Hand Tracking)", "visualización": "Passthrough a todo color en tiempo real", "precisión": "Anclaje espacial persistente"}}, {"id": "ia-motion-tracker", "slide": 23, "title": "Motion Tracker con IA & Computer Vision", "category": "Inteligencia Artificial", "lineId": "line-ia", "tag": "Markerless Pose Tracking", "devType": "Algoritmo de IA / Pipeline en Tiempo Real", "bentoSpan": "span-medium", "shortDesc": "Sistema inteligente de rastreo cinemático y estimación de posturas humanas en 3D sin sensores corporales adheridos.", "fullDesc": "Pipeline de aprendizaje profundo basado en visión artificial que detecta y realiza seguimiento tridimensional de 33 puntos de referencia articulares del cuerpo humano a partir de cámaras convencionales, aplicable a biomecánica deportiva, ergonomía y control gestual.", "techStack": ["MediaPipe / OpenPose", "Python / C++", "Computer Vision", "3D Kinematics", "Análisis de Datos"], "role": "Desarrollo del algoritmo de extracción de coordenadas 3D y calibración en tiempo real", "featured": true, "previewImage": "assets/posters/motion_tracker_ia.jpg", "gif": "assets/gifs/motion_tracker_ia.gif", "video": "/assets/videos/motion_tracker_ia.mp4", "gallery": ["assets/posters/motion_tracker_ia.jpg", "assets/projects/slide_render_23.jpg"], "metrics": {"articulaciones": "33 Puntos clave anatómicos", "rendimiento": "30+ FPS en hardware estándar", "metodología": "Markerless (Sin trajes costosos)"}}, {"id": "prototipado-aeronaves-drones", "slide": 19, "title": "Construcción de Aeronaves No Tripuladas (UAVs)", "category": "Aeronáutica & Robótica", "lineId": "line-aero", "tag": "Hardware & Fabricación", "devType": "Prototipo Físico / Vuelo Autónomo", "bentoSpan": "span-medium", "shortDesc": "Diseño, fabricación digital y telemetría de drones y aeronaves para aplicaciones de teledetección y monitoreo.", "fullDesc": "Diseño aerodinámico, prototipado rápido en fibra de carbono y polímeros de ingeniería, integración de aviónica Pixhawk de código abierto, configuración de telemetría de largo alcance y pruebas en banco dinámico para aplicaciones ambientales y agrícolas.", "techStack": ["CAD Aeronáutico", "Impresión 3D / CNC", "Pixhawk Flight Controller", "ArduPilot", "Telemetría RF"], "role": "Diseño estructural CAD, ensamble de aviónica y sistemas de propulsión brushless", "featured": true, "previewImage": "assets/posters/construccion_aeronaves_drones.jpg", "gif": "assets/gifs/construccion_aeronaves_drones.gif", "video": "/assets/videos/aeronaves_drones.mp4", "gallery": ["assets/posters/construccion_aeronaves_drones.jpg", "assets/projects/slide_render_19.jpg"], "metrics": {"autonomía": "Plataforma para vuelos de inspección", "controlador": "Pixhawk Open Source Firmware", "estructura": "Compuestos ligeros + Manufactura Aditiva"}}, {"id": "vr-acoso-callejero", "slide": 14, "title": "Visualizador para Sensibilización: Acoso Callejero VR", "category": "Realidad Virtual (VR)", "lineId": "line-xr", "tag": "Impacto Social & Empatía", "devType": "Experiencia Inmersiva VR", "bentoSpan": "span-medium", "shortDesc": "Experiencia interactiva en Realidad Virtual orientada a generar empatía y conciencia sobre el acoso en el espacio público.", "fullDesc": "Simulador inmersivo desarrollado para colocar al usuario en situaciones cotidianas de acoso callejero desde una perspectiva de primera persona, promoviendo la empatía ciudadana y la prevención de violencias de género en entornos urbanos y universitarios.", "techStack": ["Unity 3D", "Meta Quest 2/3", "Audio 3D Espacial Binaural", "Animación 3D", "C#"], "role": "Diseño de escenarios, guion interactivo, programación de eventos y optimización VR", "featured": true, "previewImage": "assets/posters/visualizador_acoso_callejero_vr.jpg", "gif": "assets/gifs/visualizador_acoso_callejero_vr.gif", "video": "/assets/videos/acoso_callejero_vr.mp4", "gallery": ["assets/posters/visualizador_acoso_callejero_vr.jpg", "assets/projects/slide_render_14.jpg"], "metrics": {"enfoque": "Sensibilización y formación ciudadana", "audio": "Sonido binaural 360° direccional", "plataforma": "Meta Quest Standalone"}}, {"id": "ar-web-divulgacion", "slide": 16, "title": "Aplicativo Web AR para Divulgación", "category": "Realidad Aumentada (AR)", "lineId": "line-xr", "tag": "WebXR Zero-Install", "devType": "Web Application / WebAR", "bentoSpan": "span-medium", "shortDesc": "Plataforma WebAR que permite proyectar modelos 3D interactivos en el mundo real desde cualquier navegador móvil.", "fullDesc": "Aplicativo de Realidad Aumentada web que permite a estudiantes y visitantes escanear códigos QR y visualizar modelos 3D interactivos superpuestos en su entorno físico sin necesidad de instalar apps desde tiendas, logrando máxima accesibilidad.", "techStack": ["WebXR", "Three.js / A-Frame", "MindAR", "JavaScript", "HTML5 / CSS3", "GLTF"], "role": "Arquitectura WebAR, compresión de mallas poligonales y desarrollo frontend responsive", "featured": true, "previewImage": "assets/posters/aplicativo_web_ar_divulgacion.jpg", "gif": "assets/gifs/aplicativo_web_ar_divulgacion.gif", "video": "/assets/videos/webar_divulgacion.mp4", "gallery": ["assets/posters/aplicativo_web_ar_divulgacion.jpg", "assets/projects/slide_render_16.jpg"], "metrics": {"acceso": "100% en navegador (Zero-Install)", "compatibilidad": "iOS Safari & Android Chrome", "tasa_cuadros": "60 FPS fluidos en smartphones"}}, {"id": "fotogrametria-campus", "slide": 12, "title": "Fotogrametría Campus UCEVA", "category": "Fotogrametría & 3D", "lineId": "line-3d", "tag": "Gemelos Digitales", "devType": "Levantamiento Aerofotogramétrico", "bentoSpan": "span-medium", "shortDesc": "Reconstrucción digital tridimensional de alta precisión de las instalaciones del campus universitario UCEVA.", "fullDesc": "Levantamiento con drones y sensores terrestres para generar gemelos digitales con millones de puntos de alta precisión, mallas poligonales optimizadas y ortofotos georreferenciadas para planificación de infraestructura.", "techStack": ["Fotogrametría Aérea", "Agisoft Metashape", "Drones DJI", "Modelado 3D", "CloudCompare"], "role": "Captura aerofotogramétrica, densificación de nubes de puntos y texturizado 3D", "featured": false, "previewImage": "assets/projects/slide_render_12.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_12.jpg", "extracted_assets/images/page_12_img_1.png", "extracted_assets/images/page_12_img_2.jpeg"], "metrics": {"resolución": "GSD < 2 cm/pixel", "salida": "Mallas OBJ/FBX y nubes LAS", "área": "Campus completo UCEVA"}}, {"id": "fotogrametria-personas", "slide": 13, "title": "Fotogrametría a Personas & Avatares 3D", "category": "Fotogrametría & 3D", "lineId": "line-3d", "tag": "Digital Humans", "devType": "Escaneo Corporal & Facial", "bentoSpan": "span-medium", "shortDesc": "Digitalización corporal y facial para avatares 3D hiperrealistas en entornos virtuales y de metaverso.", "fullDesc": "Pipeline de escaneo fotogramétrico sincronizado para crear réplicas digitales humanas de alta fidelidad, retopología limpia y texturas 8K para su uso en simulaciones VR y producción de medios transmedia.", "techStack": ["Fotogrametría Multicámara", "Texturizado 8K", "Blender", "ZBrush", "Rigging Humanoide"], "role": "Calibración fotográfica, reconstrucción volumétrica y rigging anatómico", "featured": false, "previewImage": "assets/projects/slide_render_13.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_13.jpg", "extracted_assets/images/page_13_img_1.png"], "metrics": {"textura": "Mapas de textura 8K HDR", "geometría": "Malla optimizada para VR en tiempo real"}}, {"id": "diseno-minitrituradora-plastico", "slide": 24, "title": "Minitrituradora de Plástico para Reciclaje", "category": "Diseño & Fabricación Digital", "lineId": "line-fab", "tag": "Economía Circular & Sostenibilidad", "devType": "Maquinaria Electromecánica", "bentoSpan": "span-medium", "shortDesc": "Diseño y manufactura de maquinaria de triturado para reutilización de termoplásticos en impresión 3D.", "fullDesc": "Diseño de ingeniería mecánica, análisis de elementos finitos (FEA) y mecanizado CNC de una trituradora compacta de polímeros (PET, HDPE, PLA) para reinsertar el plástico desechado como materia prima de filamento para impresión 3D.", "techStack": ["SolidWorks / Fusion 360", "Corte Láser CNC", "Torneado & Fresado", "Motorreductor", "FEA Analysis"], "role": "Diseño mecánico de cuchillas y eje, simulación de esfuerzos y ensamble", "featured": true, "previewImage": "assets/projects/minitrituradora_plastico.jpg", "gif": null, "video": null, "gallery": ["assets/projects/minitrituradora_plastico.jpg", "assets/projects/slide_render_24.jpg"], "metrics": {"rendimiento": "5 kg/h de procesamiento", "aplicación": "Extrusión de filamento 3D reciclado"}}, {"id": "recorrido-360-cenicafe", "slide": 18, "title": "Recorrido Web 360° CENICAFÉ", "category": "Tours Virtuales 360°", "lineId": "line-xr", "tag": "Inmersión Web", "devType": "Plataforma Web Interactiva", "bentoSpan": "span-medium", "shortDesc": "Tour virtual interactivo e inmersivo en 360 grados por los laboratorios científicos de CENICAFÉ.", "fullDesc": "Desarrollo de plataforma web interactiva de recorridos en 360 grados para el Centro Nacional de Investigaciones de Café, integrando hotspots multimedia interactivos, navegación guiada y compatibilidad con pantallas y visores VR.", "techStack": ["Fotografía Esférica 360°", "Pannellum / WebGL", "Hotspots Multimedia", "HTML5/CSS3"], "role": "Captura fotográfica panorámica HDR, programación de puntos de interacción y despliegue web", "featured": false, "previewImage": "assets/projects/slide_render_18.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_18.jpg"], "metrics": {"calidad": "Panorámicas esféricas 12K HDR", "alianza": "Divulgación científica nacional CENICAFÉ"}}, {"id": "iot-estacion-meteorologica", "slide": 21, "title": "Sistema Meteorológico IoT & Smart Cities", "category": "IoT & Ciudades Inteligentes", "lineId": "line-iot", "tag": "Telemetría Cloud", "devType": "Dispositivo IoT Autónomo", "bentoSpan": "span-medium", "shortDesc": "Red de monitoreo ambiental y meteorológico en tiempo real con transmisión inalámbrica LoRaWAN y alimentación solar.", "fullDesc": "Estación meteorológica autónoma con sensores de temperatura, humedad, presión, radiación solar y calidad del aire. Integra panel solar, microcontrolador de ultrabajo consumo y transmisión de telemetría hacia la nube.", "techStack": ["ESP32 / LoRaWAN", "Sensores Ambientales", "MQTT / HTTP REST", "Dashboard Web", "Energía Solar"], "role": "Integración de sensórica, firmware de bajo consumo y plataforma de visualización en la nube", "featured": false, "previewImage": "assets/projects/slide_render_21.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_21.jpg"], "metrics": {"operación": "24/7 Autónoma con Energía Solar", "alcance": "Comunicación LoRaWAN de largo alcance"}}, {"id": "diseno-placas-electronicas", "slide": 20, "title": "Diseño & Fabricación de Placas Electrónicas (PCBs)", "category": "Electrónica & Hardware", "lineId": "line-iot", "tag": "PCB Custom", "devType": "Hardware Electrónico Custom", "bentoSpan": "span-medium", "shortDesc": "Ingeniería de esquemáticos, ruteo multicapa y fabricación de circuitos impresos para sistemas embebidos.", "fullDesc": "Desarrollo completo de hardware electrónico: concepción de circuitos, ruteo de pistas de alta frecuencia, fresado CNC de cobre, ensamble SMD con soldadura por reflujo y pruebas de validación con osciloscopio.", "techStack": ["KiCad / EasyEDA", "Microcontroladores ESP32/STM32", "Diseño SMD/SMT", "Fresado PCB CNC"], "role": "Diseño esquemático, layout de PCB multicapa y manufactura física", "featured": false, "previewImage": "assets/projects/slide_render_20.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_20.jpg"], "metrics": {"tecnología": "Montaje superficial SMD 0603", "fabricación": "Prototipado in-house en minutos"}}, {"id": "ia-neuromarketing", "slide": 22, "title": "Proyectos IA + Neuromarketing", "category": "Inteligencia Artificial", "lineId": "line-ia", "tag": "Biometría & Visión", "devType": "Modelo de Investigación / Visión Artificial", "bentoSpan": "span-medium", "shortDesc": "Análisis biométrico de emociones, atención visual y mapas de calor cognitivos mediante visión por computador.", "fullDesc": "Modelos de inteligencia artificial para decodificar microexpresiones faciales y zonas de fijación de la mirada (Heatmaps) en usuarios frente a estímulos multimedia, combinando visión artificial y neurociencia aplicada.", "techStack": ["Python", "OpenCV", "TensorFlow", "Eye Tracking", "Heatmap Generation"], "role": "Entrenamiento de clasificadores de microexpresiones y pipeline de análisis visual", "featured": false, "previewImage": "assets/projects/slide_render_22.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_22.jpg"], "metrics": {"precisión": ">94% en clasificación emocional", "procesamiento": "Análisis de video en tiempo real"}}, {"id": "diseno-soportes-elementos-3d", "slide": 25, "title": "Soportes & Elementos Mecánicos Personalizados 3D", "category": "Diseño & Fabricación Digital", "lineId": "line-fab", "tag": "Manufactura Aditiva", "devType": "Piezas Funcionales de Ingeniería", "bentoSpan": "span-medium", "shortDesc": "Desarrollo de piezas de ingeniería, carcasas y soportes funcionales mediante manufactura aditiva FDM/SLA.", "fullDesc": "Ingeniería inversa y diseño paramétrico para producir piezas mecánicas a medida en polímeros técnicos (PETG, Nylon, Fibra de Carbono, Resina Tough) para laboratorios y proyectos de investigación.", "techStack": ["CAD Paramétrico", "Impresoras FDM & Resina SLA", "Materiales Técnicos (Nylon, Carbon)", "Ingeniería Inversa"], "role": "Modelado CAD paramétrico y parametrización de impresión 3D técnica", "featured": false, "previewImage": "assets/projects/slide_render_25.jpg", "gif": null, "video": null, "gallery": ["assets/projects/slide_render_25.jpg"], "metrics": {"tolerancia": "Precisión milimétrica ±0.1 mm", "materiales": "PETG, ABS, Fibra de Carbono, Resina"}}], "team": {"professionals": [{"name": "Juan Sebastián Correa Fernández", "role": "Coordinador del Centro STEAM / Prototipado", "degrees": ["Ing. Electrónico", "Mgtr. Instrumentación Física"], "focus": "Liderazgo técnico, instrumentación, gestión de proyectos 4.0/5.0", "avatar": "assets/team/page_3_img_2.jpeg"}, {"name": "Juan David Villegas Tamayo", "role": "Experto STEM+", "degrees": ["Ing. Electrónico", "Mgtr. Medio Ambiente"], "focus": "Pedagogía STEAM+, sostenibilidad, tecnologías verdes", "avatar": "assets/team/page_3_img_3.jpeg"}, {"name": "David Tenorio Cruz", "role": "Experto en Fabricación & Prototipado", "degrees": ["Ing. Aeronáutico"], "focus": "Diseño aeroespacial, drones, mecanizado CNC, manufactura aditiva", "avatar": "assets/team/page_3_img_4.jpeg"}, {"name": "Alberto José Duque", "role": "Especialista en IA & Modelos AA", "degrees": ["Ing. Biomédico", "Estudiante Mg. Pedagogía"], "focus": "Machine Learning, visión artificial, tecnologías biomédicas", "avatar": "assets/team/page_3_img_5.jpeg"}, {"name": "David G. Bustamante Herrera", "role": "Especialista en Inteligencia Artificial", "degrees": ["Ing. Mecatrónico", "Mgtr. Inteligencia Artificial"], "focus": "Robótica avanzada, deep learning, control inteligente", "avatar": "assets/team/page_3_img_6.jpeg"}, {"name": "Ingrid Tatiana Bocanegra García", "role": "Experta en Vocaciones Científicas", "degrees": ["Ing. Mecatrónica"], "focus": "Fomento de vocaciones STEAM, divulgación científica, robótica educativa", "avatar": "assets/team/page_3_img_7.jpeg"}], "support": [{"name": "Georleans González Marmolejo", "role": "Monitor Centro STEAM (UX/UI / Electrónica)", "degree": "Estudiante Ing. Electrónica 9°"}, {"name": "Michael Andrés Hernández", "role": "Desarrollador VR/AR/MR", "degree": "Ing. de Sistemas"}, {"name": "Alejandro Burbano Vivas", "role": "Estudiante Practicante VR/AR/MR", "degree": "Estudiante Ing. Sistemas 10°"}, {"name": "Lidier Felipe Sicacha Granado", "role": "Estudiante Practicante Software/XR", "degree": "Estudiante Ing. Sistemas 10°"}, {"name": "Eliana López Franco", "role": "Estudiante Monitora Electrónica", "degree": "Estudiante Ing. Electrónica 7°"}, {"name": "Samuel Lozano Vásquez", "role": "Estudiante Voluntario", "degree": "Estudiante Ing. Electrónica 9°"}, {"name": "Miguel Ángel Peláez Valencia", "role": "Estudiante Voluntario", "degree": "Estudiante Ing. Electrónica 9°"}, {"name": "María Camila Tigreros Sánchez", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Valery Gabriela Guerrero Macías", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Ana Sofía Guzmán Díaz", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Luisa Fernanda Madrigal Suárez", "role": "Comunicación & Media", "degree": "Est. Comunicación Transmedia 3°"}, {"name": "Kelly Johanna Arboleda Grueso", "role": "Científica Voluntaria", "degree": "Ingeniera Agropecuaria"}]}};
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    const VIDEO_MAP = {
+      "vr-museo-dengue": "assets/opt2_videos/museo_del_dengue_vr.mp4",
+      "mr-campus-uceva": "assets/opt2_videos/campus_uceva_mr_1.mp4",
+      "vr-acoso-callejero": "assets/opt2_videos/acoso_callejero_vr.mp4",
+      "prototipado-aeronaves-drones": "assets/opt2_videos/drones_aeronautica.mp4",
+      "ia-motion-tracker": "assets/opt2_videos/motion_tracker_ia.mp4",
+      "ar-web-divulgacion": "assets/opt2_videos/web_ar_divulgacion.mp4",
+    };
+
+    function NavbarOpt2({ onPrintPdf }) {
+      const [scrolled, setScrolled] = useState(false);
+      useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      const scrollTo = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      return (
+        <header className={`lab-nav-header no-print ${scrolled ? 'scrolled' : ''}`}>
+          <div className="bento-container lab-nav-inner">
+            <a href="#hero-opt2" className="lab-brand-link" onClick={(e) => { e.preventDefault(); scrollTo('hero-opt2'); }}>
+              <div className="lab-brand-logo">
+                <span className="logo-bracket">[</span>
+                <span className="logo-symbol">STEAM LAB</span>
+                <span className="logo-bracket">]</span>
+              </div>
+              <div className="lab-brand-meta">
+                <span className="meta-title">CENTRO DE PROTOTIPADO</span>
+                <span className="meta-sub">UCEVA • INNOVATION</span>
+              </div>
+            </a>
+
+            <nav className="lab-nav-links-desktop">
+              <button onClick={() => scrollTo('hero-opt2')} className="lab-nav-link">Inicio</button>
+              <button onClick={() => scrollTo('about-opt2')} className="lab-nav-link">Laboratorio</button>
+              <button onClick={() => scrollTo('lines-opt2')} className="lab-nav-link">Líneas I+D</button>
+              <button onClick={() => scrollTo('bento-opt2')} className="lab-nav-link">Bento Proyectos</button>
+              <button onClick={() => scrollTo('equipment-opt2')} className="lab-nav-link">Equipamiento</button>
+              <button onClick={() => scrollTo('team-opt2')} className="lab-nav-link">Investigadores</button>
+              <button onClick={() => scrollTo('contact-opt2')} className="lab-nav-link">Contacto</button>
+            </nav>
+
+            <div className="lab-nav-actions">
+              <a href="opcion1.html" className="lab-btn-outline" style={{ padding: '6px 14px', fontSize: '0.78rem' }} title="Ver Opción 1">
+                <span>⚡ Ver Opción 1</span>
+              </a>
+              <button onClick={onPrintPdf} className="lab-print-btn">
+                <span>Dossier PDF</span>
+              </button>
+            </div>
+          </div>
+        </header>
+      );
+    }
+
+    const HIGHLIGHTS = [
+      {
+        title: "Simulador VR: Museo del Dengue",
+        category: "Realidad Virtual & Salud Pública",
+        video: "assets/opt2_videos/museo_del_dengue_vr.mp4",
+        poster: "assets/posters/simulador_museo_del_dengue_vr.jpg",
+        badge: "Meta Quest Standalone"
+      },
+      {
+        title: "Campus UCEVA Realidad Mixta",
+        category: "Spatial Computing & Hologramas",
+        video: "assets/opt2_videos/campus_uceva_mr_1.mp4",
+        poster: "assets/posters/campus_uceva_mr_1.jpg",
+        badge: "Passthrough a Color"
+      },
+      {
+        title: "Aeronaves No Tripuladas / Drones",
+        category: "Hardware & Aviónica Pixhawk",
+        video: "assets/opt2_videos/drones_aeronautica.mp4",
+        poster: "assets/posters/construccion_aeronaves_drones.jpg",
+        badge: "Ingeniería Aeroespacial"
+      },
+      {
+        title: "Motion Tracker con IA",
+        category: "Computer Vision & Biomecánica",
+        video: "assets/opt2_videos/motion_tracker_ia.mp4",
+        poster: "assets/posters/motion_tracker_ia.jpg",
+        badge: "Deep Learning en Tiempo Real"
+      }
+    ];
+
+    function HeroOpt2() {
+      const [cur, setCur] = useState(0);
+      useEffect(() => {
+        const t = setInterval(() => setCur(prev => (prev + 1) % HIGHLIGHTS.length), 6000);
+        return () => clearInterval(t);
+      }, []);
+
+      const h = HIGHLIGHTS[cur];
+      const scrollTo = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      return (
+        <section id="hero-opt2" className="hero-opt2-wrap">
+          <div className="bento-container hero-opt2-inner">
+            <div className="hero-opt2-content">
+              <div className="lab-badge animate-pulse-cyan">
+                <span className="telemetry-dot" />
+                <span>LABORATORIO DE INNOVACIÓN &amp; PROTOTIPADO</span>
+              </div>
+
+              <h1 className="hero-opt2-title">
+                Donde la Ciencia Aplicada <br />
+                se convierte en <span className="lab-text-gradient">Realidad Tangible</span>
+              </h1>
+
+              <p className="hero-opt2-lead">
+                Ecosistema tecnológico de la <strong>UCEVA</strong> para investigación de vanguardia, computación espacial, inteligencia artificial y manufactura aditiva 4.0/5.0.
+              </p>
+
+              <div className="hero-opt2-actions">
+                <button onClick={() => scrollTo('bento-opt2')} className="lab-btn-primary">
+                  <span>Explorar Desarrollos Bento</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+                <button onClick={() => scrollTo('lines-opt2')} className="lab-btn-outline">
+                  <span>Líneas Tecnológicas</span>
+                </button>
+              </div>
+
+              <div className="hero-metrics-strip">
+                <div className="metric-cell">
+                  <span className="metric-val lab-text-gradient">14+</span>
+                  <span className="metric-sub">Proyectos I+D</span>
+                </div>
+                <div className="metric-separator" />
+                <div className="metric-cell">
+                  <span className="metric-val" style={{ color: '#00F5D4' }}>6</span>
+                  <span className="metric-sub">Líneas de Vanguardia</span>
+                </div>
+                <div className="metric-separator" />
+                <div className="metric-cell">
+                  <span className="metric-val" style={{ color: '#F59E0B' }}>100%</span>
+                  <span className="metric-sub">Prototipado In-House</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="hero-opt2-portal">
+              <div className="portal-frame glass-panel">
+                <div className="hud-corner-bracket hud-tl" />
+                <div className="hud-corner-bracket hud-tr" />
+                <div className="hud-corner-bracket hud-bl" />
+                <div className="hud-corner-bracket hud-br" />
+
+                <div className="portal-header">
+                  <span className="portal-live-tag"><span className="telemetry-dot" />SHOWCASE EN VIVO</span>
+                  <span className="portal-index">{cur + 1} / {HIGHLIGHTS.length}</span>
+                </div>
+
+                <div className="portal-media-box">
+                  <video key={h.video} src={h.video} poster={h.poster} autoPlay loop muted playsInline className="portal-video" />
+                  <div className="portal-gradient-scrim" />
+                </div>
+
+                <div className="portal-footer">
+                  <span className="lab-badge lab-badge-indigo">{h.badge}</span>
+                  <h3 className="portal-title">{h.title}</h3>
+                  <p className="portal-category">{h.category}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function BentoProjectGridOpt2({ projects, onOpenProject }) {
+      const [filter, setFilter] = useState('ALL');
+      const [q, setQ] = useState('');
+
+      const filterList = [
+        { id: 'ALL', label: 'Todos' },
+        { id: 'XR', label: 'Realidades Extendidas (XR)' },
+        { id: 'IA', label: 'Inteligencia Artificial' },
+        { id: '3D', label: 'Fotogrametría & 3D' },
+        { id: 'AERO', label: 'Aeronáutica & Drones' },
+        { id: 'IOT', label: 'Electrónica & IoT' },
+        { id: 'FAB', label: 'Fabricación Digital' }
+      ];
+
+      const filtered = useMemo(() => {
+        return projects.filter(p => {
+          let mCat = true;
+          if (filter !== 'ALL') {
+            if (filter === 'XR') mCat = p.category.includes('VR') || p.category.includes('AR') || p.category.includes('MR');
+            else if (filter === 'IA') mCat = p.category.includes('IA');
+            else if (filter === '3D') mCat = p.category.includes('Fotogrametría') || p.category.includes('360');
+            else if (filter === 'AERO') mCat = p.category.includes('Aeronáutica');
+            else if (filter === 'IOT') mCat = p.category.includes('IoT') || p.category.includes('Electrónica');
+            else if (filter === 'FAB') mCat = p.category.includes('Diseño') || p.category.includes('Fabricación');
+          }
+          let mQ = true;
+          if (q.trim() !== '') {
+            const search = q.toLowerCase();
+            mQ = p.title.toLowerCase().includes(search) || p.shortDesc.toLowerCase().includes(search) || p.techStack.some(t => t.toLowerCase().includes(search));
+          }
+          return mCat && mQ;
+        });
+      }, [projects, filter, q]);
+
+      const getSpan = (idx) => {
+        if (idx === 0 || idx === 4) return 'span-featured-hero';
+        if (idx === 1 || idx === 5) return 'span-featured-side';
+        if (idx === 2 || idx === 3) return 'span-wide';
+        return 'span-standard';
+      };
+
+      return (
+        <section id="bento-opt2" className="bento-section">
+          <div className="bento-container">
+            <div className="lab-section-header">
+              <span className="lab-section-tag">&lt; REPOSITORIO DE DESARROLLOS /&gt;</span>
+              <h2 className="lab-section-title">Portafolio <span className="lab-text-gradient">Bento Showcase</span></h2>
+              <p className="lab-section-sub">Composición dinámica con videos integrados bajo demanda y telemetría de ingeniería.</p>
+            </div>
+
+            <div className="bento-filter-ribbon no-print">
+              <div className="bento-filters-group">
+                {filterList.map(f => (
+                  <button key={f.id} onClick={() => setFilter(f.id)} className={`bento-filter-pill ${filter === f.id ? 'active' : ''}`}>
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+              <div className="bento-search-box">
+                <input type="text" placeholder="Buscar desarrollo..." value={q} onChange={(e) => setQ(e.target.value)} className="bento-search-input" />
+              </div>
+            </div>
+
+            <div className="bento-grid">
+              {filtered.map((item, idx) => {
+                const videoUrl = VIDEO_MAP[item.id];
+                const spanClass = getSpan(idx);
+                return (
+                  <div key={item.id} className={`bento-card ${spanClass}`} onClick={() => onOpenProject(item)}>
+                    <div className="hud-corner-bracket hud-tl" />
+                    <div className="hud-corner-bracket hud-tr" />
+                    <div className="hud-corner-bracket hud-bl" />
+                    <div className="hud-corner-bracket hud-br" />
+
+                    <div className="bento-media-container">
+                      {videoUrl ? (
+                        <video src={videoUrl} poster={item.previewImage || item.gallery[0]} autoPlay loop muted playsInline preload="metadata" />
+                      ) : (
+                        <img src={item.previewImage || item.gallery[0]} alt={item.title} onError={(e) => { e.target.src = 'assets/projects/slide_render_1.jpg'; }} />
+                      )}
+                      <div className="bento-media-overlay-gradient" />
+                      <div className="bento-card-top-tags">
+                        <span className="lab-badge">{item.category}</span>
+                        {videoUrl && <span className="bento-video-badge"><span className="bento-video-beacon" />VIDEO HD</span>}
+                      </div>
+                    </div>
+
+                    <div className="bento-card-content">
+                      <span className="bento-tag-category">{item.tag}</span>
+                      <h3 className="bento-card-title">{item.title}</h3>
+                      <p className="bento-card-desc">{item.shortDesc}</p>
+                      <div className="bento-card-action-bar">
+                        <span>Explorar Dossier Técnico</span>
+                        <span>→</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function ProjectDetailDrawerOpt2({ project, onClose }) {
+      if (!project) return null;
+      const videoSrc = VIDEO_MAP[project.id];
+
+      return (
+        <div className="drawer-backdrop" onClick={onClose}>
+          <div className="drawer-panel" onClick={(e) => e.stopPropagation()}>
+            <div className="drawer-header-row">
+              <div className="drawer-header-tags">
+                <span className="lab-badge">{project.category}</span>
+                <span className="lab-badge lab-badge-indigo">{project.tag}</span>
+                <span className="drawer-slide-pill">Slide {project.slide}</span>
+              </div>
+              <button onClick={onClose} className="drawer-close-btn">✕</button>
+            </div>
+
+            <h2 className="drawer-project-title">{project.title}</h2>
+
+            <div className="drawer-content-grid">
+              <div className="drawer-media-column">
+                <div className="drawer-main-media-viewport">
+                  {videoSrc ? (
+                    <video src={videoSrc} poster={project.previewImage} controls autoPlay loop muted playsInline className="drawer-media-video" />
+                  ) : (
+                    <img src={project.previewImage || project.gallery[0]} alt={project.title} className="drawer-media-img" onError={(e) => { e.target.src = 'assets/projects/slide_render_1.jpg'; }} />
+                  )}
+                </div>
+              </div>
+
+              <div className="drawer-info-column">
+                <div className="drawer-info-block">
+                  <h4 className="drawer-info-subtitle">Descripción del Desarrollo</h4>
+                  <p className="drawer-info-desc">{project.fullDesc}</p>
+                </div>
+                <div className="drawer-info-block">
+                  <h4 className="drawer-info-subtitle">Rol Desempeñado</h4>
+                  <p className="drawer-info-desc">⚡ {project.role}</p>
+                </div>
+                <div className="drawer-info-block">
+                  <h4 className="drawer-info-subtitle">Tecnologías Clave</h4>
+                  <div className="drawer-tech-pills">
+                    {project.techStack.map((t, i) => (
+                      <span key={i} className="drawer-tech-badge">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function AppOpt2() {
+      const [activeDrawer, setActiveDrawer] = useState(null);
+      const handlePrint = () => window.print();
+
+      return (
+        <div>
+          <NavbarOpt2 onPrintPdf={handlePrint} />
+          <main>
+            <HeroOpt2 />
+            <BentoProjectGridOpt2 projects={portfolioData.projects} onOpenProject={(p) => setActiveDrawer(p)} />
+          </main>
+          {activeDrawer && <ProjectDetailDrawerOpt2 project={activeDrawer} onClose={() => setActiveDrawer(null)} />}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root-opt2')).render(<AppOpt2 />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+{
+  "centerInfo": {
+    "name": "Centro de Prototipado & STEAM",
+    "institution": "Unidad Central del Valle del Cauca (UCEVA)",
+    "tagline": "Laboratorio de Innovación, Fabricación Digital & Realidades Extendidas",
+    "badge": "Industria 4.0 & 5.0 • I+D+i",
+    "impactQuote": "Transformamos la curiosidad científica y los retos del entorno en prototipos tangibles de alto impacto tecnológico.",
+    "description": "El Centro de Prototipado surgió en el año 2023 como respuesta a las necesidades tecnológicas de la comunidad docente, estudiantil e investigadores de la UCEVA. Desarrolla capacidades en desarrollo físico, tecnológico y científico con un equipo interdisciplinario preparado para responder a la Industria 4.0 y 5.0.",
+    "purpose": "Consolidar un ecosistema universitario de vanguardia que integre la investigación aplicada, el prototipado rápido, la inteligencia artificial y la computación espacial al servicio de la educación y el tejido productivo regional."
+  },
+  "developmentLines": [
+    {
+      "id": "line-xr",
+      "name": "Realidades Extendidas (XR)",
+      "subtitle": "VR • AR • MR • WebXR",
+      "count": 4,
+      "desc": "Simuladores inmersivos para salud pública, divulgación científica en WebAR y spatial computing en Realidad Mixta con Meta Quest 3.",
+      "techs": [
+        "Unity 3D",
+        "Unreal Engine",
+        "Meta Quest SDK",
+        "WebXR",
+        "Three.js",
+        "Spatial Anchors"
+      ],
+      "image": "/assets/posters/simulador_museo_del_dengue_vr.jpg",
+      "badgeColor": "cyan"
+    },
+    {
+      "id": "line-ia",
+      "name": "Inteligencia Artificial & Visión",
+      "subtitle": "Deep Learning • Computer Vision • Biometría",
+      "count": 2,
+      "desc": "Modelos de estimación postural (Motion Tracking) sin marcadores y análisis biométrico de respuestas emocionales en Neuromarketing.",
+      "techs": [
+        "Python",
+        "OpenCV",
+        "MediaPipe",
+        "TensorFlow",
+        "Facial Landmark",
+        "Deep Learning"
+      ],
+      "image": "/assets/posters/motion_tracker_ia.jpg",
+      "badgeColor": "magenta"
+    },
+    {
+      "id": "line-3d",
+      "name": "Gemelos Digitales & Fotogrametría",
+      "subtitle": "Nubes de Puntos • Mallas 3D • Digital Humans",
+      "count": 2,
+      "desc": "Levantamiento aerofotogramétrico de campus y digitalización humana para avatares hiperrealistas con texturas 8K.",
+      "techs": [
+        "Agisoft Metashape",
+        "Drones DJI",
+        "CloudCompare",
+        "Blender",
+        "ZBrush",
+        "Mallas 3D"
+      ],
+      "image": "/assets/projects/slide_render_12.jpg",
+      "badgeColor": "purple"
+    },
+    {
+      "id": "line-aero",
+      "name": "Aeronáutica & Robótica Aérea",
+      "subtitle": "UAVs • Aviónica Pixhawk • Telemetría",
+      "count": 1,
+      "desc": "Diseño aerodinámico, prototipado de chasis en compuestos de carbono, integración de controladores de vuelo e inspección aérea.",
+      "techs": [
+        "CAD Aeronáutico",
+        "Pixhawk",
+        "ArduPilot",
+        "Telemetría RF",
+        "Motores Brushless",
+        "CNC"
+      ],
+      "image": "/assets/posters/construccion_aeronaves_drones.jpg",
+      "badgeColor": "orange"
+    },
+    {
+      "id": "line-fab",
+      "name": "Fabricación Digital & Economía Circular",
+      "subtitle": "Impresión 3D • Mecanizado CNC • Reciclaje",
+      "count": 2,
+      "desc": "Maquinaria de triturado para reciclaje de polímeros (PET/PLA) y manufactura aditiva técnica FDM/SLA de alta precisión.",
+      "techs": [
+        "SolidWorks",
+        "Corte Láser CNC",
+        "Impresoras FDM & Resina",
+        "Extrusión",
+        "FEA Analysis"
+      ],
+      "image": "/assets/projects/minitrituradora_plastico.jpg",
+      "badgeColor": "green"
+    },
+    {
+      "id": "line-iot",
+      "name": "Electrónica, IoT & Smart Cities",
+      "subtitle": "PCBs Custom • LoRaWAN • Energía Solar",
+      "count": 2,
+      "desc": "Diseño y fabricación in-house de placas de circuito impreso y redes de telemetría meteorológica conectadas 24/7.",
+      "techs": [
+        "KiCad",
+        "ESP32",
+        "LoRaWAN",
+        "MQTT",
+        "Sensores Ambientales",
+        "Energía Solar"
+      ],
+      "image": "/assets/projects/slide_render_21.jpg",
+      "badgeColor": "cyan"
+    }
+  ],
+  "projects": [
+    {
+      "id": "vr-museo-dengue",
+      "slide": 15,
+      "title": "Simulador VR: Museo del Dengue",
+      "category": "Realidad Virtual (VR)",
+      "lineId": "line-xr",
+      "tag": "Salud Pública & Divulgación",
+      "devType": "Simulador Inmersivo / Prototipo Funcional",
+      "bentoSpan": "span-large",
+      "shortDesc": "Museo interactivo en Realidad Virtual para sensibilizar sobre el ciclo biológico del mosquito Aedes aegypti y prevención en comunidades.",
+      "fullDesc": "Entorno inmersivo de Realidad Virtual desarrollado para Meta Quest que recrea el ciclo de vida del mosquito transmisor del dengue a escala microscópica y macroscópica. Permite a los usuarios interactuar con escenarios residenciales, identificar criaderos y aprender protocolos de erradicación mediante dinámicas lúdicas de alto impacto pedagógico.",
+      "techStack": [
+        "Meta Quest 2/3",
+        "Unity VR",
+        "Modelado Anatómico 3D",
+        "Shaders PBR",
+        "C#",
+        "Audio Espacial"
+      ],
+      "role": "Dirección técnica, modelado biológico 3D, programación de interacciones físicas y despliegue en campo",
+      "featured": true,
+      "previewImage": "assets/posters/simulador_museo_del_dengue_vr.jpg",
+      "gif": "assets/gifs/simulador_museo_del_dengue_vr.gif",
+      "video": "/assets/videos/museo_del_dengue_vr.mp4",
+      "gallery": [
+        "assets/posters/simulador_museo_del_dengue_vr.jpg",
+        "assets/projects/slide_render_15.jpg",
+        "assets/projects/slide_render_9.jpg",
+        "assets/projects/slide_render_10.jpg",
+        "assets/projects/slide_render_11.jpg"
+      ],
+      "metrics": {
+        "impacto": "Proyección comunitaria en colegios del Valle",
+        "plataforma": "Meta Quest Standalone 6DOF",
+        "validación": "Herramienta de Salud Pública UCEVA"
+      }
+    },
+    {
+      "id": "mr-campus-uceva",
+      "slide": 17,
+      "title": "Campus UCEVA Realidad Mixta (MR)",
+      "category": "Realidad Mixta (MR)",
+      "lineId": "line-xr",
+      "tag": "Spatial Computing",
+      "devType": "Sistema Holográfico / Passthrough",
+      "bentoSpan": "span-wide",
+      "shortDesc": "Superposición holográfica e interactiva de la maqueta digital e información del campus universitario sobre el entorno real.",
+      "fullDesc": "Sistema de Realidad Mixta que ancla hologramas interactivos del campus UCEVA sobre mesas y espacios físicos utilizando spatial mapping y hand tracking nativo de Meta Quest 3, permitiendo inspeccionar bloques académicos, telemetría y áreas verdes con las manos.",
+      "techStack": [
+        "Meta Quest 3 Passthrough",
+        "Spatial Anchors",
+        "Unity MR",
+        "Hand Tracking",
+        "Occlusion Culling",
+        "C#"
+      ],
+      "role": "Arquitectura de Spatial Mapping, desarrollo del tracking gestual y shaders holográficos",
+      "featured": true,
+      "previewImage": "assets/posters/campus_uceva_mr_1.jpg",
+      "gif": "assets/gifs/campus_uceva_mr_1.gif",
+      "video": "/assets/videos/campus_uceva_mr_1.mp4",
+      "gallery": [
+        "assets/posters/campus_uceva_mr_1.jpg",
+        "assets/posters/campus_uceva_mr_2.jpg",
+        "assets/projects/slide_render_17.jpg"
+      ],
+      "metrics": {
+        "control": "Reconocimiento de manos sin mandos (100% Hand Tracking)",
+        "visualización": "Passthrough a todo color en tiempo real",
+        "precisión": "Anclaje espacial persistente"
+      }
+    },
+    {
+      "id": "ia-motion-tracker",
+      "slide": 23,
+      "title": "Motion Tracker con IA & Computer Vision",
+      "category": "Inteligencia Artificial",
+      "lineId": "line-ia",
+      "tag": "Markerless Pose Tracking",
+      "devType": "Algoritmo de IA / Pipeline en Tiempo Real",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Sistema inteligente de rastreo cinemático y estimación de posturas humanas en 3D sin sensores corporales adheridos.",
+      "fullDesc": "Pipeline de aprendizaje profundo basado en visión artificial que detecta y realiza seguimiento tridimensional de 33 puntos de referencia articulares del cuerpo humano a partir de cámaras convencionales, aplicable a biomecánica deportiva, ergonomía y control gestual.",
+      "techStack": [
+        "MediaPipe / OpenPose",
+        "Python / C++",
+        "Computer Vision",
+        "3D Kinematics",
+        "Análisis de Datos"
+      ],
+      "role": "Desarrollo del algoritmo de extracción de coordenadas 3D y calibración en tiempo real",
+      "featured": true,
+      "previewImage": "assets/posters/motion_tracker_ia.jpg",
+      "gif": "assets/gifs/motion_tracker_ia.gif",
+      "video": "/assets/videos/motion_tracker_ia.mp4",
+      "gallery": [
+        "assets/posters/motion_tracker_ia.jpg",
+        "assets/projects/slide_render_23.jpg"
+      ],
+      "metrics": {
+        "articulaciones": "33 Puntos clave anatómicos",
+        "rendimiento": "30+ FPS en hardware estándar",
+        "metodología": "Markerless (Sin trajes costosos)"
+      }
+    },
+    {
+      "id": "prototipado-aeronaves-drones",
+      "slide": 19,
+      "title": "Construcción de Aeronaves No Tripuladas (UAVs)",
+      "category": "Aeronáutica & Robótica",
+      "lineId": "line-aero",
+      "tag": "Hardware & Fabricación",
+      "devType": "Prototipo Físico / Vuelo Autónomo",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Diseño, fabricación digital y telemetría de drones y aeronaves para aplicaciones de teledetección y monitoreo.",
+      "fullDesc": "Diseño aerodinámico, prototipado rápido en fibra de carbono y polímeros de ingeniería, integración de aviónica Pixhawk de código abierto, configuración de telemetría de largo alcance y pruebas en banco dinámico para aplicaciones ambientales y agrícolas.",
+      "techStack": [
+        "CAD Aeronáutico",
+        "Impresión 3D / CNC",
+        "Pixhawk Flight Controller",
+        "ArduPilot",
+        "Telemetría RF"
+      ],
+      "role": "Diseño estructural CAD, ensamble de aviónica y sistemas de propulsión brushless",
+      "featured": true,
+      "previewImage": "assets/posters/construccion_aeronaves_drones.jpg",
+      "gif": "assets/gifs/construccion_aeronaves_drones.gif",
+      "video": "/assets/videos/aeronaves_drones.mp4",
+      "gallery": [
+        "assets/posters/construccion_aeronaves_drones.jpg",
+        "assets/projects/slide_render_19.jpg"
+      ],
+      "metrics": {
+        "autonomía": "Plataforma para vuelos de inspección",
+        "controlador": "Pixhawk Open Source Firmware",
+        "estructura": "Compuestos ligeros + Manufactura Aditiva"
+      }
+    },
+    {
+      "id": "vr-acoso-callejero",
+      "slide": 14,
+      "title": "Visualizador para Sensibilización: Acoso Callejero VR",
+      "category": "Realidad Virtual (VR)",
+      "lineId": "line-xr",
+      "tag": "Impacto Social & Empatía",
+      "devType": "Experiencia Inmersiva VR",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Experiencia interactiva en Realidad Virtual orientada a generar empatía y conciencia sobre el acoso en el espacio público.",
+      "fullDesc": "Simulador inmersivo desarrollado para colocar al usuario en situaciones cotidianas de acoso callejero desde una perspectiva de primera persona, promoviendo la empatía ciudadana y la prevención de violencias de género en entornos urbanos y universitarios.",
+      "techStack": [
+        "Unity 3D",
+        "Meta Quest 2/3",
+        "Audio 3D Espacial Binaural",
+        "Animación 3D",
+        "C#"
+      ],
+      "role": "Diseño de escenarios, guion interactivo, programación de eventos y optimización VR",
+      "featured": true,
+      "previewImage": "assets/posters/visualizador_acoso_callejero_vr.jpg",
+      "gif": "assets/gifs/visualizador_acoso_callejero_vr.gif",
+      "video": "/assets/videos/acoso_callejero_vr.mp4",
+      "gallery": [
+        "assets/posters/visualizador_acoso_callejero_vr.jpg",
+        "assets/projects/slide_render_14.jpg"
+      ],
+      "metrics": {
+        "enfoque": "Sensibilización y formación ciudadana",
+        "audio": "Sonido binaural 360° direccional",
+        "plataforma": "Meta Quest Standalone"
+      }
+    },
+    {
+      "id": "ar-web-divulgacion",
+      "slide": 16,
+      "title": "Aplicativo Web AR para Divulgación",
+      "category": "Realidad Aumentada (AR)",
+      "lineId": "line-xr",
+      "tag": "WebXR Zero-Install",
+      "devType": "Web Application / WebAR",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Plataforma WebAR que permite proyectar modelos 3D interactivos en el mundo real desde cualquier navegador móvil.",
+      "fullDesc": "Aplicativo de Realidad Aumentada web que permite a estudiantes y visitantes escanear códigos QR y visualizar modelos 3D interactivos superpuestos en su entorno físico sin necesidad de instalar apps desde tiendas, logrando máxima accesibilidad.",
+      "techStack": [
+        "WebXR",
+        "Three.js / A-Frame",
+        "MindAR",
+        "JavaScript",
+        "HTML5 / CSS3",
+        "GLTF"
+      ],
+      "role": "Arquitectura WebAR, compresión de mallas poligonales y desarrollo frontend responsive",
+      "featured": true,
+      "previewImage": "assets/posters/aplicativo_web_ar_divulgacion.jpg",
+      "gif": "assets/gifs/aplicativo_web_ar_divulgacion.gif",
+      "video": "/assets/videos/webar_divulgacion.mp4",
+      "gallery": [
+        "assets/posters/aplicativo_web_ar_divulgacion.jpg",
+        "assets/projects/slide_render_16.jpg"
+      ],
+      "metrics": {
+        "acceso": "100% en navegador (Zero-Install)",
+        "compatibilidad": "iOS Safari & Android Chrome",
+        "tasa_cuadros": "60 FPS fluidos en smartphones"
+      }
+    },
+    {
+      "id": "fotogrametria-campus",
+      "slide": 12,
+      "title": "Fotogrametría Campus UCEVA",
+      "category": "Fotogrametría & 3D",
+      "lineId": "line-3d",
+      "tag": "Gemelos Digitales",
+      "devType": "Levantamiento Aerofotogramétrico",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Reconstrucción digital tridimensional de alta precisión de las instalaciones del campus universitario UCEVA.",
+      "fullDesc": "Levantamiento con drones y sensores terrestres para generar gemelos digitales con millones de puntos de alta precisión, mallas poligonales optimizadas y ortofotos georreferenciadas para planificación de infraestructura.",
+      "techStack": [
+        "Fotogrametría Aérea",
+        "Agisoft Metashape",
+        "Drones DJI",
+        "Modelado 3D",
+        "CloudCompare"
+      ],
+      "role": "Captura aerofotogramétrica, densificación de nubes de puntos y texturizado 3D",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_12.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_12.jpg",
+        "extracted_assets/images/page_12_img_1.png",
+        "extracted_assets/images/page_12_img_2.jpeg"
+      ],
+      "metrics": {
+        "resolución": "GSD < 2 cm/pixel",
+        "salida": "Mallas OBJ/FBX y nubes LAS",
+        "área": "Campus completo UCEVA"
+      }
+    },
+    {
+      "id": "fotogrametria-personas",
+      "slide": 13,
+      "title": "Fotogrametría a Personas & Avatares 3D",
+      "category": "Fotogrametría & 3D",
+      "lineId": "line-3d",
+      "tag": "Digital Humans",
+      "devType": "Escaneo Corporal & Facial",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Digitalización corporal y facial para avatares 3D hiperrealistas en entornos virtuales y de metaverso.",
+      "fullDesc": "Pipeline de escaneo fotogramétrico sincronizado para crear réplicas digitales humanas de alta fidelidad, retopología limpia y texturas 8K para su uso en simulaciones VR y producción de medios transmedia.",
+      "techStack": [
+        "Fotogrametría Multicámara",
+        "Texturizado 8K",
+        "Blender",
+        "ZBrush",
+        "Rigging Humanoide"
+      ],
+      "role": "Calibración fotográfica, reconstrucción volumétrica y rigging anatómico",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_13.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_13.jpg",
+        "extracted_assets/images/page_13_img_1.png"
+      ],
+      "metrics": {
+        "textura": "Mapas de textura 8K HDR",
+        "geometría": "Malla optimizada para VR en tiempo real"
+      }
+    },
+    {
+      "id": "diseno-minitrituradora-plastico",
+      "slide": 24,
+      "title": "Minitrituradora de Plástico para Reciclaje",
+      "category": "Diseño & Fabricación Digital",
+      "lineId": "line-fab",
+      "tag": "Economía Circular & Sostenibilidad",
+      "devType": "Maquinaria Electromecánica",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Diseño y manufactura de maquinaria de triturado para reutilización de termoplásticos en impresión 3D.",
+      "fullDesc": "Diseño de ingeniería mecánica, análisis de elementos finitos (FEA) y mecanizado CNC de una trituradora compacta de polímeros (PET, HDPE, PLA) para reinsertar el plástico desechado como materia prima de filamento para impresión 3D.",
+      "techStack": [
+        "SolidWorks / Fusion 360",
+        "Corte Láser CNC",
+        "Torneado & Fresado",
+        "Motorreductor",
+        "FEA Analysis"
+      ],
+      "role": "Diseño mecánico de cuchillas y eje, simulación de esfuerzos y ensamble",
+      "featured": true,
+      "previewImage": "assets/projects/minitrituradora_plastico.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/minitrituradora_plastico.jpg",
+        "assets/projects/slide_render_24.jpg"
+      ],
+      "metrics": {
+        "rendimiento": "5 kg/h de procesamiento",
+        "aplicación": "Extrusión de filamento 3D reciclado"
+      }
+    },
+    {
+      "id": "recorrido-360-cenicafe",
+      "slide": 18,
+      "title": "Recorrido Web 360° CENICAFÉ",
+      "category": "Tours Virtuales 360°",
+      "lineId": "line-xr",
+      "tag": "Inmersión Web",
+      "devType": "Plataforma Web Interactiva",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Tour virtual interactivo e inmersivo en 360 grados por los laboratorios científicos de CENICAFÉ.",
+      "fullDesc": "Desarrollo de plataforma web interactiva de recorridos en 360 grados para el Centro Nacional de Investigaciones de Café, integrando hotspots multimedia interactivos, navegación guiada y compatibilidad con pantallas y visores VR.",
+      "techStack": [
+        "Fotografía Esférica 360°",
+        "Pannellum / WebGL",
+        "Hotspots Multimedia",
+        "HTML5/CSS3"
+      ],
+      "role": "Captura fotográfica panorámica HDR, programación de puntos de interacción y despliegue web",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_18.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_18.jpg"
+      ],
+      "metrics": {
+        "calidad": "Panorámicas esféricas 12K HDR",
+        "alianza": "Divulgación científica nacional CENICAFÉ"
+      }
+    },
+    {
+      "id": "iot-estacion-meteorologica",
+      "slide": 21,
+      "title": "Sistema Meteorológico IoT & Smart Cities",
+      "category": "IoT & Ciudades Inteligentes",
+      "lineId": "line-iot",
+      "tag": "Telemetría Cloud",
+      "devType": "Dispositivo IoT Autónomo",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Red de monitoreo ambiental y meteorológico en tiempo real con transmisión inalámbrica LoRaWAN y alimentación solar.",
+      "fullDesc": "Estación meteorológica autónoma con sensores de temperatura, humedad, presión, radiación solar y calidad del aire. Integra panel solar, microcontrolador de ultrabajo consumo y transmisión de telemetría hacia la nube.",
+      "techStack": [
+        "ESP32 / LoRaWAN",
+        "Sensores Ambientales",
+        "MQTT / HTTP REST",
+        "Dashboard Web",
+        "Energía Solar"
+      ],
+      "role": "Integración de sensórica, firmware de bajo consumo y plataforma de visualización en la nube",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_21.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_21.jpg"
+      ],
+      "metrics": {
+        "operación": "24/7 Autónoma con Energía Solar",
+        "alcance": "Comunicación LoRaWAN de largo alcance"
+      }
+    },
+    {
+      "id": "diseno-placas-electronicas",
+      "slide": 20,
+      "title": "Diseño & Fabricación de Placas Electrónicas (PCBs)",
+      "category": "Electrónica & Hardware",
+      "lineId": "line-iot",
+      "tag": "PCB Custom",
+      "devType": "Hardware Electrónico Custom",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Ingeniería de esquemáticos, ruteo multicapa y fabricación de circuitos impresos para sistemas embebidos.",
+      "fullDesc": "Desarrollo completo de hardware electrónico: concepción de circuitos, ruteo de pistas de alta frecuencia, fresado CNC de cobre, ensamble SMD con soldadura por reflujo y pruebas de validación con osciloscopio.",
+      "techStack": [
+        "KiCad / EasyEDA",
+        "Microcontroladores ESP32/STM32",
+        "Diseño SMD/SMT",
+        "Fresado PCB CNC"
+      ],
+      "role": "Diseño esquemático, layout de PCB multicapa y manufactura física",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_20.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_20.jpg"
+      ],
+      "metrics": {
+        "tecnología": "Montaje superficial SMD 0603",
+        "fabricación": "Prototipado in-house en minutos"
+      }
+    },
+    {
+      "id": "ia-neuromarketing",
+      "slide": 22,
+      "title": "Proyectos IA + Neuromarketing",
+      "category": "Inteligencia Artificial",
+      "lineId": "line-ia",
+      "tag": "Biometría & Visión",
+      "devType": "Modelo de Investigación / Visión Artificial",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Análisis biométrico de emociones, atención visual y mapas de calor cognitivos mediante visión por computador.",
+      "fullDesc": "Modelos de inteligencia artificial para decodificar microexpresiones faciales y zonas de fijación de la mirada (Heatmaps) en usuarios frente a estímulos multimedia, combinando visión artificial y neurociencia aplicada.",
+      "techStack": [
+        "Python",
+        "OpenCV",
+        "TensorFlow",
+        "Eye Tracking",
+        "Heatmap Generation"
+      ],
+      "role": "Entrenamiento de clasificadores de microexpresiones y pipeline de análisis visual",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_22.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_22.jpg"
+      ],
+      "metrics": {
+        "precisión": ">94% en clasificación emocional",
+        "procesamiento": "Análisis de video en tiempo real"
+      }
+    },
+    {
+      "id": "diseno-soportes-elementos-3d",
+      "slide": 25,
+      "title": "Soportes & Elementos Mecánicos Personalizados 3D",
+      "category": "Diseño & Fabricación Digital",
+      "lineId": "line-fab",
+      "tag": "Manufactura Aditiva",
+      "devType": "Piezas Funcionales de Ingeniería",
+      "bentoSpan": "span-medium",
+      "shortDesc": "Desarrollo de piezas de ingeniería, carcasas y soportes funcionales mediante manufactura aditiva FDM/SLA.",
+      "fullDesc": "Ingeniería inversa y diseño paramétrico para producir piezas mecánicas a medida en polímeros técnicos (PETG, Nylon, Fibra de Carbono, Resina Tough) para laboratorios y proyectos de investigación.",
+      "techStack": [
+        "CAD Paramétrico",
+        "Impresoras FDM & Resina SLA",
+        "Materiales Técnicos (Nylon, Carbon)",
+        "Ingeniería Inversa"
+      ],
+      "role": "Modelado CAD paramétrico y parametrización de impresión 3D técnica",
+      "featured": false,
+      "previewImage": "assets/projects/slide_render_25.jpg",
+      "gif": null,
+      "video": null,
+      "gallery": [
+        "assets/projects/slide_render_25.jpg"
+      ],
+      "metrics": {
+        "tolerancia": "Precisión milimétrica ±0.1 mm",
+        "materiales": "PETG, ABS, Fibra de Carbono, Resina"
+      }
+    }
+  ],
+  "team": {
+    "professionals": [
+      {
+        "name": "Juan Sebastián Correa Fernández",
+        "role": "Coordinador del Centro STEAM / Prototipado",
+        "degrees": [
+          "Ing. Electrónico",
+          "Mgtr. Instrumentación Física"
+        ],
+        "focus": "Liderazgo técnico, instrumentación, gestión de proyectos 4.0/5.0",
+        "avatar": "assets/team/page_3_img_2.jpeg"
+      },
+      {
+        "name": "Juan David Villegas Tamayo",
+        "role": "Experto STEM+",
+        "degrees": [
+          "Ing. Electrónico",
+          "Mgtr. Medio Ambiente"
+        ],
+        "focus": "Pedagogía STEAM+, sostenibilidad, tecnologías verdes",
+        "avatar": "assets/team/page_3_img_3.jpeg"
+      },
+      {
+        "name": "David Tenorio Cruz",
+        "role": "Experto en Fabricación & Prototipado",
+        "degrees": [
+          "Ing. Aeronáutico"
+        ],
+        "focus": "Diseño aeroespacial, drones, mecanizado CNC, manufactura aditiva",
+        "avatar": "assets/team/page_3_img_4.jpeg"
+      },
+      {
+        "name": "Alberto José Duque",
+        "role": "Especialista en IA & Modelos AA",
+        "degrees": [
+          "Ing. Biomédico",
+          "Estudiante Mg. Pedagogía"
+        ],
+        "focus": "Machine Learning, visión artificial, tecnologías biomédicas",
+        "avatar": "assets/team/page_3_img_5.jpeg"
+      },
+      {
+        "name": "David G. Bustamante Herrera",
+        "role": "Especialista en Inteligencia Artificial",
+        "degrees": [
+          "Ing. Mecatrónico",
+          "Mgtr. Inteligencia Artificial"
+        ],
+        "focus": "Robótica avanzada, deep learning, control inteligente",
+        "avatar": "assets/team/page_3_img_6.jpeg"
+      },
+      {
+        "name": "Ingrid Tatiana Bocanegra García",
+        "role": "Experta en Vocaciones Científicas",
+        "degrees": [
+          "Ing. Mecatrónica"
+        ],
+        "focus": "Fomento de vocaciones STEAM, divulgación científica, robótica educativa",
+        "avatar": "assets/team/page_3_img_7.jpeg"
+      }
+    ],
+    "support": [
+      {
+        "name": "Georleans González Marmolejo",
+        "role": "Monitor Centro STEAM (UX/UI / Electrónica)",
+        "degree": "Estudiante Ing. Electrónica 9°"
+      },
+      {
+        "name": "Michael Andrés Hernández",
+        "role": "Desarrollador VR/AR/MR",
+        "degree": "Ing. de Sistemas"
+      },
+      {
+        "name": "Alejandro Burbano Vivas",
+        "role": "Estudiante Practicante VR/AR/MR",
+        "degree": "Estudiante Ing. Sistemas 10°"
+      },
+      {
+        "name": "Lidier Felipe Sicacha Granado",
+        "role": "Estudiante Practicante Software/XR",
+        "degree": "Estudiante Ing. Sistemas 10°"
+      },
+      {
+        "name": "Eliana López Franco",
+        "role": "Estudiante Monitora Electrónica",
+        "degree": "Estudiante Ing. Electrónica 7°"
+      },
+      {
+        "name": "Samuel Lozano Vásquez",
+        "role": "Estudiante Voluntario",
+        "degree": "Estudiante Ing. Electrónica 9°"
+      },
+      {
+        "name": "Miguel Ángel Peláez Valencia",
+        "role": "Estudiante Voluntario",
+        "degree": "Estudiante Ing. Electrónica 9°"
+      },
+      {
+        "name": "María Camila Tigreros Sánchez",
+        "role": "Comunicación & Media",
+        "degree": "Est. Comunicación Transmedia 3°"
+      },
+      {
+        "name": "Valery Gabriela Guerrero Macías",
+        "role": "Comunicación & Media",
+        "degree": "Est. Comunicación Transmedia 3°"
+      },
+      {
+        "name": "Ana Sofía Guzmán Díaz",
+        "role": "Comunicación & Media",
+        "degree": "Est. Comunicación Transmedia 3°"
+      },
+      {
+        "name": "Luisa Fernanda Madrigal Suárez",
+        "role": "Comunicación & Media",
+        "degree": "Est. Comunicación Transmedia 3°"
+      },
+      {
+        "name": "Kelly Johanna Arboleda Grueso",
+        "role": "Científica Voluntaria",
+        "degree": "Ingeniera Agropecuaria"
+      }
+    ]
+  }
+}

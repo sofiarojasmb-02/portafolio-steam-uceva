@@ -1,0 +1,12 @@
+{
+  "name": "uceva-steam-portfolio",
+  "version": "1.0.0",
+  "description": "Portafolio Tecnológico e Innovación Centro STEAM UCEVA",
+  "main": "index.html",
+  "scripts": {
+    "start": "python server.py"
+  },
+  "keywords": ["steam", "uceva", "portfolio", "vr", "ar", "ia", "iot"],
+  "author": "Centro STEAM UCEVA",
+  "license": "MIT"
+}
