@@ -17,10 +17,10 @@ presentation_data = {
     'team_profesionales': [
         {'name': 'Juan Sebastián Correa Fernández', 'role': 'Coordinador del Centro', 'degree': 'Ing Electrónico | Mgtr Instrumentación Física', 'photo': 'assets/team/juan_sebastian_correa.jpg'},
         {'name': 'Juan David Villegas Tamayo', 'role': 'Experto STEM+', 'degree': 'Ing Electrónico | Mgtr Medio Ambiente', 'photo': 'assets/team/juan_david_villegas.jpg'},
+        {'name': 'Ingrid Tatiana Bocanegra García', 'role': 'Experta en vocaciones', 'degree': 'ING. Mecatrónica', 'photo': 'assets/team/ingrid_tatiana_bocanegra.jpg'},
         {'name': 'David Tenorio Cruz', 'role': 'Experto en fabricación', 'degree': 'ING Aeronáutico', 'photo': 'assets/team/david_tenorio_cruz.jpg'},
         {'name': 'Alberto José Duque', 'role': 'IA y modelos AA', 'degree': 'Ing biomédico | Estudiante de Mg pedagogía', 'photo': 'assets/team/alberto_jose_duque.jpg'},
-        {'name': 'David G. Bustamante Herrera', 'role': 'Especialista', 'degree': 'Ing. Mecatrónico | Mgtr IA', 'photo': 'assets/team/david_bustamante_herrera.jpg'},
-        {'name': 'Ingrid Tatiana Bocanegra García', 'role': 'Experta en vocaciones', 'degree': 'ING. Mecatrónica', 'photo': 'assets/team/ingrid_tatiana_bocanegra.jpg'}
+        {'name': 'David G. Bustamante Herrera', 'role': 'Especialista en IA', 'degree': 'Ing. Mecatrónico | Mgtr IA', 'photo': 'assets/team/david_bustamante_herrera.jpg'}
     ],
     'team_apoyo': [
         {'name': 'Georleans González Marmolejo', 'role': 'Monitor Centro STEAM', 'degree': 'Estudiante de Ing. Electrónica 9° | UX/UX/Electrónica', 'photo': 'assets/team/georleans_gonzalez.jpg'},
@@ -37,30 +37,30 @@ presentation_data = {
         {'name': 'Kelly Johanna Arboleda Grueso', 'role': 'Científica Voluntaria', 'degree': 'Ingeniera Agropecuaria', 'photo': 'assets/team/kelly_johanna_arboleda.jpg'}
     ],
     'equipos': [
-        {'title': 'Equipos Educativos', 'category': 'Equipamiento', 'image': 'assets/projects/slide_render_6.jpg'},
-        {'title': 'Equipos Tecnológicos — Impresión & Escaneo', 'category': 'Equipamiento', 'image': 'assets/projects/slide_render_7.jpg'},
-        {'title': 'Equipos Tecnológicos — VR & Fabricación', 'category': 'Equipamiento', 'image': 'assets/projects/slide_render_8.jpg'}
+        {'title': 'Equipos Educativos', 'category': 'Equipamiento STEAM', 'image': 'assets/project_photos/slide_6_content.jpg', 'full_slide': 'assets/projects/slide_render_6.jpg'},
+        {'title': 'Equipos Tecnológicos — Impresión 3D & Escaneo', 'category': 'Fabricación Digital', 'image': 'assets/project_photos/slide_7_content.jpg', 'full_slide': 'assets/projects/slide_render_7.jpg'},
+        {'title': 'Equipos Tecnológicos — Realidades Extendidas & Fabricación', 'category': 'Realidades Extendidas', 'image': 'assets/project_photos/slide_8_content.jpg', 'full_slide': 'assets/projects/slide_render_8.jpg'}
     ],
     'impactos': [
-        {'title': 'Simulador para sensibilización: Museo del Dengue VR', 'category': 'Impactos', 'image': 'assets/projects/slide_render_9.jpg'},
-        {'title': 'Simulador para sensibilización: Museo del Dengue VR', 'category': 'Relacionamientos Externos', 'image': 'assets/projects/slide_render_10.jpg'},
-        {'title': 'Simulador para sensibilización: Museo del Dengue VR', 'category': 'Proyección Social', 'image': 'assets/projects/slide_render_11.jpg'}
+        {'title': 'Impactos Regionales & Tecnológicos', 'category': 'Impactos Institucionales', 'image': 'assets/project_photos/slide_9_content.jpg', 'full_slide': 'assets/projects/slide_render_9.jpg'},
+        {'title': 'Relacionamientos Externos & Alianzas Estratégicas', 'category': 'Alianzas Interinstitucionales', 'image': 'assets/project_photos/slide_10_content.jpg', 'full_slide': 'assets/projects/slide_render_10.jpg'},
+        {'title': 'Proyección Social & Apropiación del Conocimiento', 'category': 'Comunidad & Vocaciones', 'image': 'assets/project_photos/slide_11_content.jpg', 'full_slide': 'assets/projects/slide_render_11.jpg'}
     ],
     'proyectos': [
-        {'title': 'Fotogrametría Campus UCEVA', 'category': 'Fotogrametría', 'image': 'assets/projects/slide_render_12.jpg', 'video': None, 'gif': None},
-        {'title': 'Fotogrametría a personas', 'category': 'Fotogrametría', 'image': 'assets/projects/slide_render_13.jpg', 'video': None, 'gif': None},
-        {'title': 'Visualizador para sensibilización: Acoso Callejero', 'category': 'Realidad Virtual (VR)', 'image': 'assets/posters/visualizador_acoso_callejero_vr.jpg', 'video': 'assets/videos/acoso_callejero_vr.mp4', 'gif': 'assets/gifs/visualizador_acoso_callejero_vr.gif'},
-        {'title': 'Simulador VR para sensibilización de información: Museo del dengue', 'category': 'Realidad Virtual (VR)', 'image': 'assets/posters/simulador_museo_del_dengue_vr.jpg', 'video': 'assets/videos/museo_del_dengue_vr.mp4', 'gif': 'assets/gifs/simulador_museo_del_dengue_vr.gif'},
-        {'title': 'Aplicativo WEB AR para divulgación', 'category': 'Realidad Aumentada (AR)', 'image': 'assets/posters/aplicativo_web_ar_divulgacion.jpg', 'video': 'assets/videos/webar_divulgacion.mp4', 'gif': 'assets/gifs/aplicativo_web_ar_divulgacion.gif'},
-        {'title': 'Campus UCEVA MR', 'category': 'Realidad Mixta (MR)', 'image': 'assets/posters/campus_uceva_mr_1.jpg', 'video': 'assets/videos/campus_uceva_mr_1.mp4', 'gif': 'assets/gifs/campus_uceva_mr_1.gif'},
-        {'title': 'Recorrido WEB 360° CENICAFE', 'category': 'Recorridos 360°', 'image': 'assets/projects/slide_render_18.jpg', 'video': None, 'gif': None},
-        {'title': 'Construcción de Aeronaves no tripuladas', 'category': 'Prototipado Aeronáutico', 'image': 'assets/posters/construccion_aeronaves_drones.jpg', 'video': 'assets/videos/aeronaves_drones.mp4', 'gif': 'assets/gifs/construccion_aeronaves_drones.gif'},
-        {'title': 'Diseño y desarrollo de placa electrónicas', 'category': 'Electrónica & IoT', 'image': 'assets/projects/slide_render_20.jpg', 'video': None, 'gif': None},
-        {'title': 'Proyectos IoT + Ciudades Inteligentes: Diseño y desarrollo de sistema meteorológico', 'category': 'Electrónica & IoT', 'image': 'assets/projects/slide_render_21.jpg', 'video': None, 'gif': None},
-        {'title': 'Proyectos IA + Neuromarketing', 'category': 'Inteligencia Artificial', 'image': 'assets/projects/slide_render_22.jpg', 'video': None, 'gif': None},
-        {'title': 'Motion tracker', 'category': 'Inteligencia Artificial', 'image': 'assets/posters/motion_tracker_ia.jpg', 'video': 'assets/videos/motion_tracker_ia.mp4', 'gif': 'assets/gifs/motion_tracker_ia.gif'},
-        {'title': 'Minitrituradora de plástico', 'category': 'Diseño & Fabricación', 'image': 'assets/projects/minitrituradora_plastico.jpg', 'video': None, 'gif': None},
-        {'title': 'Soportes y elementos 3D', 'category': 'Diseño & Fabricación', 'image': 'assets/projects/slide_render_25.jpg', 'video': None, 'gif': None}
+        {'title': 'Fotogrametría Campus UCEVA', 'category': 'Fotogrametría', 'image': 'assets/project_photos/slide_12_content.jpg', 'full_slide': 'assets/projects/slide_render_12.jpg', 'video': None, 'gif': None},
+        {'title': 'Fotogrametría a personas', 'category': 'Fotogrametría', 'image': 'assets/project_photos/slide_13_content.jpg', 'full_slide': 'assets/projects/slide_render_13.jpg', 'video': None, 'gif': None},
+        {'title': 'Visualizador para sensibilización: Acoso Callejero', 'category': 'Realidad Virtual (VR)', 'image': 'assets/project_photos/slide_14_content.jpg', 'full_slide': 'assets/projects/slide_render_14.jpg', 'video': 'assets/videos/acoso_callejero_vr.mp4', 'gif': 'assets/gifs/visualizador_acoso_callejero_vr.gif'},
+        {'title': 'Simulador VR para sensibilización de información: Museo del dengue', 'category': 'Realidad Virtual (VR)', 'image': 'assets/project_photos/slide_15_content.jpg', 'full_slide': 'assets/projects/slide_render_15.jpg', 'video': 'assets/videos/museo_del_dengue_vr.mp4', 'gif': 'assets/gifs/simulador_museo_del_dengue_vr.gif'},
+        {'title': 'Aplicativo WEB AR para divulgación', 'category': 'Realidad Aumentada (AR)', 'image': 'assets/project_photos/slide_16_content.jpg', 'full_slide': 'assets/projects/slide_render_16.jpg', 'video': 'assets/videos/webar_divulgacion.mp4', 'gif': 'assets/gifs/aplicativo_web_ar_divulgacion.gif'},
+        {'title': 'Campus UCEVA MR', 'category': 'Realidad Mixta (MR)', 'image': 'assets/project_photos/slide_17_content.jpg', 'full_slide': 'assets/projects/slide_render_17.jpg', 'video': 'assets/videos/campus_uceva_mr_1.mp4', 'gif': 'assets/gifs/campus_uceva_mr_1.gif'},
+        {'title': 'Recorrido WEB 360° CENICAFE', 'category': 'Recorridos 360°', 'image': 'assets/project_photos/slide_18_content.jpg', 'full_slide': 'assets/projects/slide_render_18.jpg', 'video': None, 'gif': None},
+        {'title': 'Construcción de Aeronaves no tripuladas', 'category': 'Prototipado Aeronáutico', 'image': 'assets/project_photos/slide_19_content.jpg', 'full_slide': 'assets/projects/slide_render_19.jpg', 'video': 'assets/videos/aeronaves_drones.mp4', 'gif': 'assets/gifs/construccion_aeronaves_drones.gif'},
+        {'title': 'Diseño y desarrollo de placa electrónicas', 'category': 'Electrónica & IoT', 'image': 'assets/project_photos/slide_20_content.jpg', 'full_slide': 'assets/projects/slide_render_20.jpg', 'video': None, 'gif': None},
+        {'title': 'Proyectos IoT + Ciudades Inteligentes: Sistema Meteorológico', 'category': 'Electrónica & IoT', 'image': 'assets/project_photos/slide_21_content.jpg', 'full_slide': 'assets/projects/slide_render_21.jpg', 'video': None, 'gif': None},
+        {'title': 'Proyectos IA + Neuromarketing', 'category': 'Inteligencia Artificial', 'image': 'assets/project_photos/slide_22_content.jpg', 'full_slide': 'assets/projects/slide_render_22.jpg', 'video': None, 'gif': None},
+        {'title': 'Motion tracker', 'category': 'Inteligencia Artificial', 'image': 'assets/project_photos/slide_23_content.jpg', 'full_slide': 'assets/projects/slide_render_23.jpg', 'video': 'assets/videos/motion_tracker_ia.mp4', 'gif': 'assets/gifs/motion_tracker_ia.gif'},
+        {'title': 'Minitrituradora de plástico', 'category': 'Diseño & Fabricación', 'image': 'assets/project_photos/slide_24_content.jpg', 'full_slide': 'assets/projects/slide_render_24.jpg', 'video': None, 'gif': None},
+        {'title': 'Soportes y elementos 3D', 'category': 'Diseño & Fabricación', 'image': 'assets/project_photos/slide_25_content.jpg', 'full_slide': 'assets/projects/slide_render_25.jpg', 'video': None, 'gif': None}
     ]
 }
 
@@ -1537,7 +1537,7 @@ html_template = """<!DOCTYPE html>
                   style: { width: '100%', borderRadius: '8px' }
                 })
               ) : e('div', { className: 'modal-media-box' },
-                e('img', { src: item.image, alt: item.title, style: { width: '100%', borderRadius: '8px' } })
+                e('img', { src: item.full_slide || item.image, alt: item.title, style: { width: '100%', borderRadius: '8px' } })
               )
             )
           )

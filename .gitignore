@@ -19,4 +19,11 @@ node_modules/
 
 # Logs & temp
 *.log
+*.tmp
 __pycache__/
+temp_*
+temp_*/
+slide_*_check.*
+slide_*_preview.jpg
+
+.vercel
