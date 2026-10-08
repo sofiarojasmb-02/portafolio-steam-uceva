@@ -1020,7 +1020,282 @@ html_template = """<!DOCTYPE html>
       border-radius: 6px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     }
-  </style>
+
+    /* ==========================================================================
+       BOTONES DE IMPRESIÓN PDF Y ENVÍO POR WHATSAPP
+       ========================================================================== */
+    .pdf-badge-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 5px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    /* Botón Imprimir en PDF (Hero) */
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      border: 1.5px solid var(--uceva-green-bright);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.25s ease;
+      min-height: 48px;
+      user-select: none;
+      transform-origin: center center;
+    }
+
+    .btn-print:hover {
+      background: var(--uceva-green-bright);
+      color: #020704;
+      box-shadow: 0 0 25px rgba(112, 180, 31, 0.45);
+    }
+
+    [data-theme="light"] .btn-print {
+      background: #ffffff;
+      color: #0c1f10;
+      border-color: #1e780f;
+    }
+
+    [data-theme="light"] .btn-print:hover {
+      background: #1e780f;
+      color: #ffffff;
+    }
+
+    /* Botón WhatsApp (Hero) */
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+      min-height: 48px;
+      user-select: none;
+      transform-origin: center center;
+    }
+
+    .btn-whatsapp:hover {
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Botones en Barra de Navegación */
+    .nav-btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(112, 180, 31, 0.14);
+      border: 1px solid var(--uceva-green-bright);
+      color: var(--text-main);
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+
+    .nav-btn-print:hover {
+      background: var(--uceva-green-bright);
+      color: #020704;
+      box-shadow: 0 0 15px rgba(112, 180, 31, 0.4);
+    }
+
+    [data-theme="light"] .nav-btn-print {
+      background: rgba(30, 120, 15, 0.08);
+      color: #0c1f10;
+      border-color: #1e780f;
+    }
+
+    [data-theme="light"] .nav-btn-print:hover {
+      background: #1e780f;
+      color: #ffffff;
+    }
+
+    .nav-btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(37, 211, 102, 0.14);
+      border: 1.5px solid #25D366;
+      color: #25D366;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+
+    .nav-btn-wa:hover {
+      background: #25D366;
+      color: #ffffff;
+      box-shadow: 0 0 18px rgba(37, 211, 102, 0.5);
+    }
+
+    [data-theme="light"] .nav-btn-wa {
+      color: #128C7E;
+      border-color: #128C7E;
+    }
+
+    [data-theme="light"] .nav-btn-wa:hover {
+      background: #128C7E;
+      color: #ffffff;
+    }
+
+    /* Barra Flotante de Acciones Rápidas (Inferior Derecha) */
+    .floating-actions-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 95;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .floating-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s ease;
+      border: none;
+      user-select: none;
+    }
+
+    .floating-btn-print {
+      background: var(--bg-glass);
+      border: 1.5px solid var(--uceva-green-bright);
+      color: var(--text-main);
+    }
+
+    .floating-btn-print:hover {
+      border-color: var(--uceva-green-neon);
+      box-shadow: 0 0 25px rgba(112, 180, 31, 0.45);
+      transform: translateY(-3px);
+    }
+
+    .floating-btn-wa {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .floating-btn-wa:hover {
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.65);
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    @media (max-width: 640px) {
+      .floating-actions-bar {
+        bottom: 16px;
+        right: 16px;
+        gap: 6px;
+      }
+      .floating-btn {
+        padding: 9px 13px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ==========================================================================
+       ESTILOS DE IMPRESIÓN FIDEDIGNOS (@media print)
+       Conserva el formato visual exacto de la página sin alterar textos ni estilos
+       ========================================================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      html, body {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+
+      /* Ocultar únicamente el canvas 3D y controles interactivos que no van en el documento */
+      #three-bg-canvas,
+      .mobile-menu-btn,
+      .mobile-nav-drawer,
+      .theme-toggle-btn,
+      .floating-actions-bar,
+      .modal-overlay,
+      .card-action-btn,
+      .filter-container,
+      .nav-actions,
+      .hero-buttons {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      /* La barra de cabecera institucional se mantiene visible pero estática para no flotar */
+      .navbar {
+        position: relative !important;
+        top: auto !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Evitar cortes indeseados a la mitad de tarjetas */
+      .card-item,
+      .team-card,
+      .stat-card,
+      .about-card,
+      .impact-banner,
+      .section-header {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      h1, h2, h3, h4 {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+    }  </style>
 </head>
 <body>
   <!-- Three.js Interactive InstancedMesh Canvas -->
@@ -1255,6 +1530,26 @@ html_template = """<!DOCTYPE html>
                   )
                 ),
                 e('button', {
+                  className: 'nav-btn-print',
+                  onClick: function(ev) { window.btnClickAnim(ev.currentTarget); props.onPrint(); },
+                  onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
+                  onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
+                  'aria-label': 'Imprimir Portafolio en PDF'
+                },
+                  e('span', { className: 'pdf-badge-icon' }, 'PDF'),
+                  e('span', null, 'Imprimir PDF')
+                ),
+                e('button', {
+                  className: 'nav-btn-wa',
+                  onClick: function(ev) { window.btnClickAnim(ev.currentTarget); props.onWhatsApp(); },
+                  onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
+                  onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
+                  'aria-label': 'Enviar Portafolio por WhatsApp'
+                },
+                  e('span', { style: { fontSize: '1rem' } }, '💬'),
+                  e('span', null, 'WhatsApp')
+                ),
+                e('button', {
                   className: 'theme-toggle-btn',
                   onClick: handleThemeClick,
                   onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
@@ -1277,12 +1572,28 @@ html_template = """<!DOCTYPE html>
             e('a', { href: '#proyectos', onClick: close }, 'Proyectos'),
             e('a', { href: '#equipos', onClick: close }, 'Equipos'),
             e('a', { href: '#impactos', onClick: close }, 'Impactos'),
-            e('a', { href: '#equipo', onClick: close }, 'Equipo')
+            e('a', { href: '#equipo', onClick: close }, 'Equipo'),
+            e('button', {
+              className: 'nav-btn-print',
+              style: { width: '100%', justifyContent: 'center', padding: '10px', marginTop: '6px' },
+              onClick: function() { close(); props.onPrint(); }
+            },
+              e('span', { className: 'pdf-badge-icon' }, 'PDF'),
+              e('span', null, 'Imprimir Portafolio en PDF')
+            ),
+            e('button', {
+              className: 'nav-btn-wa',
+              style: { width: '100%', justifyContent: 'center', padding: '10px' },
+              onClick: function() { close(); props.onWhatsApp(); }
+            },
+              e('span', { style: { fontSize: '1.1rem' } }, '💬'),
+              e('span', null, 'Enviar Portafolio por WhatsApp')
+            )
           )
         );
       }
 
-      function Hero() {
+      function Hero(props) {
         return e('section', { className: 'hero-section' },
           e('div', { className: 'container' },
             e('div', { className: 'hero-badge' }, '⚡ Innovación • Prototipado • Industria 4.0 & 5.0'),
@@ -1305,7 +1616,27 @@ html_template = """<!DOCTYPE html>
                 onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
                 onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
                 onClick: (ev) => window.btnClickAnim(ev.currentTarget)
-              }, 'Equipo de Trabajo')
+              }, 'Equipo de Trabajo'),
+              e('button', {
+                className: 'btn btn-print',
+                onClick: function(ev) { window.btnClickAnim(ev.currentTarget); props.onPrint(); },
+                onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
+                onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
+                'aria-label': 'Imprimir portafolio en PDF'
+              },
+                e('span', { className: 'pdf-badge-icon', style: { marginRight: '4px' } }, 'PDF'),
+                'Imprimir en PDF'
+              ),
+              e('button', {
+                className: 'btn btn-whatsapp',
+                onClick: function(ev) { window.btnClickAnim(ev.currentTarget); props.onWhatsApp(); },
+                onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
+                onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
+                'aria-label': 'Enviar portafolio por WhatsApp'
+              },
+                e('span', { style: { fontSize: '1.15rem', marginRight: '4px' } }, '💬'),
+                'Enviar por WhatsApp'
+              )
             ),
             e('div', { className: 'stats-grid' },
               DATA.stats.map(function(st, idx) {
@@ -1339,7 +1670,7 @@ html_template = """<!DOCTYPE html>
       }
 
       function Proyectos(props) {
-        const [filter, setFilter] = useState('TODOS');
+        const filter = props.filter || 'TODOS';
         const categories = [
           'TODOS',
           'Realidad Virtual (VR)',
@@ -1359,7 +1690,7 @@ html_template = """<!DOCTYPE html>
 
         function handleFilterClick(cat, ev) {
           window.btnClickAnim(ev.currentTarget);
-          setFilter(cat);
+          props.onFilterChange(cat);
         }
 
         return e('section', { id: 'proyectos' },
@@ -1558,16 +1889,58 @@ html_template = """<!DOCTYPE html>
         );
       }
 
+      function FloatingPdfBtn(props) {
+        return e('div', { className: 'floating-actions-bar' },
+          e('button', {
+            className: 'floating-btn floating-btn-print',
+            onClick: function(ev) {
+              window.btnClickAnim(ev.currentTarget);
+              props.onPrint();
+            },
+            onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
+            onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
+            title: 'Imprimir portafolio en PDF'
+          },
+            e('span', { className: 'pdf-badge-icon' }, 'PDF'),
+            e('span', null, 'Imprimir PDF')
+          ),
+          e('button', {
+            className: 'floating-btn floating-btn-wa',
+            onClick: function(ev) {
+              window.btnClickAnim(ev.currentTarget);
+              props.onWhatsApp();
+            },
+            onMouseEnter: (ev) => window.btnHoverAnim(ev.currentTarget),
+            onMouseLeave: (ev) => window.btnLeaveAnim(ev.currentTarget),
+            title: 'Enviar portafolio por WhatsApp'
+          },
+            e('span', { style: { fontSize: '1.2rem' } }, '💬'),
+            e('span', null, 'WhatsApp')
+          )
+        );
+      }
+
       function App() {
         const [theme, setTheme] = useState(function() {
           return localStorage.getItem('uceva_portfolio_theme') || 'dark';
         });
         const [modalItem, setModalItem] = useState(null);
+        const [filter, setFilter] = useState('TODOS');
 
         useEffect(function() {
           document.documentElement.setAttribute('data-theme', theme);
           localStorage.setItem('uceva_portfolio_theme', theme);
         }, [theme]);
+
+        useEffect(function() {
+          function handleBeforePrint() {
+            setFilter('TODOS');
+          }
+          window.addEventListener('beforeprint', handleBeforePrint);
+          return function() {
+            window.removeEventListener('beforeprint', handleBeforePrint);
+          };
+        }, []);
 
         function toggleTheme() {
           setTheme(function(prev) {
@@ -1575,21 +1948,65 @@ html_template = """<!DOCTYPE html>
           });
         }
 
+        function handlePrintPdf() {
+          setFilter('TODOS');
+          setTimeout(function() {
+            window.print();
+          }, 150);
+        }
+
+        function handleWhatsAppShare() {
+          const currentUrl = window.location.href.split('#')[0].split('?')[0];
+          const baseUrl = currentUrl.endsWith('/') ? currentUrl : currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+          const pdfUrl = baseUrl + 'Centro%20STEAM.pdf';
+
+          const msgLines = [
+            "🏛️ *Centro de Prototipado & STEAM — UCEVA*",
+            "Unidad Central del Valle del Cauca • Vicerrectoría de Investigaciones y Proyección Social",
+            "",
+            "¡Hola! Te comparto el *Portafolio Tecnológico e Innovación* del Centro STEAM UCEVA con proyectos de vanguardia en Realidad Virtual (VR), Realidad Aumentada (AR), Realidad Mixta (MR), Inteligencia Artificial (IA), IoT y Fabricación Digital.",
+            "",
+            "📄 *Descargar Portafolio en PDF:*",
+            pdfUrl,
+            "",
+            "🌐 *Ver Portafolio Web Interactivo:*",
+            currentUrl
+          ];
+
+          const waUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(msgLines.join(String.fromCharCode(10)));
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
+        }
+
         return e('div', null,
-          e(Navbar, { theme: theme, onToggleTheme: toggleTheme }),
+          e(Navbar, {
+            theme: theme,
+            onToggleTheme: toggleTheme,
+            onPrint: handlePrintPdf,
+            onWhatsApp: handleWhatsAppShare
+          }),
           e('main', null,
-            e(Hero),
+            e(Hero, {
+              onPrint: handlePrintPdf,
+              onWhatsApp: handleWhatsAppShare
+            }),
             e(About),
-            e(Proyectos, { onOpenModal: function(it) { setModalItem(it); } }),
+            e(Proyectos, {
+              filter: filter,
+              onFilterChange: setFilter,
+              onOpenModal: function(it) { setModalItem(it); }
+            }),
             e(Equipos, { onOpenModal: function(it) { setModalItem(it); } }),
             e(Impactos, { onOpenModal: function(it) { setModalItem(it); } }),
             e(Equipo)
           ),
           e(Footer),
+          e(FloatingPdfBtn, {
+            onPrint: handlePrintPdf,
+            onWhatsApp: handleWhatsAppShare
+          }),
           e(Modal, { item: modalItem, onClose: function() { setModalItem(null); } })
         );
       }
-
       ReactDOM.createRoot(document.getElementById('root')).render(e(App));
     })();
   </script>
