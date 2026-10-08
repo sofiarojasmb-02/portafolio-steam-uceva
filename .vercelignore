@@ -1,0 +1,15 @@
+# Raw presentation and heavy raw video files in root
+*.pptx
+*.jfif
+Video*.mp4
+raw_media/
+**/raw_media/**
+extracted_assets/
+Centro steam.pptx
+scripts/
+
+# Dependencies & system
+node_modules/
+.git/
+.idea/
+.vscode/
